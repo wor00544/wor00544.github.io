@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="BOM全局变量全部存在window里面，window可以省略；弹窗: 12345678(同步:阻断) alert(&quot;alert弹窗&quot;);(同步:阻断 有返回值true&#x2F;false)  var bcf = confirm(&quot;confirm弹窗&quot;);(同步:阻断 可以输入) var straf = prompt(&quot;prompt输入:&quot;,&quot;默认值&quot;);  导航栏：window.location刷新页面：">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;javascript&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="BOM全局变量全部存在window里面，window可以省略；弹窗: 12345678(同步:阻断) alert(&quot;alert弹窗&quot;);(同步:阻断 有返回值true&#x2F;false)  var bcf = confirm(&quot;confirm弹窗&quot;);(同步:阻断 可以输入) var straf = prompt(&quot;prompt输入:&quot;,&quot;默认值&quot;);  导航栏：window.location刷新页面：">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-21T12:56:41.361Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/21/javascript/"/>
+
+
+
+
+
+  <title>Javascript | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-21T19:50:02+08:00">
+                2019-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/BOM/" itemprop="url" rel="index">
+                    <span itemprop="name">BOM</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/DOM/" itemprop="url" rel="index">
+                    <span itemprop="name">DOM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>全局变量全部存在window里面，window可以省略；<br>弹窗:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(同步:阻断) </span><br><span class="line">alert(<span class="string">"alert弹窗"</span>);</span><br><span class="line"></span><br><span class="line">(同步:阻断 有返回值<span class="literal">true</span>/<span class="literal">false</span>)  </span><br><span class="line">var bcf = confirm(<span class="string">"confirm弹窗"</span>);</span><br><span class="line"></span><br><span class="line">(同步:阻断 可以输入) </span><br><span class="line">var straf = prompt(<span class="string">"prompt输入:"</span>,<span class="string">"默认值"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>导航栏：window.location<br>刷新页面：location.reload();<br>打开新的页面：location.replace(“<a href="http://www.baidu.com/&quot;" target="_blank" rel="noopener">http://www.baidu.com/&quot;</a>)<br>前进 后退按钮：history.forward()前进，history.back()后退，history.go(-∞/∞)前进后退几次；<br>浏览器信息：navigator；<br>获取浏览器分辨率：screen；</p>
+<p>计时器:<br>循环执行:var sil = setInterval(函数名,时间);<br>停止:clearInterval(sil);<br>一次执行:var sil = setTimeout(函数名,时间);<br>停止:clearTimeout(sil)</p>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>DOM:文档对象模型<br>DOM树：浏览器的数据结构；<br>三种最常用的DOM查找方式:<br>1.ID（唯一性）:<br>document.getElementById(“ID名”)； -&gt; 节点，必需在document下使用<br>2.标签名<br>document.getElementByTagName(“标签名”);  -&gt; 数组，可以在任意节点下使用；<br>3.class名：<br>document.getElementsByClassName(“class名”) ； -&gt; 数组，可以在任意节点下使用；</p>
+<p>插入多个重复元素性能优化：</p>
+<h2 id="js数据类型及获取类型"><a href="#js数据类型及获取类型" class="headerlink" title="js数据类型及获取类型"></a>js数据类型及获取类型</h2><p>六种基本类型：number、string、boolen、null、undefined、object；<br>null和undefined值相等,数据类型不同;<br>Typeof：判断基本数据类型（null和function判断不了）；<br>Object.prototype.toString.call(i) 推荐代码使用 可以打印出系统所有数据类型（唯一缺陷：没办法判断自定义对象的类型）；<br>instanceof: 仅能判断对象的具体类型(只能判断对象)；<br>constructor：能判断他是否为构造函数；</p>
+<p>未定义未声明typeof检测出来不一样的；</p>
+<h2 id="js引入及加载"><a href="#js引入及加载" class="headerlink" title="js引入及加载"></a>js引入及加载</h2><p>JavaScript是按块执行的，不同块都属于一个全局作用域，块之间的变量和函数时可以共享的；<br>selectedIndex：可以告诉你选择了第几个事件；<br>Date对象:可以获取到系统时间<br>Date.now（） 可以获取1970年至今的毫秒数;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.onload = <span class="keyword">function</span> //在网页文档加载完毕后执行</span><br></pre></td></tr></table></figure>
+
+<p>js阻塞加载(默认)</p>
+<p>延迟加载defer：并发；多个js，按定义的顺序执行；在文档解析完才执行吗，在DOMContentLoaded事件之前执行完；只支持外部引入方式；</p>
+<p>异步加载async：并发；多个js，不一定按顺序执行;加载完就执行，在load事件之前；在load事件之前执行完；只支持外部引入方式；</p>
+<h2 id="This指针"><a href="#This指针" class="headerlink" title="This指针"></a>This指针</h2><p>定义：this是函数体内自带的一个对象指针;<br>哪个对象拥有函数,this就是谁;<br>谁调用了函数，this就指向谁；</p>
+<h2 id="call、apply、bind"><a href="#call、apply、bind" class="headerlink" title="call、apply、bind"></a>call、apply、bind</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function.call(obj,args1,args2) -&gt;一个个参数传递;</span><br><span class="line">function.apple(obj,args) -&gt;数组的方式传递</span><br></pre></td></tr></table></figure>
+<p>定义：把函数临时赋值到对象上面执行;<br>区别：传递参数的形式不一样;</p>
+<p>bind定义：把函数拷贝一份 并插入到对象作用域上面；<br>bind语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.e = function.bind(obj,args1,args2);</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>JS函数是作用域；<br>实参 —值—&gt; 形参；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function.length -&gt; 形参的个数;</span><br><span class="line">arguments（仅在函数里面有）,专门为函数参数设计的对象;</span><br><span class="line">arguments.length  -&gt; 实参的个数（有下标）；</span><br><span class="line">arguments.callee -&gt; 对象的值(匿名函数获取形参);</span><br><span class="line"><span class="built_in">return</span> arguments.callee( x , y ) -&gt; 实现函数的自调用；</span><br></pre></td></tr></table></figure>
+<p>函数分定义和使用两个阶段;<br>函数创建方式有静态创建和动态创建;<br>可以直接在定义形参时用=定义默认值；<br>可以用name=name || “……”; 定义默认值 （es5）；<br>return 返回结果 （代表函数运行结束了，下面的代码不会运行),后面只能放一个参数、表达式;<br>必须写函数声明，执行不写不会报错但声明就无效了；<br>JS中函数声明和函数执行顺序没有先后之分（浏览器预编译：把变量声明和函数声明先放在上面）；<br>函数声明名字一样的谁最后声明就用谁的；<br>函数放在if、for里也会遵循if和for条件；<br>函数里面可以嵌套函数；<br>函数外声明的变量 全局变量，在函数内定义的变量局部变量；<br>当有局部变量和全局变量同名时，就近原则优先使用局部变量；<br>闭包：在函数里定义函数，拥有全局变量的生命周期；<br>只有window对象才能创建动态函数，和他父类function属于同一阶层；</p>
+<h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p>元素.onclick = 函数名字（点击）<br>元素.onmouseover = 移入（点击）<br>元素.onmouseout = 移出（点击）<br>三步骤：获取元素-&gt;绑定事件-&gt;修改页面元素</p>
+<p>text.onblur = 对象失去焦点时触发；(正则表达式验证用户输入框)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.addEventListener(event, <span class="keyword">function</span>, useCapture);//给指定事件添加执行函数</span><br><span class="line">.removeEventListener(event, <span class="keyword">function</span>, useCapture);//给指定事件删除执行函数</span><br><span class="line">//event:字符串,指定事件名</span><br><span class="line">//<span class="keyword">function</span>:指定要事件触发时执行的函数</span><br><span class="line">//useCapture:可选,布尔值,指定事件是否在捕获冒泡阶段执行</span><br></pre></td></tr></table></figure>
+
+<p>mousemove没法快速响应函数；</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>事件源：产生事件的地方，事件的类型：点击 键盘，事件的对象：记录好的信息，事件的处理方式：函数；<br>添加事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addEventListener(事件类型(click),函数,事件的处理方式(<span class="literal">false</span>:冒泡,turn:捕获));</span><br></pre></td></tr></table></figure>
+<p>删除事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.removeEventListener();</span><br></pre></td></tr></table></figure>
+<p>事件函数：当事件发生时所执行的函数；</p>
+<p>事件对象 event：提供了事假的详细信息；(ie8之前通过<br>window.event)</p>
+<p>取消默认操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault();</span><br></pre></td></tr></table></figure>
+<p>调用HTML元素取消默认操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">return</span> <span class="literal">false</span>;(ie8之前event.returnValuefales;）</span><br></pre></td></tr></table></figure>
+
+<p>在默认的情况下，点击页面的一个标签，处在传播路上的标签都会监听的到对应事件；<br>事件流：<br>捕获阶段：起始点-&gt;目标点；冒泡阶段：目标点-&gt;起始点；<br>终止冒泡阶段：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation();</span><br></pre></td></tr></table></figure>
+
+<p>事件代理</p>
+<h2 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h2><p>一元运算符-&gt;二元运算符-&gt;三元运算符<br>++a 先自增再赋值<br>a++ 先赋值再自增<br>===全等（数字类型也要相等）<br>parseInt()（将其他类型变成数字类型，取整）；<br>switch 优点：代码简洁，性能比if好。<br>innerHTML 找到对应的HTML结构+内容；<br>innerText 找到对应的HTML内容；<br>如果一行结尾没有分号并能形成完整逻辑的情况下，系统解析时就会自动添加分号，否则连接下一行；</p>
+<p>for in 是ES5标准，遍历key。（可遍历对象、数组、字符串的key）<br>for of 是ES6标准，遍历value。（可遍历对象、数组、字符串的value）</p>
+<h2 id="原型、原型链、继承"><a href="#原型、原型链、继承" class="headerlink" title="原型、原型链、继承"></a>原型、原型链、继承</h2><p>当前对象：本地属性、私有属性；<br>原型对象：原型属性、公共属性；<br>本地属性被修改，只有当前对象的该属性被修改；<br>原型属性被修改，只有对象的该属性被修改；</p>
+<p>继承的原则：1.本地有的用本地；2.本地没有的找原型；3.原型没有的找原型对象的原型；（原型链）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(对象);  //可以查找原型对象指针</span><br><span class="line">构造函数.isPrototypeOf(对象); //构造函数检测原型</span><br><span class="line"><span class="keyword">for</span>/<span class="keyword">in</span> -&gt; 可枚举属性，包括原型的属性</span><br><span class="line">对象.hasOwnProperty(属性名); //检测私有属性</span><br><span class="line">Object.getOwnPropertyNames(对象); //获得对象所有私有属性名称</span><br><span class="line">Object.keys(对象); //获得对象可枚举的私有属性的名称</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p> ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
+<p>双引号里面允许单引号，单引号里面允许双引号，双引号里面不允许双引号；<br>可以使用转义字符将双引号转义成纯粹的字符；<br>String只会显示第一个传入的参数，但后面的语句也会执行；</p>
+<p>字符的比较是将字符转换为数字编码再进行比较；<br>字符串和数组之间的装换： join split ；<br>如果有许多复杂的字符串需要拼接 可以使用join方法，join的性能比加号好；</p>
+<h2 id="对象、类、原型"><a href="#对象、类、原型" class="headerlink" title="对象、类、原型"></a>对象、类、原型</h2><p>万物皆对象；<br>类是一个设计概念，对象是实际物体；<br>对象概念：存在内存中，可以具有多个属性的数据；<br>对象 = 一堆变量 + 一堆函数的集合；<br>获取属性值用“点”，多层级的，就用多个点。<br>对象属性名会被隐式的转换为string，包含了特殊字符要加上引号；<br>对象可以通过 . 或者 [ ] 的形式获取对象的属性，不用加引号的属性名才能用 . 的形式获取对象的属性；<br>对象如果修改属性的时候没有这条属性，自动增加；<br>删除：delete加属性名，并不是完全删除而是将他们的联系断开，删除后的属性还存在；<br>对象拷贝:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj2 = obj1; //这样只是把obj1指向堆的地址复制给了obj2，</span><br><span class="line">//obj2修改了某值，obj1也会对应修改;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//枚举法拷贝对象</span><br><span class="line">var o =&#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(var i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    o[i] = obj[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对象销毁机制：无引用后定期自动回；<br>对象创建方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a1 = &#123;&#125;;  //直接量</span><br><span class="line">var a1 = new A(); //构造函数类</span><br><span class="line">var a1 = Object.create(原型对象，属性列表); //create方法</span><br></pre></td></tr></table></figure>
+<p>创建原理：基于构造函数定义的属性，并继承原型对象的属性，生成一个新的对象；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var objectProto = &#123;name1:value1,name2:value2&#125;;</span><br><span class="line">Object.prototype = objectProto;</span><br><span class="line">//另一种方法,效果相等</span><br><span class="line">Object.prototype.name1 = value1;</span><br><span class="line">Object.prototype.name2 = value2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象属性特性"><a href="#对象属性特性" class="headerlink" title="对象属性特性"></a>对象属性特性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(对象,属性名字符串,(描述特性对象)&#123;</span><br><span class="line">    value:值,</span><br><span class="line">    writable:<span class="literal">true</span>, //可写 -&gt;是否可设置该属性的值</span><br><span class="line">    enumerable:<span class="literal">true</span>, //可枚举 -&gt;<span class="keyword">for</span>/<span class="keyword">in</span>是否可获得该值</span><br><span class="line">    configurable:<span class="literal">true</span>, //可配置 -&gt;是否可删除或修改该属性的特性</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperties(对象,&#123;</span><br><span class="line">    属性名字符串1:&#123;</span><br><span class="line">        value:值, </span><br><span class="line">        writable:<span class="literal">true</span>, //是否可以修改</span><br><span class="line">        enumerable:<span class="literal">true</span>, //是否可枚举</span><br><span class="line">        configurable:<span class="literal">false</span>, //是否可配置</span><br><span class="line">    &#125;,</span><br><span class="line">    属性名字符串2:&#123;</span><br><span class="line">        value:值,</span><br><span class="line">        writable:<span class="literal">false</span>, //是否可以修改</span><br><span class="line">        enumerable:<span class="literal">true</span>, //是否可枚举</span><br><span class="line">        configurable:<span class="literal">true</span>, //是否可配置</span><br><span class="line">    &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getOwnPropertyDescriptor(对象,属性名) //查看属性的特性</span><br></pre></td></tr></table></figure>
+<p>set，get用法</p>
+<h3 id="对象特性"><a href="#对象特性" class="headerlink" title="对象特性"></a>对象特性</h3><p>作用：保护对象的属性；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查看特性的方式</span><br><span class="line">Obejct.isExtensible </span><br><span class="line">Object.isSealed </span><br><span class="line">Object.isFrozen</span><br></pre></td></tr></table></figure>
+
+<p>原型</p>
+<p>原型属性被修改，所有对象的该属性被修改</p>
+<h2 id="数字和二进制"><a href="#数字和二进制" class="headerlink" title="数字和二进制"></a>数字和二进制</h2><p>最大/最小的安全整数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_SAFE_INTEGER;</span><br><span class="line">Number.MIN_SAFE_INTEGER;</span><br></pre></td></tr></table></figure>
+<p>计算float容易计算精度丢失，因为是把他转换成二进制再计算（整数没这个问题）；<br>科学计数法：1e+3  -&gt;1000;<br>1e-3  -&gt;0.01;<br>Infinity 无穷大，NaN 非数值(还是数字类型)；<br>Infinity + Infinity = Infinity，<br>Infinity - Infinity = NaN，<br>Infinity / Infinity = NaN，<br>Infinity + NaN = NaN;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">isNaN(data) = <span class="literal">true</span>; //判断这个数据是不是NaN</span><br><span class="line">data.toFixed(1); //取小数点后面几位有效数位</span><br><span class="line">data.toExponential(2) //转换成科学计数法形式的字符串，保留两位小数</span><br><span class="line">data.toPrecision(2) //转换成科学计数法形式的字符串，两位有效数字</span><br><span class="line">parseFloat(data); //把数据装换成浮点数;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">二进制 var x = 0b1010;</span><br><span class="line">八进制 var x = 012;</span><br><span class="line">十六进制 var x = 0x00A;</span><br></pre></td></tr></table></figure>
+
+<p>64位:第1位代表正负,10位代表指数,53位代表数值(最大安全数的原理)；</p>
+<p>十进制-&gt;二进制:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">正整数：除二取余,倒序排序；</span><br><span class="line">小数部分:乘二取值，正序排序；</span><br><span class="line">负数：在整数基础上取反，并+1；</span><br></pre></td></tr></table></figure>
+
+<p>系统提供的方法n.toString(“2”); 直接将n转换成二级制；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(num + 0.5); //四舍五入，向下取整</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>定义：数组是一种有序数据结合；<br>(数组的值是有序的，对象的值是无序的)；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//创建方式</span><br><span class="line">var a=[]; //直接量  推荐使用</span><br><span class="line">var a=new Array(); //构造函数</span><br></pre></td></tr></table></figure>
+<p>for 或者 for/in 遍历数组；<br>1.数组长度是弹性的；<br>2.下标从0开始的非负整数，且小于2^-23 -1；<br>3.下标不符合，将转换为字符串，成为对象属性；</p>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>概念：函数自己调用自己，必须要有终止条件；<br>重点是学会 把复杂的问题，拆成越来越简单的问题，直到能够获得结果 这种编程思维；<br>栈的概念：先进后出；</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>先完成优先级比较高的，优先级一样的从左往右；</p>
+<p>从上往下优先级降低；<br>一元运算符-&gt;二元运算符-&gt;三元运算符；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var b = a++; //先赋值再自增</span><br><span class="line">var b = ++a; //先自增再赋值</span><br><span class="line">//自增或自减必须在变量、数组或者对象属性上;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>逻辑位运算：<br>&amp;：两个数值比较将他们转化为二进制进行比较运算；<br>^ ：异或运算，两个值相等为false，两个值不同为true；<br>~：位非运算，本质上就是求负再减一；</p>
+<p>位移运算：</p>
+<blockquote>
+<blockquote>
+<p>num，&lt;&lt;num ：附带符号将数值的二进制向右/左移动num位，超出部分会被舍弃；</p>
+<blockquote>
+<p>：无符号右移；</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>意义：描述字符定义模式的对象，字符组成的特殊格式的字符串;<br>定义：直接量 -&gt;  /字符模式/标志字符；RegExp类；<br>标志字符：g -&gt; 全匹配；i -&gt; 不分大小写；m -&gt; 多行匹配；<br>组成：普通字符（A<del>Z a</del>z 0~9 + - * / () {} * ?  =   ^等等）及元字符；<br>字符模式[ ]里可以拼接；<br>“?:”：非匹配获取，只匹配内容，不保存;<br>作用：1.验证字符串；2.查找字符串；3.截取字符串；4.替换字符串；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\w -&gt; a-z A-z 0-9 _</span><br></pre></td></tr></table></figure>
+
+<p>使用正则表达式匹配：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RegExp.exec(string); //返回特定数组</span><br><span class="line">//string: 匹配的字符</span><br><span class="line">RegExp.test(string); //返回<span class="literal">true</span>/<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>三要素：嵌套结构的函数、内部函数访问了外部函数的变量、在外部函数的外面，调用内部函数；<br>概念：闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包穿件时所能访问的所有局部变量;<br>闭包对象之间互相独立；<br>作用：1.让局部变量变成私有化的长存变量；2.给事件调用函数传递参数；</p>
+<p>常见错误 ：循环内使用闭包函数；<br>解决方法：1.使用立即执行函数；2.使用多个闭包函数；3.ES6</p>
+<h2 id="错误处理、错误类型"><a href="#错误处理、错误类型" class="headerlink" title="错误处理、错误类型"></a>错误处理、错误类型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    //可能会导致错误的代码</span><br><span class="line">&#125;catch(error)&#123;</span><br><span class="line">    //在错误发生时怎么处理</span><br><span class="line">    error.message //保存错误消息的属性，全浏览器支持</span><br><span class="line">    <span class="keyword">if</span>(error instanceof 错误类型)&#123;</span><br><span class="line">        //可以不同错误类型，不同的处理方式</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    //里面的代码无论如何都会执行，<span class="built_in">return</span>都不能阻止</span><br><span class="line">&#125;</span><br><span class="line">；</span><br></pre></td></tr></table></figure>
+<p>错误类型：<br>Error -&gt; 基本类型，其他错误类型继承该类型，较少见；<br>EvalError -&gt; 在使用eval()函数而发生异常时触发；<br>RangeError -&gt; 数值超过相应范围时触发；<br>ReferenceError -&gt; 找不到对象的情况下触发；<br>SyntaxError -&gt; 语法类型错误；<br>TypeError -&gt; 在变量中保存着意外的类型，或者访问不存在的方法 (归根结底是变量的类型不符合要求)；<br>URLError -&gt; 在使用encodeURL()、decodeURL()，URL格式不正确导致；</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/21/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">2.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js数据类型及获取类型"><span class="nav-number">3.</span> <span class="nav-text">js数据类型及获取类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js引入及加载"><span class="nav-number">4.</span> <span class="nav-text">js引入及加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#This指针"><span class="nav-number">5.</span> <span class="nav-text">This指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call、apply、bind"><span class="nav-number">6.</span> <span class="nav-text">call、apply、bind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互"><span class="nav-number">8.</span> <span class="nav-text">交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">9.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本运算"><span class="nav-number">10.</span> <span class="nav-text">基本运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型、原型链、继承"><span class="nav-number">11.</span> <span class="nav-text">原型、原型链、继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串及编码"><span class="nav-number">12.</span> <span class="nav-text">字符串及编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象、类、原型"><span class="nav-number">13.</span> <span class="nav-text">对象、类、原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象属性特性"><span class="nav-number">13.1.</span> <span class="nav-text">对象属性特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象特性"><span class="nav-number">13.2.</span> <span class="nav-text">对象特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字和二进制"><span class="nav-number">14.</span> <span class="nav-text">数字和二进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">15.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归函数"><span class="nav-number">16.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">17.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">18.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">19.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理、错误类型"><span class="nav-number">20.</span> <span class="nav-text">错误处理、错误类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
