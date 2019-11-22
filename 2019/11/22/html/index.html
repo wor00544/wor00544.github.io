@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="html,html5," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="优化Web动画计时器做动画存在的问题：当前窗口不在动画页面时，计时器仍然在继续工作；回调函数执行如果耗时，会导致排队的情况，排队过多浏览器会崩溃；设置动画频率过高(计时器时间间隔短)，过度绘制，导致出现掉帧； 浏览器屏幕刷新频率大致 一秒60次 = 16.7ms一次； requestAnimationFrame优势：当前窗口不在动画页面时，停止工作；浏览器刷新时自动执行，不需要手动设置间隔 req">
+<meta name="keywords" content="html,html5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;html&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="优化Web动画计时器做动画存在的问题：当前窗口不在动画页面时，计时器仍然在继续工作；回调函数执行如果耗时，会导致排队的情况，排队过多浏览器会崩溃；设置动画频率过高(计时器时间间隔短)，过度绘制，导致出现掉帧； 浏览器屏幕刷新频率大致 一秒60次 = 16.7ms一次； requestAnimationFrame优势：当前窗口不在动画页面时，停止工作；浏览器刷新时自动执行，不需要手动设置间隔 req">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-22T11:12:29.717Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/22/html/"/>
+
+
+
+
+
+  <title>html | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">html</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T18:51:35+08:00">
+                2019-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/%E8%AF%AD%E4%B9%89%E5%8C%96/" itemprop="url" rel="index">
+                    <span itemprop="name">语义化</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">行内元素</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">块级元素</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="优化Web动画"><a href="#优化Web动画" class="headerlink" title="优化Web动画"></a>优化Web动画</h2><p>计时器做动画存在的问题：<br>当前窗口不在动画页面时，计时器仍然在继续工作；<br>回调函数执行如果耗时，会导致排队的情况，排队过多浏览器会崩溃；<br>设置动画频率过高(计时器时间间隔短)，过度绘制，导致出现掉帧；</p>
+<p>浏览器屏幕刷新频率大致 一秒60次 = 16.7ms一次；</p>
+<p>requestAnimationFrame优势：<br>当前窗口不在动画页面时，停止工作；<br>浏览器刷新时自动执行，不需要手动设置间隔</p>
+<p>requestAnimationFrame使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var req = requestAnimationFrame(Fun);</span><br><span class="line">//屏幕每次刷新都会执行回调函数Fun</span><br><span class="line">cancelAnimationFrame(req); //停止动画</span><br></pre></td></tr></table></figure>
+<p>注：H5新特性需要注意兼容问题；</p>
+<h2 id="Worker多线程"><a href="#Worker多线程" class="headerlink" title="Worker多线程"></a>Worker多线程</h2><p>使用场景：大型数据运算、计时器、异步请求、访问navigator部分属性、js核心对象；</p>
+<p>使用Worker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//主进程文件</span><br><span class="line">var worker = new Worker(<span class="string">'worker.js'</span>); //定义子进程文件</span><br><span class="line">worker.postMessage(data); //传入数据</span><br><span class="line">worker.onmessage = <span class="keyword">function</span>(e)&#123;&#125; //取出完成的数据</span><br><span class="line">//worker文件</span><br><span class="line">onmussage = <span class="keyword">function</span>(e)&#123;</span><br><span class="line">    e.data; //接收的传入的数据</span><br><span class="line">    postMessage(); //传出数据</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结束Worker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">close(); //在worker子进程文件中使用</span><br><span class="line">worker.terminate(); //在主进程文件中使用</span><br></pre></td></tr></table></figure>
+
+<p>局限性：<br>不能跨域加载 (必需在服务器下，本地文件不能使用)；<br>worker文件不能访问DOM；</p>
+<h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><p>应用场景：图形(脑图)、图标、logo(矢量图)、动效；</p>
+<p>HTML：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> version=<span class="string">"1.1"</span>&gt;&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var char = <span class="string">"http://www.w3.org/2000/svg"</span>;</span><br><span class="line">var svg = document.createElementNS(char,<span class="string">'svg'</span>);</span><br><span class="line">//再调用setAttribute()方法来设定属性</span><br></pre></td></tr></table></figure>
+
+<p>基础元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;line x1=<span class="string">"10"</span> y1=<span class="string">"15"</span> x2=<span class="string">"200"</span> y2=<span class="string">"15"</span>&gt;&lt;/line&gt;</span><br><span class="line">//直线 起点(x1,y1),终点(x2,y2)</span><br><span class="line">&lt;rect x=<span class="string">"10"</span> y=<span class="string">"30"</span> width=<span class="string">"100"</span> height=<span class="string">"100"</span> rx=<span class="string">"10"</span> ry=<span class="string">"10"</span> &gt;&lt;/rect&gt;</span><br><span class="line">//矩形 中心点(x,y) 宽高(width,height) 圆角(rx,ry)</span><br><span class="line">&lt;circle cx=<span class="string">"200"</span> cy=<span class="string">"80"</span> r=<span class="string">"50"</span>&gt;&lt;/circle&gt;</span><br><span class="line">//圆形 圆心(cx,cy) 半径r</span><br><span class="line">&lt;ellipse rx=<span class="string">"50"</span> ry=<span class="string">"100"</span> cx=<span class="string">"70"</span> cy=<span class="string">"250"</span>&gt;&lt;/ellipse&gt;</span><br><span class="line">//椭圆 长短轴(rx,ry) 圆心(cx,cy)</span><br><span class="line">&lt;polygon points=<span class="string">"170 130,140,180,200,180"</span>&gt;&lt;/polygon&gt;</span><br><span class="line">//多边形 两个数字一组x,y点 最后会把终点和起点连接</span><br><span class="line">&lt;polyline points=<span class="string">"300 0,400 100,280 200,500,300"</span>&gt;&lt;/polyline&gt;</span><br><span class="line">//折线 两个数字一组x,y点 默认起点和终点会连接起来</span><br><span class="line">&lt;text x=<span class="string">"160"</span> y=<span class="string">"250"</span>&gt;蝉壳&lt;/text&gt;</span><br><span class="line">//字体 位置(x,y)</span><br></pre></td></tr></table></figure>
+
+<p>基础样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fill: transparent; //填充的颜色</span><br><span class="line">stroke: red; //描边线的颜色</span><br><span class="line">stroke-width: 10px; //线的宽度,以原先线为中心向两边延伸</span><br><span class="line">stroke-opacity/fill-opacity: 0.5; //描边线/填充透明度</span><br><span class="line">stroke-linecap: butt/round/square; //描边线样式</span><br><span class="line">stroke-linejoin: bevel/round/miter; //连接处样式</span><br></pre></td></tr></table></figure>
+
+
+<p>路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;path d=<span class="string">"M L H V C S Q T A Z"</span>&gt;&lt;/path&gt;</span><br><span class="line"> //d:定义路径指令:</span><br><span class="line"> //M = moveto 移动到</span><br><span class="line"> //L = lineto 画线到</span><br><span class="line"> //H = horizontal lineto 水平线到</span><br><span class="line"> //V = vertical lineto 垂直线到</span><br><span class="line"> //C = curveto 三次贝塞尔曲线到</span><br><span class="line"> //S = smooth curveto 光滑三次贝塞尔曲线到</span><br><span class="line"> //Q = quadratic Bezier curve 二次贝塞尔曲线到</span><br><span class="line">//T = somooth quadratic Bezier curve 光滑二次贝塞尔曲线到</span><br><span class="line">//A = elliptical Arc 椭圆弧 需要一个起始点M,(A rx ry 0 1/0 1/0 x y)</span><br><span class="line">//长短轴长度(rx,ry) 倾斜角度 取长/短曲线 顺/逆时针 终点坐标(x y)</span><br><span class="line">//z = closepath 关闭路径(大小写效果相同)</span><br><span class="line">//所有命令大写代表绝对定位,小谢代表相对定位</span><br></pre></td></tr></table></figure>
+
+<p>路径样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stroke-dasharray:n px; //显示n像素再空n像素一直循环</span><br><span class="line">stroke-dashoffset:n px; //从起点开始拉n像素</span><br><span class="line">//注:.getTotalLength能获取svg元素长度</span><br></pre></td></tr></table></figure>
+
+<p>渐变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg ......&gt;&lt;defs&gt;</span><br><span class="line">    //线性渐变</span><br><span class="line">    &lt;linearGradient id=<span class="string">"bg1"</span> x1=<span class="string">"0"</span> y1=<span class="string">"0"</span> x2=<span class="string">"0"</span> y2=<span class="string">"100%"</span>&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"0%"</span> style=<span class="string">"stop-color:rgb(255,255,0);"</span>/&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"100%"</span> style=<span class="string">"stop-color:rgb(255,0,0);"</span>/&gt;</span><br><span class="line">    &lt;/linearGradient&gt;</span><br><span class="line">    //径向渐变</span><br><span class="line">    &lt;radialGradient id=<span class="string">"bg2"</span> cx=<span class="string">"50%"</span> cy=<span class="string">"50%"</span> r=<span class="string">"50%"</span> fx=<span class="string">"50%"</span> fy=<span class="string">"50%"</span>&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"0%"</span> style=<span class="string">"stop-color:green;"</span>/&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"100%"</span> style=<span class="string">"stop-color:transparent"</span>/&gt;</span><br><span class="line">    &lt;/radialGradient&gt;</span><br><span class="line">&lt;/defs&gt;&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+<p>滤镜：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;</span><br><span class="line">    //高斯滤镜</span><br><span class="line">    &lt;filter id=<span class="string">"Gaussian_Blur"</span>&gt;</span><br><span class="line">        &lt;feGaussianBlur <span class="keyword">in</span>=<span class="string">"SourceGraphic"</span> stdDeviation=<span class="string">"20"</span>/&gt;</span><br><span class="line">    &lt;/filter&gt;</span><br><span class="line">&lt;/defs&gt;</span><br></pre></td></tr></table></figure>
+<p>其他滤镜：<a href="https://www.w3school.com.cn/svg/svg_filters_intro.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/svg/svg_filters_intro.asp</a><br>SVG在线编辑器：<a href="https://c.runoob.com/more/svgeditor/" target="_blank" rel="noopener">https://c.runoob.com/more/svgeditor/</a></p>
+<p>ViewBox:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg viewBox=<span class="string">"0,0,40,30"</span>&gt;&lt;/svg&gt; //视图属性</span><br><span class="line">preserveAspectRatio = <span class="string">"xMidYMid meet"</span> //作用的对象都是viewBox</span><br><span class="line">参数1:viewBox在svg中的对齐方式</span><br><span class="line">参数2:meet/slice/none //保持横纵比自适应/保持横纵比,按小比例方向填满视区/不保持横纵比,刚好填满视区</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML5新元素"><a href="#HTML5新元素" class="headerlink" title="HTML5新元素"></a>HTML5新元素</h2><p>HTML5结构元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;: 整个页面的头部,某块区域的标题，页眉;</span><br><span class="line">&lt;footer&gt;: 文档或者某块的底部、页脚;</span><br><span class="line">&lt;main&gt;: 主要的内容区域;</span><br><span class="line">&lt;nav&gt;: 导航的连接部分;</span><br><span class="line">&lt;section&gt;: 页面中一个内容区域;</span><br><span class="line">&lt;article&gt;: 一个独立的、完整的相关内容块;</span><br><span class="line">&lt;aside&gt;: 表示一个页面的一部分，它的内容跟这个页面的其他内容关联性不强，或没有关联，单独存在;</span><br><span class="line">&lt;figure&gt;: 规定独立的流内容(图像、图表、照片、代码等等);</span><br></pre></td></tr></table></figure>
+
+<p>HTML5功能元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">video: 视频;</span><br><span class="line">audio: 音频;</span><br><span class="line"><span class="built_in">source</span>: 资源; //可以在音频或视频中加入多个,这样如果上面的<span class="built_in">source</span>无法运行就会自动变成下一个<span class="built_in">source</span></span><br><span class="line">figcaption: 定义figure元素的标题;</span><br><span class="line">canvas: 画布;</span><br><span class="line">progress: 进度条;</span><br></pre></td></tr></table></figure>
+
+<p>HTML5表单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">新元素：</span><br><span class="line">radio: 单选圆点;</span><br><span class="line">checkbox: 复选框;</span><br><span class="line">text: 文本框;</span><br><span class="line">password: 密码框;</span><br><span class="line">file: 上传文件; //一次只能上传一个文件</span><br><span class="line">tel: 电话; //触屏设备会直接跳出数字键盘,精准检测需要正则表达式</span><br><span class="line">range: 可拖拽条;</span><br><span class="line">number: 输入数字; //触屏设备会直接跳出数字键盘</span><br><span class="line">email: 输入邮箱; //简单的检测,精准检测还需要正则表达式</span><br><span class="line">date: 日期;</span><br><span class="line">month: 月份;</span><br><span class="line">week: 周;</span><br><span class="line">time: 时间;</span><br><span class="line">datetime-local: 日期和时间; //网页版选择不方便</span><br><span class="line">color: 选择颜色;</span><br></pre></td></tr></table></figure>
+<p>新属性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">multiple: file元素可以上传多个文件;</span><br><span class="line">placeholder: 输入框提示;</span><br><span class="line">pattern: 验证input类型输入框中内容是否与正则匹配;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性"></a>HTML5新特性</h2><p>新特性：<br>避免不必要的复杂；(doctype等)<br>支持已有的写法；<br>解决实际问题；(语义化的标签，nav等)<br>优雅降级；(浏览器不支持新写法会回到原来的写法，兼容性高)<br>用户优先；(用户&gt;开发者&gt;浏览器厂商&gt;标准制定者&gt;理论上的完美)   </p>
+<h2 id="Geolocation地理位置信息"><a href="#Geolocation地理位置信息" class="headerlink" title="Geolocation地理位置信息"></a>Geolocation地理位置信息</h2><p>Geolocation API：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">window.navigator.geolocation //对象返回经纬坐标等元数据信息</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">获取当前地理位置：</span><br><span class="line">``` bash</span><br><span class="line">navigator.geolocation.getCurrentPosition(suc,err,obj);</span><br><span class="line">//suc:成功回调，有参数option对象</span><br><span class="line">//err:失败回调，有参数error对象</span><br><span class="line">//obj:可选参数</span><br><span class="line">``` </span><br><span class="line">option对象属性：</span><br><span class="line">``` bash</span><br><span class="line">accuracy: 经纬度的精度;</span><br><span class="line">altitude: 海拔; //电脑一般获取不到，返回0/null(跟浏览器有关)</span><br><span class="line">altitudeAccuracy: 海拔精准度; //电脑一般获取不到，返回0/null</span><br><span class="line">heading: 设备前进的方向; //电脑一般获取不到，返回0/null</span><br><span class="line">latitude: 纬度</span><br><span class="line">longitude: 精度</span><br><span class="line">speed: 设备前进的速度 //电脑一般获取不到，返回0/null</span><br><span class="line">timestamp: 获取地理位置信息的时间; //1970/01/01至今的毫秒数</span><br><span class="line">``` </span><br><span class="line">error对象属性：</span><br><span class="line">``` bash</span><br><span class="line">code属性参数: 1/2/3;</span><br><span class="line">//用户拒绝了位置服务/获取不到位置信息/获取信息超时</span><br><span class="line">message属性: 错误信息描述字符串;</span><br><span class="line">``` </span><br><span class="line">obj对象：</span><br><span class="line">``` bash</span><br><span class="line">enableHighAccuracy: <span class="literal">true</span>/<span class="literal">false</span>; //是否要求高精准度位置信息</span><br><span class="line">timeout:1000; //超时限制</span><br><span class="line">maximumAge:1000; //缓存有效时间，若为0则无条件重置获取位置信息</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">监视位置信息：</span><br><span class="line">``` bash</span><br><span class="line">id = navigator.geolocation.watchPosition(suc,err，obj);</span><br><span class="line">//持续定期的自动获取用户当前地理位置信息，并同计时器一样有个位置标时</span><br><span class="line">navigator.geolocation.clearwatch(id);</span><br><span class="line">//停止获取位置信息</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## FillReader文件操作</span></span><br><span class="line">file表示file控件内的每一个被选择的文件对象；</span><br><span class="line">fileList为这些file对象的列表；</span><br><span class="line"></span><br><span class="line">fileReader对象：</span><br><span class="line">``` bash</span><br><span class="line">//负责把文件读入内存,并读取文件中的数据</span><br><span class="line">var reader = new FileReader(); </span><br><span class="line">reader.readAsText(file); //讲文件中的数据读取为文本数据</span><br><span class="line">reader.readAsBinaryString(file); //读取为二进制字符串</span><br><span class="line">reader.readAsDataURL(file); //读取为DataURL字符串</span><br><span class="line">reader.readAsArrayBuffer(file); //读取为一个ArrayBuffer对象</span><br><span class="line">reader.abort(); //中断读取操作</span><br></pre></td></tr></table></figure>
+<p>fileReader读取事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reader.onabort = fun; //数据读取中断时触发</span><br><span class="line">reader.onprogress= fun; //数据读取中触发</span><br><span class="line">reader.onerror= fun; //数据读取出错时触发</span><br><span class="line">reader.onload= fun; //数据读取成功完成时触发</span><br><span class="line">reader.onloadstart= fun; //数据开始读取时触发</span><br><span class="line">reader.onloadend= fun; //数据读取完成时触发，无论成功与否;</span><br></pre></td></tr></table></figure>
+
+<p>Blob对象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fileReader对象是继承Blob对象的；</span><br><span class="line">Blob对象是可以裁剪的(数据分段上传原理)</span><br><span class="line">.slice(); //可以进行裁剪的方法</span><br></pre></td></tr></table></figure>
+
+<p>获取drop中的file对象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e.dataTransfer.files //能获取在e中的file对象</span><br><span class="line">//获取drop中拖拽上传的file对象</span><br></pre></td></tr></table></figure>
+
+<h2 id="Drag和Drop拖放"><a href="#Drag和Drop拖放" class="headerlink" title="Drag和Drop拖放"></a>Drag和Drop拖放</h2><p>HTML：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draggable=<span class="string">"true"</span> //使标签元素变成可拖拽元素</span><br></pre></td></tr></table></figure>
+
+<p>拖放API：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">被拖拽元素.dragstart = fun; //开始被拖拽时触发</span><br><span class="line">被拖拽元素.drag = fun; //在拖拽的过程中触发</span><br><span class="line">被拖拽元素.dragend = fun; //在拖拽完成时触发</span><br><span class="line">目标元素.dragenter = fun; //拖放元素进入目标元素时触发</span><br><span class="line">目标元素.dragover = fun; //拖放元素在目标元素上时触发</span><br><span class="line">目标元素.dragleave = fun; //拖放元素在目标元素上离开时触发</span><br><span class="line">目标元素.drop = fun; //被拖放元素在目标元素上同时鼠标放开时触发</span><br><span class="line">//注:需要阻止dragover的默认行为才会触发drop事件</span><br><span class="line">e.preventDefault(); //阻止默认行为</span><br><span class="line">``` </span><br><span class="line">DataTransfer对象：</span><br><span class="line">``` bash</span><br><span class="line">var dt = e.DataTransfer; //创建DataTransfer对象;</span><br><span class="line">dt.setDate(<span class="string">'id'</span>,元素.id); //向DataTransfer对象中存放数据</span><br><span class="line">dt.getDate(<span class="string">'id'</span>); //向DataTransfer对象中读取数据</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## DOCTYPE</span></span><br><span class="line">怪异模式：</span><br><span class="line">``` bash</span><br><span class="line">&lt;!DOCTYPE html&gt; -&gt; 标准模式</span><br><span class="line">怪异模式下会根据浏览器的类型进行解析 (ie6之前)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">检测网页是标准模式还是怪异模式：</span><br><span class="line">``` bash</span><br><span class="line">document.compatMode(); </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## Canvas画布</span></span><br><span class="line">应用场景：游戏，大量数据表图，动画；</span><br><span class="line"></span><br><span class="line">canvas标签：</span><br><span class="line">``` bash</span><br><span class="line">&lt;canvas width=<span class="string">"400"</span> height=<span class="string">"400"</span> id=<span class="string">"myCanvas"</span>&gt;&lt;/canvas&gt;</span><br><span class="line">其中的width,height不是绝对单位，而是相对的;</span><br></pre></td></tr></table></figure>
+
+<p>获取Canvas：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myCanvas = document.getElementById(<span class="string">'myCanvas'</span>);</span><br><span class="line">var ctx = myCanvas.getContext(<span class="string">'2d'</span>); //获取Canvas方法</span><br></pre></td></tr></table></figure>
+
+<p>直线：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.moveTo(x,y); //画笔挪到(x,y)点</span><br><span class="line">.lineTo(x,y); //画笔划线划到(x,y)点</span><br></pre></td></tr></table></figure>
+
+<p>样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.strike(); //描边画渲染</span><br><span class="line">.fill(); //填充画渲染</span><br><span class="line">.closePath(); //闭合路径</span><br><span class="line">.strokeStyle = <span class="string">'red'</span>; //线的颜色</span><br><span class="line">.fillStyle = <span class="string">'red'</span>; //填充的颜色</span><br><span class="line">.lineWidth = 20; //线宽</span><br><span class="line">.lineCap = <span class="string">'butt/square/round'</span>; //线两头样式</span><br><span class="line">//square多出来的部分长度是线宽的一半</span><br><span class="line">.lineJoin = <span class="string">'miter/round/bevel'</span>; //两线拐角处样式</span><br></pre></td></tr></table></figure>
+
+
+<p>新开路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.beginPath(); //fill和stroke方法都是作用在当前所有子路径</span><br><span class="line">//若想开辟新路径，在绘制之前使用beginPath();</span><br></pre></td></tr></table></figure>
+
+<p>矩形：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.rect(x,y,w,h);// 起始点(x,y)、w宽度、h高度</span><br><span class="line">.strokeRect(x,y,w,h); //描边绘制的矩形</span><br><span class="line">.fillRect(x,y,w,h); //填充绘制的矩形</span><br><span class="line">//strokeRect,fillRect自带新开路径，不需要而外新开</span><br></pre></td></tr></table></figure>
+
+<p>圆形：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.Arc(x,y,r,sAngle,eAngle,<span class="literal">false</span>/<span class="literal">true</span>);</span><br><span class="line">//起始点(x,y)</span><br><span class="line">//半径r</span><br><span class="line">//sAngle,eAngle(弧长)</span><br><span class="line">//<span class="literal">false</span>顺时针绘制、<span class="literal">true</span>逆时针绘制</span><br></pre></td></tr></table></figure>
+
+<p>曲线：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.arcTo(x1,y1,x2,y2,r);</span><br><span class="line">//弧线尾部到x2,y2的部分会去掉</span><br></pre></td></tr></table></figure>
+
+
+<p>二次方、三次方曲线方程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.quadraticCurveTo(cpx,cpy,x,y);</span><br><span class="line">.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</span><br><span class="line">//具体了解贝塞尔曲线</span><br></pre></td></tr></table></figure>
+
+<p>渐变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bg</span> = .createLinearGradient(x1,y1,x2,y2); //线性渐变</span><br><span class="line"><span class="built_in">bg</span> = .createRadialGradient(x1,y1,r1,x2,y2,r2); //径向渐变</span><br><span class="line">bg.addColorStop([0-1],color); //设置渐变颜色,0起点、1终点</span><br><span class="line">//渐变起始点(x1,y1),终点(x2,y2)</span><br><span class="line">//r1渐变起始点内半径,渐变起始点至终点半径</span><br></pre></td></tr></table></figure>
+
+<p>绘制图案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.createPattern(素材,<span class="string">'repeat/repeat-x/repeaty/no-repeat'</span>);</span><br><span class="line">//素材:图片、画布、视频元素 (注意:资源加载完才能设置)</span><br></pre></td></tr></table></figure>
+
+<p>操作图形：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.translate(dx,dy); //平移画布的(0,0)位置</span><br><span class="line">.scale(sx,sy); //缩放当前绘图</span><br><span class="line">.rotate(Math.PI); //画布的(0,0)为圆心旋转(Math.PI)</span><br><span class="line">//注:上面的操作都会改变整个画布,之后绘制的图形也会受影响</span><br><span class="line"></span><br><span class="line">.save(); //保存当前图像到栈中</span><br><span class="line">.restore(); //从栈中弹出储存的图像状态并恢复</span><br><span class="line">//可以解除平移,缩放,旋转导致的画布变化</span><br><span class="line"></span><br><span class="line">.setTransform(水平缩放,水平倾斜,垂直倾斜,垂直缩放,水平移动,垂直移动);</span><br><span class="line">//变化矩阵,先重置之前的画布再变化</span><br><span class="line">.transform(水平缩放,水平倾斜,垂直倾斜,垂直缩放,水平移动,垂直移动);</span><br><span class="line">//在之前画布变化的基础上变化</span><br><span class="line"></span><br><span class="line">.clearRect(x,y,dx,dy); //擦除当前区域,(dx,dy)擦除区域大小</span><br><span class="line">.globalCompositeOperation = <span class="string">'组合图形样式代码'</span>; //组合图形</span><br></pre></td></tr></table></figure>
+<p>组合图形样式代码：</p>
+<p>绘制图像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//在画布上定位图像</span><br><span class="line">.drawImarg(image,sx,sy,swidth,sheight,x,y,width,height);</span><br><span class="line">//图像源,裁剪起点x轴坐标,裁剪起点y轴坐标,裁剪宽度,裁剪高度</span><br><span class="line">//图像起点x轴坐标，图像起点y轴坐标，图像显示宽度,图像显示高度</span><br><span class="line">//image,x，y必需</span><br><span class="line">.getImageData(x,y,dx,dy); //同源策略</span><br><span class="line">.createImageData(w,h); //创建新的空白imageData对象</span><br><span class="line">.putImageData(imgData,x,y);将图像数据放回画布上</span><br></pre></td></tr></table></figure>
+
+
+<p>抽取Canvas为图片：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">canvas.toDataURL(); //将canvas的内容抽成一张图片</span><br><span class="line">//base64编码格式;将canvas的内容放入img元素里</span><br><span class="line">//注:同源策略的限制，要开启服务器，在www目录下打开</span><br></pre></td></tr></table></figure>
+
+<p>模糊问题：</p>
+<p>解决方案：canvas的相对width和height设定成本身宽高的两倍;</p>
+<h2 id="Canvas、SVG对比"><a href="#Canvas、SVG对比" class="headerlink" title="Canvas、SVG对比"></a>Canvas、SVG对比</h2><p>Canvas性能高一些，应用领域比SVG更广泛些；</p>
+<h2 id="Audio、Video"><a href="#Audio、Video" class="headerlink" title="Audio、Video"></a>Audio、Video</h2><p>他们的控件属性大体相同，可以动态创建视音频；</p>
+<p>控件属性：</p>
+<pre><code class="bash">controls //网页显示默认控件
+poster = <span class="string">"图片路径"</span> //Video的独有控件，能改变视频在网页中显示的封面
+muted //静音
+autoplay //自动播放,需要配合静音使用,对音频无效
+loop //循环播放
+preload: none/metadata/auto; //是否预加载
+    不进行预加载/部分预加载(一般都使用这个)/全部预加载</code></pre>
+<p>判断浏览器支持情况：</p>
+<pre><code class="bash">.canplayType() //返回probably或maybe，返回空不支持;</code></pre>
+<p>媒体事件：</p>
+<pre><code class="bash">.onplay: 媒体开始播放时触发;
+.onpause: 媒体暂停时触发;
+.onended: 媒体播放结束时触发;
+.oncanplay: 浏览器能够开始播放媒体数据,但不确定以当前速率能否顺利播放完媒体;
+//已经获得媒体数据，但还不知道每一帧的数据
+.ondurationchange: 媒体的duration发生变化时触发;
+//缺点如果资源在本地,加载速度很快的情况下,可能不会触发。线上使用没问题; </code></pre>
+<p>属性：</p>
+<pre><code class="bash">.currentSrc //返回资源链接(需要媒体数据加载完成后才能获取到)
+.duration //媒体总时长(需要媒体数据加载完成后才能获取到)
+.currentTime //返回或设置资源当前时间
+.volume //音量[0-1],可读可写
+.playbackRate //读取或设置媒体资源的播放速率（大于1快放，小于1慢放，无倒放）
+.paused/.ended/.seeking //查询媒体播放状态，返回<span class="literal">true</span>/<span class="literal">false</span>
+    是否暂停/是否结束/是否在请求修改某一播放位置
+.played/.buffered/.seekable //返回一个TimeRanges对象
+    标明已播放的时间范围/确定已缓存媒体文件/可以对当前媒体资源进行请求
+    TimeRanges对象的length属性为部分时间段，end(i)返回已播放时间段的结束时间,start(i)返回已播放时间段的开始时间</code></pre>
+<p>方法：</p>
+<pre><code class="bash">.play() //播放
+.pause() //暂停
+.load() //重置媒体元素并重新载入媒体，可以终止正在进行的任务或事件
+//可以用在上一曲下一曲上</code></pre>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+            <a href="/tags/html5/" rel="tag"># html5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/22/es6/" rel="next" title="es6">
+                <i class="fa fa-chevron-left"></i> es6
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/22/webpack/" rel="prev" title="webpack">
+                webpack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#优化Web动画"><span class="nav-number">1.</span> <span class="nav-text">优化Web动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Worker多线程"><span class="nav-number">2.</span> <span class="nav-text">Worker多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG"><span class="nav-number">3.</span> <span class="nav-text">SVG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5新元素"><span class="nav-number">4.</span> <span class="nav-text">HTML5新元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5新特性"><span class="nav-number">5.</span> <span class="nav-text">HTML5新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geolocation地理位置信息"><span class="nav-number">6.</span> <span class="nav-text">Geolocation地理位置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drag和Drop拖放"><span class="nav-number">7.</span> <span class="nav-text">Drag和Drop拖放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas、SVG对比"><span class="nav-number">8.</span> <span class="nav-text">Canvas、SVG对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Audio、Video"><span class="nav-number">9.</span> <span class="nav-text">Audio、Video</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -228,6 +228,745 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/22/webpack/" itemprop="url">webpack</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T19:13:02+08:00">
+                2019-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sass/" itemprop="url" rel="index">
+                    <span itemprop="name">sass</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>Sass</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子元素选择器；</span><br><span class="line">&gt;: 直接子元素选择器;</span><br><span class="line">&amp;: 父元素选择器(可以代表Sass中的直接父元素);</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数-amp-Lists-amp-Maps"><a href="#函数-amp-Lists-amp-Maps" class="headerlink" title="函数&amp;Lists&amp;Maps"></a>函数&amp;Lists&amp;Maps</h2><p>Sass中一些颜色函数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adjust-hue: 把颜色扭转degress度, 具体看色轮;</span><br></pre></td></tr></table></figure>
+
+<p>字符串插值： #{$name}； 可以把变量具体的值插入class名，css属性名以及注释中；</p>
+<p>Lists：类似数组；<br>Maps：类似对象；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@each <span class="variable">$name</span> <span class="keyword">in</span> <span class="variable">$names</span>&#123;&#125;; //遍历对象或者数组;</span><br><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 5&#123;&#125;; //从1循环到5；</span><br><span class="line">@<span class="keyword">if</span> 表达式&#123; &#125;@<span class="keyword">else</span>&#123; &#125;; // <span class="keyword">if</span> <span class="keyword">else</span> 语句;</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$变量名: 值; //变量</span><br><span class="line">@import <span class="string">"src"</span>; //引入其他scss文件</span><br></pre></td></tr></table></figure>
+<p>变量的类型：数字，颜色，字符串，Null，布尔值；<br>注释：/* */，// 都是Sass中注释的方法，区别是前者会出现在编译后的css文件中，后者则不会；<br>如果样式的属性是 null 那么此样式在编译后就会移除;</p>
+<p>mixin：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//_mixin.scss 文件</span><br><span class="line">@mixin name(<span class="variable">$color</span>:默认值,<span class="variable">$color2</span>:默认值)&#123;</span><br><span class="line">    //()内可以接收传入的值,并放在变量<span class="variable">$color</span>中</span><br><span class="line">    color: <span class="variable">$color</span>;</span><br><span class="line">    @content; //取出传入的样式</span><br><span class="line">&#125;</span><br><span class="line">//主文件</span><br><span class="line">@import <span class="string">"mixin.scss"</span>; //引入写了mixin.scss文件</span><br><span class="line">@include name(red)&#123; </span><br><span class="line"> //()内可以传值,也可以写 变量名: 属性 格式,指定要传入哪个属性</span><br><span class="line">    background: green; //传入样式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Webpack四个核心概念"><a href="#Webpack四个核心概念" class="headerlink" title="Webpack四个核心概念"></a>Webpack四个核心概念</h2><p>Entry：告诉webpack入口文件位置；<br>Output：告诉webpack把编译好的文件放在哪；<br>Loaders：告诉webpack在添加到依赖图之前如何装换一个文件；<br>Plugins：在编译过程中添加你想要的任何操作；</p>
+<p>import(“url”)；动态引入文件，用到再加载；<br>需要加载@babel/plugin-syntax-dynamic-import插件才能使用；</p>
+<h2 id="Webpack命令行初步使用"><a href="#Webpack命令行初步使用" class="headerlink" title="Webpack命令行初步使用"></a>Webpack命令行初步使用</h2><p>官网(<a href="https://webpack.docschina.org/)；" target="_blank" rel="noopener">https://webpack.docschina.org/)；</a><br>安装环境 node<br>npm 包管理器，下载命令npm install(可能需要翻墙)，国内环境淘宝cnpm；<br>生成项目说明书 npm init；<br>下载webpack、webpack-cli；<br>webpack安装在node_modules文件夹下；<br>mode 生产模式和开发模式；<br>–watch 监听；<br>tree shaking去除死代码(没用到的自动删除)；<br>将函数当做作用域；</p>
+<p>devDependencies：开发依赖的库（–save-dev)；<br>dependencies：运行依赖的库 (–save)；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/22/html/" itemprop="url">html</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T18:51:35+08:00">
+                2019-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/%E8%AF%AD%E4%B9%89%E5%8C%96/" itemprop="url" rel="index">
+                    <span itemprop="name">语义化</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">行内元素</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">块级元素</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="优化Web动画"><a href="#优化Web动画" class="headerlink" title="优化Web动画"></a>优化Web动画</h2><p>计时器做动画存在的问题：<br>当前窗口不在动画页面时，计时器仍然在继续工作；<br>回调函数执行如果耗时，会导致排队的情况，排队过多浏览器会崩溃；<br>设置动画频率过高(计时器时间间隔短)，过度绘制，导致出现掉帧；</p>
+<p>浏览器屏幕刷新频率大致 一秒60次 = 16.7ms一次；</p>
+<p>requestAnimationFrame优势：<br>当前窗口不在动画页面时，停止工作；<br>浏览器刷新时自动执行，不需要手动设置间隔</p>
+<p>requestAnimationFrame使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var req = requestAnimationFrame(Fun);</span><br><span class="line">//屏幕每次刷新都会执行回调函数Fun</span><br><span class="line">cancelAnimationFrame(req); //停止动画</span><br></pre></td></tr></table></figure>
+<p>注：H5新特性需要注意兼容问题；</p>
+<h2 id="Worker多线程"><a href="#Worker多线程" class="headerlink" title="Worker多线程"></a>Worker多线程</h2><p>使用场景：大型数据运算、计时器、异步请求、访问navigator部分属性、js核心对象；</p>
+<p>使用Worker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//主进程文件</span><br><span class="line">var worker = new Worker(<span class="string">'worker.js'</span>); //定义子进程文件</span><br><span class="line">worker.postMessage(data); //传入数据</span><br><span class="line">worker.onmessage = <span class="keyword">function</span>(e)&#123;&#125; //取出完成的数据</span><br><span class="line">//worker文件</span><br><span class="line">onmussage = <span class="keyword">function</span>(e)&#123;</span><br><span class="line">    e.data; //接收的传入的数据</span><br><span class="line">    postMessage(); //传出数据</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结束Worker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">close(); //在worker子进程文件中使用</span><br><span class="line">worker.terminate(); //在主进程文件中使用</span><br></pre></td></tr></table></figure>
+
+<p>局限性：<br>不能跨域加载 (必需在服务器下，本地文件不能使用)；<br>worker文件不能访问DOM；</p>
+<h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><p>应用场景：图形(脑图)、图标、logo(矢量图)、动效；</p>
+<p>HTML：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> version=<span class="string">"1.1"</span>&gt;&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var char = <span class="string">"http://www.w3.org/2000/svg"</span>;</span><br><span class="line">var svg = document.createElementNS(char,<span class="string">'svg'</span>);</span><br><span class="line">//再调用setAttribute()方法来设定属性</span><br></pre></td></tr></table></figure>
+
+<p>基础元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;line x1=<span class="string">"10"</span> y1=<span class="string">"15"</span> x2=<span class="string">"200"</span> y2=<span class="string">"15"</span>&gt;&lt;/line&gt;</span><br><span class="line">//直线 起点(x1,y1),终点(x2,y2)</span><br><span class="line">&lt;rect x=<span class="string">"10"</span> y=<span class="string">"30"</span> width=<span class="string">"100"</span> height=<span class="string">"100"</span> rx=<span class="string">"10"</span> ry=<span class="string">"10"</span> &gt;&lt;/rect&gt;</span><br><span class="line">//矩形 中心点(x,y) 宽高(width,height) 圆角(rx,ry)</span><br><span class="line">&lt;circle cx=<span class="string">"200"</span> cy=<span class="string">"80"</span> r=<span class="string">"50"</span>&gt;&lt;/circle&gt;</span><br><span class="line">//圆形 圆心(cx,cy) 半径r</span><br><span class="line">&lt;ellipse rx=<span class="string">"50"</span> ry=<span class="string">"100"</span> cx=<span class="string">"70"</span> cy=<span class="string">"250"</span>&gt;&lt;/ellipse&gt;</span><br><span class="line">//椭圆 长短轴(rx,ry) 圆心(cx,cy)</span><br><span class="line">&lt;polygon points=<span class="string">"170 130,140,180,200,180"</span>&gt;&lt;/polygon&gt;</span><br><span class="line">//多边形 两个数字一组x,y点 最后会把终点和起点连接</span><br><span class="line">&lt;polyline points=<span class="string">"300 0,400 100,280 200,500,300"</span>&gt;&lt;/polyline&gt;</span><br><span class="line">//折线 两个数字一组x,y点 默认起点和终点会连接起来</span><br><span class="line">&lt;text x=<span class="string">"160"</span> y=<span class="string">"250"</span>&gt;蝉壳&lt;/text&gt;</span><br><span class="line">//字体 位置(x,y)</span><br></pre></td></tr></table></figure>
+
+<p>基础样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fill: transparent; //填充的颜色</span><br><span class="line">stroke: red; //描边线的颜色</span><br><span class="line">stroke-width: 10px; //线的宽度,以原先线为中心向两边延伸</span><br><span class="line">stroke-opacity/fill-opacity: 0.5; //描边线/填充透明度</span><br><span class="line">stroke-linecap: butt/round/square; //描边线样式</span><br><span class="line">stroke-linejoin: bevel/round/miter; //连接处样式</span><br></pre></td></tr></table></figure>
+
+
+<p>路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;path d=<span class="string">"M L H V C S Q T A Z"</span>&gt;&lt;/path&gt;</span><br><span class="line"> //d:定义路径指令:</span><br><span class="line"> //M = moveto 移动到</span><br><span class="line"> //L = lineto 画线到</span><br><span class="line"> //H = horizontal lineto 水平线到</span><br><span class="line"> //V = vertical lineto 垂直线到</span><br><span class="line"> //C = curveto 三次贝塞尔曲线到</span><br><span class="line"> //S = smooth curveto 光滑三次贝塞尔曲线到</span><br><span class="line"> //Q = quadratic Bezier curve 二次贝塞尔曲线到</span><br><span class="line">//T = somooth quadratic Bezier curve 光滑二次贝塞尔曲线到</span><br><span class="line">//A = elliptical Arc 椭圆弧 需要一个起始点M,(A rx ry 0 1/0 1/0 x y)</span><br><span class="line">//长短轴长度(rx,ry) 倾斜角度 取长/短曲线 顺/逆时针 终点坐标(x y)</span><br><span class="line">//z = closepath 关闭路径(大小写效果相同)</span><br><span class="line">//所有命令大写代表绝对定位,小谢代表相对定位</span><br></pre></td></tr></table></figure>
+
+<p>路径样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stroke-dasharray:n px; //显示n像素再空n像素一直循环</span><br><span class="line">stroke-dashoffset:n px; //从起点开始拉n像素</span><br><span class="line">//注:.getTotalLength能获取svg元素长度</span><br></pre></td></tr></table></figure>
+
+<p>渐变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg ......&gt;&lt;defs&gt;</span><br><span class="line">    //线性渐变</span><br><span class="line">    &lt;linearGradient id=<span class="string">"bg1"</span> x1=<span class="string">"0"</span> y1=<span class="string">"0"</span> x2=<span class="string">"0"</span> y2=<span class="string">"100%"</span>&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"0%"</span> style=<span class="string">"stop-color:rgb(255,255,0);"</span>/&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"100%"</span> style=<span class="string">"stop-color:rgb(255,0,0);"</span>/&gt;</span><br><span class="line">    &lt;/linearGradient&gt;</span><br><span class="line">    //径向渐变</span><br><span class="line">    &lt;radialGradient id=<span class="string">"bg2"</span> cx=<span class="string">"50%"</span> cy=<span class="string">"50%"</span> r=<span class="string">"50%"</span> fx=<span class="string">"50%"</span> fy=<span class="string">"50%"</span>&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"0%"</span> style=<span class="string">"stop-color:green;"</span>/&gt;</span><br><span class="line">        &lt;stop offset=<span class="string">"100%"</span> style=<span class="string">"stop-color:transparent"</span>/&gt;</span><br><span class="line">    &lt;/radialGradient&gt;</span><br><span class="line">&lt;/defs&gt;&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+<p>滤镜：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;</span><br><span class="line">    //高斯滤镜</span><br><span class="line">    &lt;filter id=<span class="string">"Gaussian_Blur"</span>&gt;</span><br><span class="line">        &lt;feGaussianBlur <span class="keyword">in</span>=<span class="string">"SourceGraphic"</span> stdDeviation=<span class="string">"20"</span>/&gt;</span><br><span class="line">    &lt;/filter&gt;</span><br><span class="line">&lt;/defs&gt;</span><br></pre></td></tr></table></figure>
+<p>其他滤镜：<a href="https://www.w3school.com.cn/svg/svg_filters_intro.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/svg/svg_filters_intro.asp</a><br>SVG在线编辑器：<a href="https://c.runoob.com/more/svgeditor/" target="_blank" rel="noopener">https://c.runoob.com/more/svgeditor/</a></p>
+<p>ViewBox:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg viewBox=<span class="string">"0,0,40,30"</span>&gt;&lt;/svg&gt; //视图属性</span><br><span class="line">preserveAspectRatio = <span class="string">"xMidYMid meet"</span> //作用的对象都是viewBox</span><br><span class="line">参数1:viewBox在svg中的对齐方式</span><br><span class="line">参数2:meet/slice/none //保持横纵比自适应/保持横纵比,按小比例方向填满视区/不保持横纵比,刚好填满视区</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML5新元素"><a href="#HTML5新元素" class="headerlink" title="HTML5新元素"></a>HTML5新元素</h2><p>HTML5结构元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;: 整个页面的头部,某块区域的标题，页眉;</span><br><span class="line">&lt;footer&gt;: 文档或者某块的底部、页脚;</span><br><span class="line">&lt;main&gt;: 主要的内容区域;</span><br><span class="line">&lt;nav&gt;: 导航的连接部分;</span><br><span class="line">&lt;section&gt;: 页面中一个内容区域;</span><br><span class="line">&lt;article&gt;: 一个独立的、完整的相关内容块;</span><br><span class="line">&lt;aside&gt;: 表示一个页面的一部分，它的内容跟这个页面的其他内容关联性不强，或没有关联，单独存在;</span><br><span class="line">&lt;figure&gt;: 规定独立的流内容(图像、图表、照片、代码等等);</span><br></pre></td></tr></table></figure>
+
+<p>HTML5功能元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">video: 视频;</span><br><span class="line">audio: 音频;</span><br><span class="line"><span class="built_in">source</span>: 资源; //可以在音频或视频中加入多个,这样如果上面的<span class="built_in">source</span>无法运行就会自动变成下一个<span class="built_in">source</span></span><br><span class="line">figcaption: 定义figure元素的标题;</span><br><span class="line">canvas: 画布;</span><br><span class="line">progress: 进度条;</span><br></pre></td></tr></table></figure>
+
+<p>HTML5表单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">新元素：</span><br><span class="line">radio: 单选圆点;</span><br><span class="line">checkbox: 复选框;</span><br><span class="line">text: 文本框;</span><br><span class="line">password: 密码框;</span><br><span class="line">file: 上传文件; //一次只能上传一个文件</span><br><span class="line">tel: 电话; //触屏设备会直接跳出数字键盘,精准检测需要正则表达式</span><br><span class="line">range: 可拖拽条;</span><br><span class="line">number: 输入数字; //触屏设备会直接跳出数字键盘</span><br><span class="line">email: 输入邮箱; //简单的检测,精准检测还需要正则表达式</span><br><span class="line">date: 日期;</span><br><span class="line">month: 月份;</span><br><span class="line">week: 周;</span><br><span class="line">time: 时间;</span><br><span class="line">datetime-local: 日期和时间; //网页版选择不方便</span><br><span class="line">color: 选择颜色;</span><br></pre></td></tr></table></figure>
+<p>新属性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">multiple: file元素可以上传多个文件;</span><br><span class="line">placeholder: 输入框提示;</span><br><span class="line">pattern: 验证input类型输入框中内容是否与正则匹配;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性"></a>HTML5新特性</h2><p>新特性：<br>避免不必要的复杂；(doctype等)<br>支持已有的写法；<br>解决实际问题；(语义化的标签，nav等)<br>优雅降级；(浏览器不支持新写法会回到原来的写法，兼容性高)<br>用户优先；(用户&gt;开发者&gt;浏览器厂商&gt;标准制定者&gt;理论上的完美)   </p>
+<h2 id="Geolocation地理位置信息"><a href="#Geolocation地理位置信息" class="headerlink" title="Geolocation地理位置信息"></a>Geolocation地理位置信息</h2><p>Geolocation API：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">window.navigator.geolocation //对象返回经纬坐标等元数据信息</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">获取当前地理位置：</span><br><span class="line">``` bash</span><br><span class="line">navigator.geolocation.getCurrentPosition(suc,err,obj);</span><br><span class="line">//suc:成功回调，有参数option对象</span><br><span class="line">//err:失败回调，有参数error对象</span><br><span class="line">//obj:可选参数</span><br><span class="line">``` </span><br><span class="line">option对象属性：</span><br><span class="line">``` bash</span><br><span class="line">accuracy: 经纬度的精度;</span><br><span class="line">altitude: 海拔; //电脑一般获取不到，返回0/null(跟浏览器有关)</span><br><span class="line">altitudeAccuracy: 海拔精准度; //电脑一般获取不到，返回0/null</span><br><span class="line">heading: 设备前进的方向; //电脑一般获取不到，返回0/null</span><br><span class="line">latitude: 纬度</span><br><span class="line">longitude: 精度</span><br><span class="line">speed: 设备前进的速度 //电脑一般获取不到，返回0/null</span><br><span class="line">timestamp: 获取地理位置信息的时间; //1970/01/01至今的毫秒数</span><br><span class="line">``` </span><br><span class="line">error对象属性：</span><br><span class="line">``` bash</span><br><span class="line">code属性参数: 1/2/3;</span><br><span class="line">//用户拒绝了位置服务/获取不到位置信息/获取信息超时</span><br><span class="line">message属性: 错误信息描述字符串;</span><br><span class="line">``` </span><br><span class="line">obj对象：</span><br><span class="line">``` bash</span><br><span class="line">enableHighAccuracy: <span class="literal">true</span>/<span class="literal">false</span>; //是否要求高精准度位置信息</span><br><span class="line">timeout:1000; //超时限制</span><br><span class="line">maximumAge:1000; //缓存有效时间，若为0则无条件重置获取位置信息</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">监视位置信息：</span><br><span class="line">``` bash</span><br><span class="line">id = navigator.geolocation.watchPosition(suc,err，obj);</span><br><span class="line">//持续定期的自动获取用户当前地理位置信息，并同计时器一样有个位置标时</span><br><span class="line">navigator.geolocation.clearwatch(id);</span><br><span class="line">//停止获取位置信息</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## FillReader文件操作</span></span><br><span class="line">file表示file控件内的每一个被选择的文件对象；</span><br><span class="line">fileList为这些file对象的列表；</span><br><span class="line"></span><br><span class="line">fileReader对象：</span><br><span class="line">``` bash</span><br><span class="line">//负责把文件读入内存,并读取文件中的数据</span><br><span class="line">var reader = new FileReader(); </span><br><span class="line">reader.readAsText(file); //讲文件中的数据读取为文本数据</span><br><span class="line">reader.readAsBinaryString(file); //读取为二进制字符串</span><br><span class="line">reader.readAsDataURL(file); //读取为DataURL字符串</span><br><span class="line">reader.readAsArrayBuffer(file); //读取为一个ArrayBuffer对象</span><br><span class="line">reader.abort(); //中断读取操作</span><br></pre></td></tr></table></figure>
+<p>fileReader读取事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reader.onabort = fun; //数据读取中断时触发</span><br><span class="line">reader.onprogress= fun; //数据读取中触发</span><br><span class="line">reader.onerror= fun; //数据读取出错时触发</span><br><span class="line">reader.onload= fun; //数据读取成功完成时触发</span><br><span class="line">reader.onloadstart= fun; //数据开始读取时触发</span><br><span class="line">reader.onloadend= fun; //数据读取完成时触发，无论成功与否;</span><br></pre></td></tr></table></figure>
+
+<p>Blob对象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fileReader对象是继承Blob对象的；</span><br><span class="line">Blob对象是可以裁剪的(数据分段上传原理)</span><br><span class="line">.slice(); //可以进行裁剪的方法</span><br></pre></td></tr></table></figure>
+
+<p>获取drop中的file对象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e.dataTransfer.files //能获取在e中的file对象</span><br><span class="line">//获取drop中拖拽上传的file对象</span><br></pre></td></tr></table></figure>
+
+<h2 id="Drag和Drop拖放"><a href="#Drag和Drop拖放" class="headerlink" title="Drag和Drop拖放"></a>Drag和Drop拖放</h2><p>HTML：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draggable=<span class="string">"true"</span> //使标签元素变成可拖拽元素</span><br></pre></td></tr></table></figure>
+
+<p>拖放API：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">被拖拽元素.dragstart = fun; //开始被拖拽时触发</span><br><span class="line">被拖拽元素.drag = fun; //在拖拽的过程中触发</span><br><span class="line">被拖拽元素.dragend = fun; //在拖拽完成时触发</span><br><span class="line">目标元素.dragenter = fun; //拖放元素进入目标元素时触发</span><br><span class="line">目标元素.dragover = fun; //拖放元素在目标元素上时触发</span><br><span class="line">目标元素.dragleave = fun; //拖放元素在目标元素上离开时触发</span><br><span class="line">目标元素.drop = fun; //被拖放元素在目标元素上同时鼠标放开时触发</span><br><span class="line">//注:需要阻止dragover的默认行为才会触发drop事件</span><br><span class="line">e.preventDefault(); //阻止默认行为</span><br><span class="line">``` </span><br><span class="line">DataTransfer对象：</span><br><span class="line">``` bash</span><br><span class="line">var dt = e.DataTransfer; //创建DataTransfer对象;</span><br><span class="line">dt.setDate(<span class="string">'id'</span>,元素.id); //向DataTransfer对象中存放数据</span><br><span class="line">dt.getDate(<span class="string">'id'</span>); //向DataTransfer对象中读取数据</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## DOCTYPE</span></span><br><span class="line">怪异模式：</span><br><span class="line">``` bash</span><br><span class="line">&lt;!DOCTYPE html&gt; -&gt; 标准模式</span><br><span class="line">怪异模式下会根据浏览器的类型进行解析 (ie6之前)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">检测网页是标准模式还是怪异模式：</span><br><span class="line">``` bash</span><br><span class="line">document.compatMode(); </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## Canvas画布</span></span><br><span class="line">应用场景：游戏，大量数据表图，动画；</span><br><span class="line"></span><br><span class="line">canvas标签：</span><br><span class="line">``` bash</span><br><span class="line">&lt;canvas width=<span class="string">"400"</span> height=<span class="string">"400"</span> id=<span class="string">"myCanvas"</span>&gt;&lt;/canvas&gt;</span><br><span class="line">其中的width,height不是绝对单位，而是相对的;</span><br></pre></td></tr></table></figure>
+
+<p>获取Canvas：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myCanvas = document.getElementById(<span class="string">'myCanvas'</span>);</span><br><span class="line">var ctx = myCanvas.getContext(<span class="string">'2d'</span>); //获取Canvas方法</span><br></pre></td></tr></table></figure>
+
+<p>直线：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.moveTo(x,y); //画笔挪到(x,y)点</span><br><span class="line">.lineTo(x,y); //画笔划线划到(x,y)点</span><br></pre></td></tr></table></figure>
+
+<p>样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.strike(); //描边画渲染</span><br><span class="line">.fill(); //填充画渲染</span><br><span class="line">.closePath(); //闭合路径</span><br><span class="line">.strokeStyle = <span class="string">'red'</span>; //线的颜色</span><br><span class="line">.fillStyle = <span class="string">'red'</span>; //填充的颜色</span><br><span class="line">.lineWidth = 20; //线宽</span><br><span class="line">.lineCap = <span class="string">'butt/square/round'</span>; //线两头样式</span><br><span class="line">//square多出来的部分长度是线宽的一半</span><br><span class="line">.lineJoin = <span class="string">'miter/round/bevel'</span>; //两线拐角处样式</span><br></pre></td></tr></table></figure>
+
+
+<p>新开路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.beginPath(); //fill和stroke方法都是作用在当前所有子路径</span><br><span class="line">//若想开辟新路径，在绘制之前使用beginPath();</span><br></pre></td></tr></table></figure>
+
+<p>矩形：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.rect(x,y,w,h);// 起始点(x,y)、w宽度、h高度</span><br><span class="line">.strokeRect(x,y,w,h); //描边绘制的矩形</span><br><span class="line">.fillRect(x,y,w,h); //填充绘制的矩形</span><br><span class="line">//strokeRect,fillRect自带新开路径，不需要而外新开</span><br></pre></td></tr></table></figure>
+
+<p>圆形：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.Arc(x,y,r,sAngle,eAngle,<span class="literal">false</span>/<span class="literal">true</span>);</span><br><span class="line">//起始点(x,y)</span><br><span class="line">//半径r</span><br><span class="line">//sAngle,eAngle(弧长)</span><br><span class="line">//<span class="literal">false</span>顺时针绘制、<span class="literal">true</span>逆时针绘制</span><br></pre></td></tr></table></figure>
+
+<p>曲线：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.arcTo(x1,y1,x2,y2,r);</span><br><span class="line">//弧线尾部到x2,y2的部分会去掉</span><br></pre></td></tr></table></figure>
+
+
+<p>二次方、三次方曲线方程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.quadraticCurveTo(cpx,cpy,x,y);</span><br><span class="line">.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</span><br><span class="line">//具体了解贝塞尔曲线</span><br></pre></td></tr></table></figure>
+
+<p>渐变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bg</span> = .createLinearGradient(x1,y1,x2,y2); //线性渐变</span><br><span class="line"><span class="built_in">bg</span> = .createRadialGradient(x1,y1,r1,x2,y2,r2); //径向渐变</span><br><span class="line">bg.addColorStop([0-1],color); //设置渐变颜色,0起点、1终点</span><br><span class="line">//渐变起始点(x1,y1),终点(x2,y2)</span><br><span class="line">//r1渐变起始点内半径,渐变起始点至终点半径</span><br></pre></td></tr></table></figure>
+
+<p>绘制图案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.createPattern(素材,<span class="string">'repeat/repeat-x/repeaty/no-repeat'</span>);</span><br><span class="line">//素材:图片、画布、视频元素 (注意:资源加载完才能设置)</span><br></pre></td></tr></table></figure>
+
+<p>操作图形：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.translate(dx,dy); //平移画布的(0,0)位置</span><br><span class="line">.scale(sx,sy); //缩放当前绘图</span><br><span class="line">.rotate(Math.PI); //画布的(0,0)为圆心旋转(Math.PI)</span><br><span class="line">//注:上面的操作都会改变整个画布,之后绘制的图形也会受影响</span><br><span class="line"></span><br><span class="line">.save(); //保存当前图像到栈中</span><br><span class="line">.restore(); //从栈中弹出储存的图像状态并恢复</span><br><span class="line">//可以解除平移,缩放,旋转导致的画布变化</span><br><span class="line"></span><br><span class="line">.setTransform(水平缩放,水平倾斜,垂直倾斜,垂直缩放,水平移动,垂直移动);</span><br><span class="line">//变化矩阵,先重置之前的画布再变化</span><br><span class="line">.transform(水平缩放,水平倾斜,垂直倾斜,垂直缩放,水平移动,垂直移动);</span><br><span class="line">//在之前画布变化的基础上变化</span><br><span class="line"></span><br><span class="line">.clearRect(x,y,dx,dy); //擦除当前区域,(dx,dy)擦除区域大小</span><br><span class="line">.globalCompositeOperation = <span class="string">'组合图形样式代码'</span>; //组合图形</span><br></pre></td></tr></table></figure>
+<p>组合图形样式代码：</p>
+<p>绘制图像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//在画布上定位图像</span><br><span class="line">.drawImarg(image,sx,sy,swidth,sheight,x,y,width,height);</span><br><span class="line">//图像源,裁剪起点x轴坐标,裁剪起点y轴坐标,裁剪宽度,裁剪高度</span><br><span class="line">//图像起点x轴坐标，图像起点y轴坐标，图像显示宽度,图像显示高度</span><br><span class="line">//image,x，y必需</span><br><span class="line">.getImageData(x,y,dx,dy); //同源策略</span><br><span class="line">.createImageData(w,h); //创建新的空白imageData对象</span><br><span class="line">.putImageData(imgData,x,y);将图像数据放回画布上</span><br></pre></td></tr></table></figure>
+
+
+<p>抽取Canvas为图片：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">canvas.toDataURL(); //将canvas的内容抽成一张图片</span><br><span class="line">//base64编码格式;将canvas的内容放入img元素里</span><br><span class="line">//注:同源策略的限制，要开启服务器，在www目录下打开</span><br></pre></td></tr></table></figure>
+
+<p>模糊问题：</p>
+<p>解决方案：canvas的相对width和height设定成本身宽高的两倍;</p>
+<h2 id="Canvas、SVG对比"><a href="#Canvas、SVG对比" class="headerlink" title="Canvas、SVG对比"></a>Canvas、SVG对比</h2><p>Canvas性能高一些，应用领域比SVG更广泛些；</p>
+<h2 id="Audio、Video"><a href="#Audio、Video" class="headerlink" title="Audio、Video"></a>Audio、Video</h2><p>他们的控件属性大体相同，可以动态创建视音频；</p>
+<p>控件属性：</p>
+<pre><code class="bash">controls //网页显示默认控件
+poster = <span class="string">"图片路径"</span> //Video的独有控件，能改变视频在网页中显示的封面
+muted //静音
+autoplay //自动播放,需要配合静音使用,对音频无效
+loop //循环播放
+preload: none/metadata/auto; //是否预加载
+    不进行预加载/部分预加载(一般都使用这个)/全部预加载</code></pre>
+<p>判断浏览器支持情况：</p>
+<pre><code class="bash">.canplayType() //返回probably或maybe，返回空不支持;</code></pre>
+<p>媒体事件：</p>
+<pre><code class="bash">.onplay: 媒体开始播放时触发;
+.onpause: 媒体暂停时触发;
+.onended: 媒体播放结束时触发;
+.oncanplay: 浏览器能够开始播放媒体数据,但不确定以当前速率能否顺利播放完媒体;
+//已经获得媒体数据，但还不知道每一帧的数据
+.ondurationchange: 媒体的duration发生变化时触发;
+//缺点如果资源在本地,加载速度很快的情况下,可能不会触发。线上使用没问题; </code></pre>
+<p>属性：</p>
+<pre><code class="bash">.currentSrc //返回资源链接(需要媒体数据加载完成后才能获取到)
+.duration //媒体总时长(需要媒体数据加载完成后才能获取到)
+.currentTime //返回或设置资源当前时间
+.volume //音量[0-1],可读可写
+.playbackRate //读取或设置媒体资源的播放速率（大于1快放，小于1慢放，无倒放）
+.paused/.ended/.seeking //查询媒体播放状态，返回<span class="literal">true</span>/<span class="literal">false</span>
+    是否暂停/是否结束/是否在请求修改某一播放位置
+.played/.buffered/.seekable //返回一个TimeRanges对象
+    标明已播放的时间范围/确定已缓存媒体文件/可以对当前媒体资源进行请求
+    TimeRanges对象的length属性为部分时间段，end(i)返回已播放时间段的结束时间,start(i)返回已播放时间段的开始时间</code></pre>
+<p>方法：</p>
+<pre><code class="bash">.play() //播放
+.pause() //暂停
+.load() //重置媒体元素并重新载入媒体，可以终止正在进行的任务或事件
+//可以用在上一曲下一曲上</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/es6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/22/es6/" itemprop="url">es6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T18:33:15+08:00">
+                2019-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">箭头函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/%E7%B1%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">类</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/promise/" itemprop="url" rel="index">
+                    <span itemprop="name">promise</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/%E6%A8%A1%E5%9D%97%E5%8C%96/" itemprop="url" rel="index">
+                    <span itemprop="name">模块化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>JS 基于原型：连接；<br>JAVA 基于类：复制；</p>
+<p>ES6类本质上还是基于原型的伪类，只是封装起来更好写了，更好的面向对象编程；</p>
+<p>ES6定义类：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class ClassName1 &#123;</span><br><span class="line">    constructor(arg)&#123;</span><br><span class="line">        this.arg = arg</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">Fun1</span></span>()&#123;&#125; //定义原型上的方法</span><br><span class="line">    static <span class="function"><span class="title">Fun2</span></span>()&#123;&#125; //定义静态方法</span><br><span class="line">    <span class="built_in">set</span> Fun3(value)&#123;&#125; //自定义一个获取的值</span><br><span class="line">    get <span class="function"><span class="title">Fun3</span></span>()&#123;&#125; //自定义一个得到的值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：<br>类声明不会被提升；<br>类声明中的代码都会自动运行在严格模式下；(不好的语法不能使用)<br>调用类必须使用new<br>类中所有的方法都是不可枚举的<br>类中的方法不能用new调用的<br>在类的方法中重写类名报错</p>
+<p>继承：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//创建ClassName2并继承ClassName1的参数和原型方法</span><br><span class="line">class ClassName2 extends ClassName1&#123;</span><br><span class="line">    constructor(arg)&#123;</span><br><span class="line">        super(arg); </span><br><span class="line">        //使用super将arg参数传回ClassName1的constructor</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：<br>静态方法也会继承；<br>继承内置构造函数；</p>
+<h2 id="迭代器-amp-生成器"><a href="#迭代器-amp-生成器" class="headerlink" title="迭代器&amp;生成器"></a>迭代器&amp;生成器</h2><p>传统循环缺陷：<br>for循环：理解比较困难，无法很好的管理变量 i ；<br>forEach/map: 无法使用 break 结束循环；<br>for in：理解比较困难，能遍历出不是当前索引的属性；</p>
+<p>解决方法 迭代器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr= arrs[Symbol.iterator](); //调用迭代器</span><br><span class="line">arr.next(); //依次返回相关对象</span><br><span class="line">//没有循环完: &#123;value: 值,<span class="keyword">done</span>: <span class="literal">false</span>&#125;</span><br><span class="line">//循环结束: &#123;value: undefined,<span class="keyword">done</span>: <span class="literal">true</span>&#125;</span><br><span class="line">//注: 对象没有内置迭代器,</span><br></pre></td></tr></table></figure>
+<p>迭代器使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">let</span> value of values); </span><br><span class="line">//遍历出每个values中的值,能使用<span class="built_in">break</span>结束循环;</span><br><span class="line">arr.keys()/values()/entries(); //最好配合<span class="keyword">for</span> of使用</span><br><span class="line">//数组循环方法,返回一个带(所有数组索引/所有的值/所有索引值对)的迭代器对象</span><br><span class="line">//解构赋值，...运算符:扩展运算符</span><br><span class="line">//以上所有方法都是基于迭代器实现的</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">生成器 Generator：</span><br><span class="line">``` bash</span><br><span class="line"><span class="keyword">function</span>* <span class="function"><span class="title">fn</span></span>()&#123;</span><br><span class="line">    yield X;</span><br><span class="line">    yield Y;</span><br><span class="line">    yield Z;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">可以把函数变成类似迭代器，可以使用迭代器上的方法；</span><br><span class="line">每次都会执行并返回yield之前的语句，然后暂停，下次调用从暂停位置执行到下个yield之前；</span><br><span class="line">对象加入迭代器：</span><br><span class="line">``` bash</span><br><span class="line">obj[Symbol.iterator] = <span class="keyword">function</span>*()&#123;</span><br><span class="line">    yield XXX;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">注：<span class="keyword">for</span> of 循环不会返回<span class="built_in">return</span>之后的语句</span><br><span class="line"></span><br><span class="line"><span class="comment">## 模块化</span></span><br><span class="line">导出：</span><br><span class="line">``` bash</span><br><span class="line">exprot &#123;obj as XXX,a,b,c&#125;; //导出obj并重命名为XXX,a,b,c</span><br><span class="line">exprot default <span class="keyword">function</span> <span class="function"><span class="title">XXX</span></span>()&#123;&#125;; //默认导出</span><br><span class="line">``` </span><br><span class="line">导入：</span><br><span class="line">``` bash</span><br><span class="line">&lt;script <span class="built_in">type</span> = <span class="string">"module"</span>&gt;</span><br><span class="line">    import &#123;XXX as obj,a,b,c&#125; from <span class="string">'./XXX.js'</span>;</span><br><span class="line">    //导入XXX并重名为obj,a,b,c</span><br><span class="line">    import * as XXX from <span class="string">'./XXX.js'</span>; </span><br><span class="line">    //导入全部的导出为 XXX对象</span><br><span class="line">    import XXX from <span class="string">'./XXX.js'</span>; </span><br><span class="line">    //导入默认导出,并命名为XXX</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## 箭头函数</span></span><br><span class="line">箭头函数： ( ) =&gt; &#123; &#125;</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">形参如果只有一个的话，小括号可以省略；</span><br><span class="line">形参如果只有0个或者2个及以上，小括号必须有；</span><br><span class="line">逻辑语句只有一条的话，可以省略大括号。如果这条语句是<span class="built_in">return</span>语句的话，<span class="built_in">return</span>也要省略掉</span><br><span class="line">逻辑语句两条及以上的话，不可以省略大括号。</span><br><span class="line">箭头函数不能使用arguments</span><br><span class="line">箭头函数不能被当做构造函数</span><br><span class="line"></span><br><span class="line">this指向：</span><br><span class="line">自己执行的时候this指向：this指向自己；</span><br><span class="line">隐式this指向：谁最后调用就指向谁；</span><br><span class="line">显示this指向(call,apple)：显示绑定在谁上就指向谁；</span><br><span class="line">new 时this指向：绑定到生成的新对象上；</span><br><span class="line">箭头函数时this指向：只会绑定到外层(函数或者全局)父级的作用域，前面四种的绑定规则不会生效；</span><br><span class="line"></span><br><span class="line"><span class="comment">## 异步编程</span></span><br><span class="line">同步编程：</span><br><span class="line">问题：不合理的模式，会阻塞代码的执行；</span><br><span class="line">好处：代码非常容易理解；</span><br><span class="line"></span><br><span class="line">异步编程：</span><br><span class="line">问题：控制反转，代码没有同步好理解；</span><br><span class="line">好处：和浏览器交互，能调用浏览器许多强大的API；</span><br><span class="line"></span><br><span class="line">Promise：</span><br><span class="line">问题：大多数人不能很好的理解pormise，没有很好的解决异步流程；</span><br><span class="line">好处：解决了控制反转问题</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">let</span> futureData = new pormise(()=&gt;&#123;</span><br><span class="line">    //XMLHttpRequest</span><br><span class="line">&#125;)</span><br><span class="line">第一次调用会返回一个对象:&#123;</span><br><span class="line">    value: undefined, </span><br><span class="line">    state: <span class="string">'pending'</span>, //状态码</span><br><span class="line">    onFuifulled: [], //成功时调用里面所有的函数</span><br><span class="line">    onrejected: [] //失败时调用里面所有的函数</span><br><span class="line">&#125;</span><br><span class="line">futureData.then(Fun); //将Fun函数传入onFuifull;</span><br><span class="line">// 当value改变 state里的值会变成<span class="string">'resolved'</span></span><br><span class="line">并会将value当做参数,执行onFuifulled里的所有函数</span><br></pre></td></tr></table></figure>
+
+<p>Generator + Promise:<br>问题：需要自己写执行器；<br>好处：用同步的流程写异步，解决了控制反转问题；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Generator + Promise问题解决：</span><br><span class="line">async <span class="keyword">function</span> <span class="function"><span class="title">createFlow</span></span>()&#123;</span><br><span class="line">    const data = await new Promise();</span><br><span class="line">&#125;</span><br><span class="line">//ES2017加入了async await可以帮我们封装好了方法</span><br><span class="line">//它在请求成功后会再一次进入async函数中,</span><br><span class="line">//回到上次await暂停的位置将返回值传入并再次执行下去,不需要我们手动调用了</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>注意看看ES5中的数组方法，ES5中有很多实用方法，与ES6方法结合使用；</p>
+<p>创建数组：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Array.of(num); //创建一个具有单个元素num的数组</span><br><span class="line">Array.from(arrayLike,Fun); </span><br><span class="line">//从一个类似数组或可迭代对象arrayLike创建一个新的，浅拷贝数组</span><br><span class="line">//Fun: 可选,数组中每个元素都会执行的回调函数</span><br></pre></td></tr></table></figure>
+<p>数组方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.find/findindex(<span class="keyword">function</span>(item,index,arr)&#123;&#125;);</span><br><span class="line">//给每个元素都执行一次<span class="keyword">function</span>,返回第一个带<span class="literal">true</span>的元素,否则返回undefined</span><br><span class="line">.fill(str,start,end);</span><br><span class="line">//给数组里从(start,end)的元素变成str,</span><br><span class="line">.copyWithin(num,start,end);</span><br><span class="line">//复制数组的元素,从num开始,复制的区域(start,end);</span><br><span class="line">.some(Fun(arg)&#123;&#125;); //如果数组里有一个数符合回调函数的比较式就返回<span class="literal">true</span></span><br><span class="line">.some(Fun(arg)&#123;&#125;); //如果数组里全部的数符合回调函数的比较式就返回<span class="literal">true</span></span><br><span class="line">.includes(num)； //查看数组里有没有等于num的值,有则返回<span class="literal">true</span></span><br><span class="line">//注: 可以判断NaN,但无法区分+0、-0</span><br></pre></td></tr></table></figure>
+
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>十六进制：0x10；<br>八进制：0o10；<br>二进制：0b100；</p>
+<p>Number属性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Number.isNaN(<span class="string">'111'</span>);//-&gt; es6不会再将字符串隐式装换了</span><br><span class="line">Number.isFinite(<span class="string">'111'</span>);//判断参数是否是有效数字,es6不会再将字符串隐式装换了</span><br><span class="line">Number.parseInt();</span><br><span class="line">Number.parseFloat();</span><br><span class="line"><span class="built_in">let</span> isEpsilon=(a,b)=&gt;Math.abs(a-b)&lt;Number.EPSILON?<span class="literal">true</span>:<span class="literal">false</span>;  </span><br><span class="line">//判断是否在合理的误差范围内</span><br><span class="line">Number.isInteger(num); //判断是否为整数</span><br><span class="line">Math.pow(2,53); //最大有效数字 + -;</span><br><span class="line">Number.isSafeInteger(num); //判断是否在有效数字内</span><br><span class="line">Math.sign(num); //判断是否是正数、负数、NaN、0</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>ES6对象定义：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj = &#123;</span><br><span class="line">    <span class="function"><span class="title">show</span></span>()&#123;表达式&#125;,</span><br><span class="line">    ect: () =&gt; &#123;表达式&#125;，</span><br><span class="line">&#125;</span><br><span class="line">//两种方法都可以定义对象，不过要注意两种方法的this指向时不同的</span><br><span class="line">//第一种只是<span class="keyword">function</span>的简写，所以this指向和<span class="keyword">function</span>一样</span><br></pre></td></tr></table></figure>
+
+<p>用 [属性名] 方式可以直接调用属性对应的参数来当做对象名，也可以在里面写表达式运算；</p>
+<p>方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Obejct.is(a,b); //比较两个参数是否全等</span><br><span class="line">//与===相比: is()可以判断两个NaN、-0 +0的区别</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(obj,obj1); //把obj1的值复制到obj的原型中去</span><br><span class="line">//与Object.create()相比: 可以多次调用</span><br><span class="line">//__proto__不在ES的标准内,尽量不要调用;</span><br><span class="line">Object.getPrototypeOf(obj); //查看对象的全部原型属性</span><br><span class="line"></span><br><span class="line">Object.assign(目标对象，...源对象); //把全部的源对象都复制到目标对象中去</span><br><span class="line">//注:1.只复制源对象的属性,源对象原型属性不会复制</span><br><span class="line">//2.属性可遍历的才会被复制</span><br><span class="line">//3.复制对象是按顺序一个个复制的,同名属性会被后面的覆盖</span><br><span class="line">//4.浅拷贝</span><br><span class="line"></span><br><span class="line">Object.keys(obj); //取出obj所有键名,es6</span><br><span class="line">Object.values(obj);  //取出obj所有键值,es7(2018)</span><br><span class="line">Object.entries(obj); //取出obj所有键值对,es7(2018)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>模版字符串：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> str  =  ``; //可以自由换行不需要加换行符</span><br><span class="line"><span class="variable">$&#123;&#125;</span> //可以直接在``中插入，里面可以写常规表达式,变量等;</span><br></pre></td></tr></table></figure>
+
+<p>拓展方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.startsWith(search,start); //目标字符串是不是以search开头</span><br><span class="line">//start: 可选，从第几位开始查找(默认第0位开始)</span><br><span class="line">.endssWith(search,start); //目标字符串是不是以search结尾</span><br><span class="line">//start: 可选，第几位为结尾,不包括第start位</span><br><span class="line">.includes(search,start); //目标字符串里面有没有search</span><br><span class="line">//start: 可选，从第几位开始查找</span><br><span class="line">.repeat(n); //将字符串重复n次;</span><br></pre></td></tr></table></figure>
+
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>块级作用域就是指 { } 中的东西；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span>: 不能变量声明提升,不能重复声明变量;</span><br><span class="line">const: 定义的时候要有初始化值,初始化值不能改变(绑定不能改变);</span><br><span class="line">//const不能改变栈指向的位置, 但可以改变堆的内容(数组、对象)</span><br></pre></td></tr></table></figure>
+
+<p>暂时性死区(TDZ)：<br>只要块级作用域内存在let命令，它所声明的变量就“绑定”(binding)这个区域，不再受外部的影响。在块级作用域内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”，简称TDZ;<br>本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量；</p>
+<h2 id="参数的处理"><a href="#参数的处理" class="headerlink" title="参数的处理"></a>参数的处理</h2><p>参数默认值：<br>惰性求值：在默认值里使用函数，只会当默认赋值触发时才会触发函数；<br>在默认值中使用其他变量要注意先后顺序，其他变量必需先赋值才能被引用；<br>默认值介于外部作用域和内部作用域之间，不包括内部作用域，所以会引用外部的变量；</p>
+<p>剩余运算符：<br>把散列的元素变成一个集合；<br>只能写在最后一位，把剩下的元素变成一个集合；</p>
+<p>扩展运算符：<br>把一个集合变成散列的元素；</p>
+<p>模拟命名参数：<br>使用解构赋值特性来达到模拟命名；</p>
+<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>Babel 是一个 JavaScript 编译器：<br>Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。</p>
+<p>使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://unpkg.com/@babel/standalone/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -270,6 +1009,61 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/flex%E5%B8%83%E5%B1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">flex布局</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">响应式布局</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/%E5%8A%A8%E7%94%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">动画</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -299,7 +1093,169 @@
       
         
           
-            
+            <h2 id="链接状态"><a href="#链接状态" class="headerlink" title="链接状态"></a>链接状态</h2><p>(love and hate)<br>a:Link 初始状态；<br>a:visiter 被访问；<br>a:hover 鼠标移动上去；<br>a:active 被点击时；</p>
+<p>a标签里面不能在嵌套a标签；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"#"</span>&gt;&lt;/a&gt; //<span class="comment">#锚点功能 能直接掉到对应的ID所处位置</span></span><br><span class="line">&lt;a href=<span class="string">"JavaScript:;"</span>&gt;&lt;/a&gt; //不做其他反应</span><br></pre></td></tr></table></figure>
+
+<h2 id="移动端布局"><a href="#移动端布局" class="headerlink" title="移动端布局"></a>移动端布局</h2><p>物理像素：设备像素，显示设备最小的物理单位；<br>逻辑像素：一个可以由程序使用的虚拟像素(如css像素)，然后由相关设备装换成物理像素；<br>设备像素比(dpr) = 物理像素/逻辑像素；<br>dpr = 3情况下 initial-scale = 0.3那么1逻辑像素 = 1物理像素；</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>list-style-type:none:不使用项目符号<br>disc:实心圆<br>circle: 空心圆<br>square:实心方块</p>
+<p>ol(有序排列):<br>demical:阿拉伯数字<br>lower-alpha:小写英文字母<br>upper-alpha:大写英文字母<br>lower - roman:小写罗马数字<br>upper-roman:大写罗马数字</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>标准盒模型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width和height = content；</span><br></pre></td></tr></table></figure>
+<p>IE6混杂模式盒子模型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width和height = border+padding+content;</span><br></pre></td></tr></table></figure>
+
+<p>背景不包括外边框和边框；<br>margin border padding content<br>float（浮动，块级元素同一行显示）</p>
+<p>before，after让他显示出来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display：block；</span><br><span class="line">content：<span class="string">""</span>;</span><br></pre></td></tr></table></figure>
+
+<p>伪元素 清理浮动和margin：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.class::before，.class::afrer&#123;</span><br><span class="line">    content:<span class="string">""</span>;</span><br><span class="line">    display:table;</span><br><span class="line">&#125;</span><br><span class="line">.class::afrer&#123;</span><br><span class="line">    clear:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义显示方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-sizing:border-box; //IE6混杂盒模型</span><br><span class="line">box-sizing:content-box; //标准盒模型</span><br></pre></td></tr></table></figure>
+
+<p>盒子大小可以拖拽：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">resize:nont/horizontal/vertical/both; //默认固定/水平可拖拽/垂直可拖拽/全都可拖拽</span><br><span class="line">overflow:auto; //结合使用</span><br></pre></td></tr></table></figure>
+
+<p>垂直方向的margin父元素和子元素共用较大的一个，margin塌陷：<br>弥补方法:改变父级的渲染规则BFC(Block Format Context)，父元素和子元素垂直方向的margin就会分离；<br>BFC(针对性使用，哪个没影响用哪个):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">position:absolute;</span><br><span class="line">display:inline-block;</span><br><span class="line"><span class="built_in">float</span>:left/right;</span><br><span class="line">overflow:hidden;</span><br></pre></td></tr></table></figure>
+
+<h2 id="transition过渡动画"><a href="#transition过渡动画" class="headerlink" title="transition过渡动画"></a>transition过渡动画</h2><p>过渡动画：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">transition:property duration timing-function delay;</span><br><span class="line">transition-property:规定设置过渡效果的css名称(all:全部css元素);</span><br><span class="line">transition-duration:规定完成过渡效果需要多少秒或毫秒;</span><br><span class="line">transition-timing-function:规定速度效果的速度曲线;</span><br><span class="line">transition-delay:定义过渡效果何时开始;</span><br></pre></td></tr></table></figure>
+
+<p>速度曲线(transition-timing-function)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">liner:匀速</span><br><span class="line">ease:慢快慢</span><br><span class="line">ease-in:慢速开始过渡</span><br><span class="line">ease-out:慢速结束的过渡</span><br><span class="line">ease-in-out:慢速开始和结束的过渡</span><br><span class="line">cubic-bezier(n,n,n,n):在cubic-bezier函数中定义自己的值,值的范围0~1</span><br></pre></td></tr></table></figure>
+
+<p>定义多个过渡元素用逗号分隔；</p>
+<p>可以进行过渡的css属性(transition-property)：</p>
+<h2 id="transform形状变换"><a href="#transform形状变换" class="headerlink" title="transform形状变换"></a>transform形状变换</h2><p>一个元素css出现两个transform属性,下面的会覆盖上面的；<br>平移：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform:translate(x,y)/translateX(x)/translateY(y);</span><br></pre></td></tr></table></figure>
+
+<p>缩放：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform:scale(x,y)/scaleX(x)/scaleY(y);</span><br></pre></td></tr></table></figure>
+
+<p>旋转：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform:rotateX()/rotateY()/rotateZ();</span><br><span class="line">/* rotate() = rotateZ() */</span><br></pre></td></tr></table></figure>
+
+<p>倾斜：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform:skew(x,y)/skewX(xdeg)/skewY(ydeg);</span><br></pre></td></tr></table></figure>
+
+<p>设置元素原点位置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">transform-origin:X Y Z; </span><br><span class="line">//默认值:50% 50% 0;</span><br><span class="line">//X轴方向: left/center/right/length/%;</span><br><span class="line">//Y轴方向: top/center/bottom/length/%;</span><br><span class="line">//Z轴方向: length;</span><br></pre></td></tr></table></figure>
+
+<h2 id="text文本"><a href="#text文本" class="headerlink" title="text文本"></a>text文本</h2><p>字体间距：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">letter-spacing:1em;</span><br><span class="line">``` </span><br><span class="line">空格的距离：</span><br><span class="line">``` bash</span><br><span class="line">word-spacing:16px;</span><br><span class="line">``` </span><br><span class="line">书写顺序：</span><br><span class="line">``` bash</span><br><span class="line">direcion:ltr/rtl; //left to right/right to left</span><br><span class="line">``` </span><br><span class="line">模仿&lt;del&gt;标签：</span><br><span class="line">``` bash</span><br><span class="line">text_decoration:none/line-through(中间穿过)/overline(上方穿过)/underline(下面穿过);</span><br><span class="line">``` </span><br><span class="line">对齐方式:</span><br><span class="line">``` bash</span><br><span class="line">text-align:center/left/right/justify; //居中对齐/左对齐/右对齐/两端对齐</span><br><span class="line">``` </span><br><span class="line">文字缩进:</span><br><span class="line">``` bash</span><br><span class="line">text-indent:2rem; //首行缩进两个字符</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">英文大小写字母装换：</span><br><span class="line">``` bash</span><br><span class="line">text-transform:uppercase(全大写)/lowercase(全小写)/capitalize(首字母大写);</span><br><span class="line">``` </span><br><span class="line">换行：</span><br><span class="line">``` bash</span><br><span class="line">word-wrap:<span class="built_in">break</span>-word; //到了边界强制换行</span><br><span class="line">``` </span><br><span class="line">单行打点：</span><br><span class="line">``` bash</span><br><span class="line">white-space：nowrap; //文字不换行,直到碰到&lt;br/&gt;</span><br><span class="line">overflow：hidden;  //多出来的文字不显示</span><br><span class="line">text-overflow:ellipsis； //多出来文字加上省略号</span><br><span class="line">``` </span><br><span class="line">多行打点：</span><br><span class="line">``` bash</span><br><span class="line">-webkit-line-clamp: 2; /*控制几行打点*/</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical; /*子元素被垂直排列*/</span><br><span class="line">overflow: hidden; </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## position层叠定位</span></span><br><span class="line">position:</span><br><span class="line">static(默认文档流：从上到下，从左到右)</span><br><span class="line">fixed(固定定位)</span><br><span class="line">relative(相对定位)</span><br><span class="line">absolute(绝对定位)</span><br><span class="line"></span><br><span class="line"><span class="comment">## img图片</span></span><br><span class="line">垂直对齐：</span><br><span class="line">``` bash</span><br><span class="line">vertical-align：top/center/bottom/100% -&gt; 1em;</span><br></pre></td></tr></table></figure>
+
+<h2 id="font字体"><a href="#font字体" class="headerlink" title="font字体"></a>font字体</h2><p>字体大小：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">16px  //默认字体大小</span><br><span class="line">10em  //是当前元素的父元素的字体大小*10</span><br><span class="line">10rem  //是根元素(html)的字体大小*10</span><br><span class="line">1vw/1vh  //将屏幕视口的宽和高分成100份，其中一份的宽/高</span><br></pre></td></tr></table></figure>
+<p>字体粗细：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-weight:100-900/normal(默认值:400)/lighter(更细)/bold(更粗)；</span><br></pre></td></tr></table></figure>
+<p>斜体:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-style:italic;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font:style weight size/line-height font-family;</span><br></pre></td></tr></table></figure>
+
+<p>自定义字体库(字体先放服务器上)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@font-face&#123;</span><br><span class="line">    font-family:<span class="string">'自定义名称'</span>;</span><br><span class="line">    scr:url(<span class="string">'······.ttf'</span>);/*兼容IE*/</span><br><span class="line">    scr:</span><br><span class="line">        /*多格式兼容全部浏览器*/</span><br><span class="line">        url(<span class="string">'······.eot?iefix'</span>)format(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">        url(<span class="string">'······.woff'</span>)format(<span class="string">'woff'</span>),</span><br><span class="line">        url(<span class="string">'······.ttf'</span>)format(<span class="string">'truetype'</span>),</span><br><span class="line">        url(<span class="string">'······.svg'</span>)format(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 谷歌字体库：<a href="https://fonts.google.com" target="_blank" rel="noopener">https://fonts.google.com</a></p>
+<h2 id="background背景"><a href="#background背景" class="headerlink" title="background背景"></a>background背景</h2><p> 平铺:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-repeat:repeat/repeat-x/repeat-y/no-repeat;</span><br></pre></td></tr></table></figure>
+
+<p>移动:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-position:x y; // 像素/百分比</span><br></pre></td></tr></table></figure>
+
+<p>固定:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">background-attchment:fixed;</span><br><span class="line">background:color image repeat attchment position;</span><br></pre></td></tr></table></figure>
+
+<p>指定绘制背景图像时的起点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-origin:border-box(默认)/padding-box/content-box;</span><br></pre></td></tr></table></figure>
+
+<p>指定背景的显示范围：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-clip:border-box(默认)/padding-box/content-box;</span><br></pre></td></tr></table></figure>
+
+<p>指定背景中图像的尺寸：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background-size:auto/length/percentage/cover/contain;</span><br><span class="line">//cover:用一张图片铺满盒子;</span><br><span class="line">//contain:让盒子保留一张完整背景图片;</span><br></pre></td></tr></table></figure>
+
+<h2 id="animation动画"><a href="#animation动画" class="headerlink" title="animation动画"></a>animation动画</h2><p>animation 默认不会修改属性，动画完成后自动回到原来的属性；<br>form/to -&gt; 0%/100%；</p>
+<p>animation属性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">animation-name: 需要绑定到选择器的keyframe名称;</span><br><span class="line">animation-duration: 完成动画所花费的时间(ms/s);</span><br><span class="line">animation-timing-function: 动画的速度曲线;</span><br><span class="line">animation-delay: 动画开始之前的延迟;</span><br><span class="line">animation-iteration-count: 动画播放的次数;</span><br><span class="line">animation-direction: 是否应该轮流反向播放动画;</span><br><span class="line">animation-fill-mode: 动画在播放之前或之后，其动画效果是否可见;</span><br><span class="line">animation-play-state: 动画运行还是暂停；</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">animation-iteration-count: n/infinite;</span><br><span class="line">/* n次/无数次 */</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">animation-direction: normal/reverse/alternate/alternate-reverse;</span><br><span class="line">默认值，正常播放/反向播放/奇数次正向，偶数次反向/偶数次正向，奇数次反向;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">animation-fill-mode: none/forwards/backwards/both;</span><br><span class="line">默认/</span><br><span class="line">动画完成后保持完成后的效果(最后一个关键帧定义)/</span><br><span class="line">在延迟时间内就应用属性值(第一个关键帧定义,默认不应用)/</span><br><span class="line">向前向后填充模式都被应用</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">animation-play-state:paused/running;</span><br><span class="line">暂停/正常播放  //可以用js设定暂停按钮</span><br></pre></td></tr></table></figure>
+
+<p>animation事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.animationstart = Fun; //动画开始时触发</span><br><span class="line">.animationend = Fun; //动画结束时触发</span><br></pre></td></tr></table></figure>
+
+<h2 id="Media媒体查询"><a href="#Media媒体查询" class="headerlink" title="Media媒体查询"></a>Media媒体查询</h2><p>页面布局：静态布局、流式布局、自适应布局、响应式布局；<br>媒体查询：媒体类型和媒体特性；<br>媒体查询返回false不会执行css文件里的代码，但css文件还是被引入了；</p>
+<p>媒体类型：</p>
+<p>媒体特性：</p>
+<p>and操作符：用于合并多个媒体属性或合并媒体属性与媒体类型；<br>逗号分隔列表：效果同等于or逻辑操作符，只要一个媒体查询结果为真，样式就是有效的；<br>not操作符：应用与整个媒体查询，在媒体查询为假时，返回真；<br>only操作符：防止老旧的浏览器不支持带媒体属性的查询而应用到给定的样式；</p>
+<h2 id="Flex弹性盒子"><a href="#Flex弹性盒子" class="headerlink" title="Flex弹性盒子"></a>Flex弹性盒子</h2><p>定义：是一种一维的布局模型。他给flexbox的子元素之间提供了强大的空间分布和对齐能力；<br>默认情况下它会把超出部分等比压缩；<br>交叉轴(cross axis)与主轴(main axis)垂直；<br>只有直接子元素 会是弹性布局，“孙子”元素不会继承</p>
+<p>设定元素为flex弹性盒子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">display:flex;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">主轴的方向(容器属性)：</span><br><span class="line">``` bash</span><br><span class="line">flex-direction: row/row-reverse/column/column-reverse;</span><br><span class="line">//左到右方向(默认)/右向左方向/垂直，上往下/垂直，下往上</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">容器单线还是多线，以及新线堆叠方向(容器属性)：</span><br><span class="line">``` bash</span><br><span class="line">flex-wrap: nowrap/wrap/wrap-reverse;</span><br><span class="line">//单行(默认)/多行/新线排在上面</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">在主轴上的对齐方式(容器属性)：</span><br><span class="line">``` bash</span><br><span class="line">justify-content: flex-start/flex-end/center/space-between/space-around;</span><br><span class="line">//与main-start齐平(默认)/与main-end齐平/居中/两端对齐，每两个flex元素之间空隙相等/每个项目两侧距离相等;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">在交叉轴上的对齐方式(容器属性)：</span><br><span class="line">``` bash</span><br><span class="line">align-items: flex-start/flex-end/center/baseline/stretch</span><br><span class="line">//cross-start齐平(默认)/cross-end齐平/居中/元素的第一行文字基准对齐/元素未设置高度时,高度充满flex容器高度</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">交叉轴多线对齐方式，单线无效(容器属性):</span><br><span class="line">``` bash</span><br><span class="line">align-content: flex-start/flex-end/center/stretch/space-berween/space-around/auto;</span><br><span class="line">//打包cross-start齐平/打包cross-end齐平/居中/未设置高度时占满整个交叉轴/cross两端对齐/每根轴两侧空隙相等/默认值</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">定义元素的main-size(元素属性)：</span><br><span class="line">``` bash</span><br><span class="line">flex-basis: length; //默认width/height</span><br><span class="line">//主轴方向row/row-reverse时等于width</span><br><span class="line">//主轴方向column/column-reverse时等于height</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">拉伸比例(元素属性)：</span><br><span class="line">``` bash</span><br><span class="line">flex-grow: number; //默认0</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">压缩比例(元素属性)：</span><br><span class="line">``` bash</span><br><span class="line">flex-shrink:number; //默认1 </span><br><span class="line">//超出部分会自动压缩</span><br><span class="line">//压缩尺寸 = flex-basis1*flex-shrink1 / (flex-basis1*flex-shrink1 + flex-basis2 * flex-shrink2) * 超出尺寸</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">单个项目在cross轴上对齐方式(元素属性)：</span><br><span class="line">``` bash</span><br><span class="line">align-self: flex-start/flex-end/center/baseline/stretch</span><br><span class="line">//cross-start齐平(默认)/cross-end齐平/居中/元素的第一行文字基准对齐/元素未设置高度时,高度充满flex容器高度</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">排列位置(元素属性):</span><br><span class="line">``` bash</span><br><span class="line">order: number; </span><br><span class="line">//该项目排列的位置,number从想到大排列</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## Column多列布局</span></span><br><span class="line">多列布局：</span><br><span class="line">``` bash</span><br><span class="line">cloumns:cloumn-width column-count;</span><br><span class="line">cloumn-width:每列的宽度;</span><br><span class="line">column-count:显示的列数;</span><br><span class="line">column-gap:列宽，默认由font-size决定;</span><br><span class="line">column-rule:column-rule-width column-rule-style column-rule-color; //列边框样式</span><br><span class="line">column-span:none/all; //默认/横跨所有列</span><br><span class="line">``` </span><br><span class="line">最终样式：</span><br><span class="line"></span><br><span class="line"><span class="comment">## CSS3选择器</span></span><br><span class="line">属性选择器：</span><br><span class="line">``` bash</span><br><span class="line">元素[属性];</span><br><span class="line">元素[属性=<span class="string">'val'</span>]  //属性值为<span class="string">'val'</span>的元素</span><br><span class="line">元素[属性~=<span class="string">'val'</span>] //属性有多个值，<span class="string">'val'</span>为其中一个</span><br><span class="line">元素[属性^=<span class="string">'val'</span>] //属性值以<span class="string">'val'</span>开头的元素</span><br><span class="line">元素[属性$=<span class="string">'val'</span>] //属性值以<span class="string">'val'</span>结尾的元素</span><br><span class="line">元素[属性*=<span class="string">'val'</span>] //属性值包含<span class="string">'val'</span>的元素</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">同级选择器:</span><br><span class="line">``` bash</span><br><span class="line">元素1+元素2 //毗邻元素选择器，匹配所有紧随元素1之后的同级元素2</span><br><span class="line">元素1~元素2 //兄弟选择器，匹配任何在元素1之后的同级元素2</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">伪类选择器：</span><br><span class="line">``` bash</span><br><span class="line">:not(s)  //不含有s选择符的元素</span><br><span class="line">:first-child  //匹配父元素的第一个子元素</span><br><span class="line">:last-child  //匹配父元素的最后一个子元素</span><br><span class="line">:nth-child(n) //匹配父元素的第n个子元素</span><br><span class="line">:nth-last-child(n) //从后往前匹配父元素的第n个子元素</span><br><span class="line">:first-of-type  //匹配父元素同类型的第一个子元素</span><br><span class="line">:last-of-type  //匹配父元素同类型的最后一个子元素</span><br><span class="line">:nth-of-type //匹配父元素同类型的第n个子元素</span><br><span class="line">:nth-last-of-type //从后往前匹配父元素同类型的第n个子元素</span><br><span class="line">:empty(dom树无内容) //匹配内容为空的元素</span><br><span class="line">:<span class="built_in">enable</span>  //匹配表单中激活的元素</span><br><span class="line">:disabled  //匹配表单中禁用的元素</span><br><span class="line">:checked  //匹配表单中被选中的radio(单选按钮)或checkbox(复选框)元素</span><br><span class="line">:target //被选中值</span><br><span class="line">:root  //根元素 (html、xml)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">伪元素选择器(可以一个冒号也可以两个冒号)：</span><br><span class="line">``` bash</span><br><span class="line">:first-letter //设置对象内第一个字符的样式</span><br><span class="line">:first-line  //设置对象内第一行的样式</span><br><span class="line">:before</span><br><span class="line">:after</span><br><span class="line">::selection  //匹配用户当前选中的元素</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## CSS3常用属性</span></span><br><span class="line">圆角：</span><br><span class="line">``` bash</span><br><span class="line">border-radius:左上 右上 右下 左下; //长度</span><br><span class="line">border-top-left-radius:x y; //左上(x轴长度,y轴长度)</span><br><span class="line">border-top-right-radius:x y; //右上 </span><br><span class="line">border-bottom-right-radius:x y; //右下 </span><br><span class="line">border-bottom-left-radius:x y; //左下</span><br></pre></td></tr></table></figure>
+
+<p>盒子阴影：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:x y [模糊半径] [阴影拓展半径] [阴影颜色] [投影方式(内,外)];</span><br></pre></td></tr></table></figure>
+
+<p>文字阴影：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text-shadow:x y [模糊半径] [模糊颜色];</span><br></pre></td></tr></table></figure>
+
+<p>文本颜色：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rgba(红，绿，蓝，透明度); //子元素不继承透明度</span><br><span class="line">opacity:0.5; //透明度，子元素会继承</span><br></pre></td></tr></table></figure>
+
+<p>线性渐变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linear-gradient(渐变方向(角度))，渐变颜色[百分比]);</span><br><span class="line">//方向：to bottom/to bottom right,可以是角度: 0deg/45deg</span><br></pre></td></tr></table></figure>
+<p>径向渐变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">radial-gradient(shape r/(a,b) at position,color[percent],color[percent])</span><br><span class="line">//shape : 形状 circle(圆形)/cllipse(椭圆)</span><br><span class="line">//r/(a,b) : 半径/长短轴</span><br><span class="line">//position: 中心点位置(像素值/百分比/方向(yo left)/也可以是一个值，第二个值默认center)</span><br></pre></td></tr></table></figure>
+
+<p>单独设置每边的border值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">border:border-width border-style border-color;</span><br><span class="line">//每边颜色也可单独设置</span><br></pre></td></tr></table></figure>
+
+<p>可添加border的背景图片：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">border-image:url number style;</span><br><span class="line">//url:图片地址</span><br><span class="line">//number: 图片裁剪的值</span><br><span class="line">//style:图片添加的方式</span><br></pre></td></tr></table></figure>
+
+<p>input自定义轮廓：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">outline:outline-width outline-style outline-color;</span><br><span class="line"></span><br><span class="line">/*用户获得焦点时轮廓改变*/</span><br><span class="line">input:focus&#123;</span><br><span class="line">    outline:width style color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h2><p>内部样式表和外部样式表的同样属性，主要看他们的加载速度，谁后加载出来就用谁的属性；</p>
+<p>选择器权重：<br>!import &gt; 行间样式 &gt; ID选择器 &gt;  class选择器、属性选择器、伪类选择器 &gt; 标签选择器 &gt; 通配符选择器；<br>如果几个选择器在一起，权重会相加；</p>
+<p>属性前缀：<br>-moz    火狐等使用Mozilla引擎的浏览器；<br>-webkit    Safari,谷歌浏览器等使用Webkit引擎的浏览器；<br>-o   Opera浏览器(早期)；<br>-ms-   Internet Explorer；</p>
+<p>Alt + Shift + F 自动排版；</p>
+<p>透明：transparent；</p>
+<h2 id="3D变换动画"><a href="#3D变换动画" class="headerlink" title="3D变换动画"></a>3D变换动画</h2><p>景深设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">perspective: 600px; //3D元素距视图的距离,像素为单位。</span><br><span class="line">perspective-origin: x y;//可以调整视点的位置，默认50% 50%</span><br><span class="line">//元素定义perspective属性，它的子元素会获得透视效果，而不是它本身。</span><br><span class="line">//设置了景深只是有了3D视觉效果,元素本身还是2D平面图形。</span><br></pre></td></tr></table></figure>
+
+<p>指定嵌套元素是怎样在三维空间中呈现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform-style:flat/presesrve-3d;</span><br><span class="line">/* 默认2D/3D呈现 */</span><br><span class="line">/* 设置了3D呈现的元素,不能设置overflow:hidden;否则3D呈现会失效 */</span><br></pre></td></tr></table></figure>
+
+<p>当前元素背面是否可见：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">backface-visibility:visible/hidden;</span><br><span class="line">/* 默认可见/不可见 */</span><br></pre></td></tr></table></figure>
+
+<p>3个矢量值定义任意一个方向：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform:</span><br><span class="line">    translate3d(x,y,z,npx);</span><br><span class="line">    rotate3d(x,y,z,ndeg);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           
         
       
@@ -412,8 +1368,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">对象</span>
+                  <a href="/categories/javascript/%E4%BA%8B%E4%BB%B6/" itemprop="url" rel="index">
+                    <span itemprop="name">事件</span>
                   </a>
                 </span>
 
@@ -425,6 +1381,28 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javascript/%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
                     <span itemprop="name">函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">对象</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E6%95%B0%E7%BB%84/" itemprop="url" rel="index">
+                    <span itemprop="name">数组</span>
                   </a>
                 </span>
 
@@ -512,7 +1490,7 @@
 <p>继承的原则：1.本地有的用本地；2.本地没有的找原型；3.原型没有的找原型对象的原型；（原型链）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(对象);  //可以查找原型对象指针</span><br><span class="line">构造函数.isPrototypeOf(对象); //构造函数检测原型</span><br><span class="line"><span class="keyword">for</span>/<span class="keyword">in</span> -&gt; 可枚举属性，包括原型的属性</span><br><span class="line">对象.hasOwnProperty(属性名); //检测私有属性</span><br><span class="line">Object.getOwnPropertyNames(对象); //获得对象所有私有属性名称</span><br><span class="line">Object.keys(对象); //获得对象可枚举的私有属性的名称</span><br></pre></td></tr></table></figure>
 
-<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p> ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
+<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p>ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
 <p>双引号里面允许单引号，单引号里面允许双引号，双引号里面不允许双引号；<br>可以使用转义字符将双引号转义成纯粹的字符；<br>String只会显示第一个传入的参数，但后面的语句也会执行；</p>
 <p>字符的比较是将字符转换为数字编码再进行比较；<br>字符串和数组之间的装换： join split ；<br>如果有许多复杂的字符串需要拼接 可以使用join方法，join的性能比加号好；</p>
 <h2 id="对象、类、原型"><a href="#对象、类、原型" class="headerlink" title="对象、类、原型"></a>对象、类、原型</h2><p>万物皆对象；<br>类是一个设计概念，对象是实际物体；<br>对象概念：存在内存中，可以具有多个属性的数据；<br>对象 = 一堆变量 + 一堆函数的集合；<br>获取属性值用“点”，多层级的，就用多个点。<br>对象属性名会被隐式的转换为string，包含了特殊字符要加上引号；<br>对象可以通过 . 或者 [ ] 的形式获取对象的属性，不用加引号的属性名才能用 . 的形式获取对象的属性；<br>对象如果修改属性的时候没有这条属性，自动增加；<br>删除：delete加属性名，并不是完全删除而是将他们的联系断开，删除后的属性还存在；<br>对象拷贝:</p>
@@ -656,7 +1634,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -667,7 +1645,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -678,7 +1656,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

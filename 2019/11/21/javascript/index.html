@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="BOM全局变量全部存在window里面，window可以省略；弹窗: 12345678(同步:阻断) alert(&quot;alert弹窗&quot;);(同步:阻断 有返回值true&#x2F;false)  var bcf = confirm(&quot;confirm弹窗&quot;);(同步:阻断 可以输入) var straf = prompt(&quot;prompt输入:&quot;,&quot;默认值&quot;);  导航栏：window.location刷新页面：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T03:58:07.012Z">
+<meta property="og:updated_time" content="2019-11-22T11:12:35.803Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -294,8 +294,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">对象</span>
+                  <a href="/categories/javascript/%E4%BA%8B%E4%BB%B6/" itemprop="url" rel="index">
+                    <span itemprop="name">事件</span>
                   </a>
                 </span>
 
@@ -307,6 +307,28 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javascript/%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
                     <span itemprop="name">函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">对象</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E6%95%B0%E7%BB%84/" itemprop="url" rel="index">
+                    <span itemprop="name">数组</span>
                   </a>
                 </span>
 
@@ -392,7 +414,7 @@
 <p>继承的原则：1.本地有的用本地；2.本地没有的找原型；3.原型没有的找原型对象的原型；（原型链）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(对象);  //可以查找原型对象指针</span><br><span class="line">构造函数.isPrototypeOf(对象); //构造函数检测原型</span><br><span class="line"><span class="keyword">for</span>/<span class="keyword">in</span> -&gt; 可枚举属性，包括原型的属性</span><br><span class="line">对象.hasOwnProperty(属性名); //检测私有属性</span><br><span class="line">Object.getOwnPropertyNames(对象); //获得对象所有私有属性名称</span><br><span class="line">Object.keys(对象); //获得对象可枚举的私有属性的名称</span><br></pre></td></tr></table></figure>
 
-<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p> ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
+<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p>ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
 <p>双引号里面允许单引号，单引号里面允许双引号，双引号里面不允许双引号；<br>可以使用转义字符将双引号转义成纯粹的字符；<br>String只会显示第一个传入的参数，但后面的语句也会执行；</p>
 <p>字符的比较是将字符转换为数字编码再进行比较；<br>字符串和数组之间的装换： join split ；<br>如果有许多复杂的字符串需要拼接 可以使用join方法，join的性能比加号好；</p>
 <h2 id="对象、类、原型"><a href="#对象、类、原型" class="headerlink" title="对象、类、原型"></a>对象、类、原型</h2><p>万物皆对象；<br>类是一个设计概念，对象是实际物体；<br>对象概念：存在内存中，可以具有多个属性的数据；<br>对象 = 一堆变量 + 一堆函数的集合；<br>获取属性值用“点”，多层级的，就用多个点。<br>对象属性名会被隐式的转换为string，包含了特殊字符要加上引号；<br>对象可以通过 . 或者 [ ] 的形式获取对象的属性，不用加引号的属性名才能用 . 的形式获取对象的属性；<br>对象如果修改属性的时候没有这条属性，自动增加；<br>删除：delete加属性名，并不是完全删除而是将他们的联系断开，删除后的属性还存在；<br>对象拷贝:</p>
@@ -570,7 +592,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -581,7 +603,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -592,7 +614,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
