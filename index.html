@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/javascript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/22/webpack/" itemprop="url">webpack</a></h1>
+                <a class="post-title-link" href="/2019/11/22/javascript/" itemprop="url">Javascript</a></h1>
         
 
         <div class="post-meta">
@@ -259,7 +259,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T19:13:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T19:50:02+08:00">
                 2019-11-22
               </time>
             
@@ -282,8 +282,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sass/" itemprop="url" rel="index">
-                    <span itemprop="name">sass</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -293,8 +293,41 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/webpack/" itemprop="url" rel="index">
-                    <span itemprop="name">webpack</span>
+                  <a href="/categories/javascript/%E4%BA%8B%E4%BB%B6/" itemprop="url" rel="index">
+                    <span itemprop="name">事件</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">对象</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/%E6%95%B0%E7%BB%84/" itemprop="url" rel="index">
+                    <span itemprop="name">数组</span>
                   </a>
                 </span>
 
@@ -332,26 +365,119 @@
       
         
           
-            <h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>Sass</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子元素选择器；</span><br><span class="line">&gt;: 直接子元素选择器;</span><br><span class="line">&amp;: 父元素选择器(可以代表Sass中的直接父元素);</span><br></pre></td></tr></table></figure>
+            <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>全局变量全部存在window里面，window可以省略；<br>弹窗:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(同步:阻断) </span><br><span class="line">alert(<span class="string">"alert弹窗"</span>);</span><br><span class="line"></span><br><span class="line">(同步:阻断 有返回值<span class="literal">true</span>/<span class="literal">false</span>)  </span><br><span class="line">var bcf = confirm(<span class="string">"confirm弹窗"</span>);</span><br><span class="line"></span><br><span class="line">(同步:阻断 可以输入) </span><br><span class="line">var straf = prompt(<span class="string">"prompt输入:"</span>,<span class="string">"默认值"</span>);</span><br></pre></td></tr></table></figure>
 
-<h2 id="函数-amp-Lists-amp-Maps"><a href="#函数-amp-Lists-amp-Maps" class="headerlink" title="函数&amp;Lists&amp;Maps"></a>函数&amp;Lists&amp;Maps</h2><p>Sass中一些颜色函数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adjust-hue: 把颜色扭转degress度, 具体看色轮;</span><br></pre></td></tr></table></figure>
+<p>导航栏：window.location<br>刷新页面：location.reload();<br>打开新的页面：location.replace(“<a href="http://www.baidu.com/&quot;" target="_blank" rel="noopener">http://www.baidu.com/&quot;</a>)<br>前进 后退按钮：history.forward()前进，history.back()后退，history.go(-∞/∞)前进后退几次；<br>浏览器信息：navigator；<br>获取浏览器分辨率：screen；</p>
+<p>计时器:<br>循环执行:var sil = setInterval(函数名,时间);<br>停止:clearInterval(sil);<br>一次执行:var sil = setTimeout(函数名,时间);<br>停止:clearTimeout(sil)</p>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>DOM:文档对象模型<br>DOM树：浏览器的数据结构；<br>三种最常用的DOM查找方式:<br>1.ID（唯一性）:<br>document.getElementById(“ID名”)； -&gt; 节点，必需在document下使用<br>2.标签名<br>document.getElementByTagName(“标签名”);  -&gt; 数组，可以在任意节点下使用；<br>3.class名：<br>document.getElementsByClassName(“class名”) ； -&gt; 数组，可以在任意节点下使用；</p>
+<p>插入多个重复元素性能优化：</p>
+<h2 id="js数据类型及获取类型"><a href="#js数据类型及获取类型" class="headerlink" title="js数据类型及获取类型"></a>js数据类型及获取类型</h2><p>六种基本类型：number、string、boolen、null、undefined、object；<br>null和undefined值相等,数据类型不同;<br>Typeof：判断基本数据类型（null和function判断不了）；<br>Object.prototype.toString.call(i) 推荐代码使用 可以打印出系统所有数据类型（唯一缺陷：没办法判断自定义对象的类型）；<br>instanceof: 仅能判断对象的具体类型(只能判断对象)；<br>constructor：能判断他是否为构造函数；</p>
+<p>未定义未声明typeof检测出来不一样的；</p>
+<h2 id="js引入及加载"><a href="#js引入及加载" class="headerlink" title="js引入及加载"></a>js引入及加载</h2><p>JavaScript是按块执行的，不同块都属于一个全局作用域，块之间的变量和函数时可以共享的；<br>selectedIndex：可以告诉你选择了第几个事件；<br>Date对象:可以获取到系统时间<br>Date.now（） 可以获取1970年至今的毫秒数;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.onload = <span class="keyword">function</span> //在网页文档加载完毕后执行</span><br></pre></td></tr></table></figure>
 
-<p>字符串插值： #{$name}； 可以把变量具体的值插入class名，css属性名以及注释中；</p>
-<p>Lists：类似数组；<br>Maps：类似对象；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@each <span class="variable">$name</span> <span class="keyword">in</span> <span class="variable">$names</span>&#123;&#125;; //遍历对象或者数组;</span><br><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 5&#123;&#125;; //从1循环到5；</span><br><span class="line">@<span class="keyword">if</span> 表达式&#123; &#125;@<span class="keyword">else</span>&#123; &#125;; // <span class="keyword">if</span> <span class="keyword">else</span> 语句;</span><br></pre></td></tr></table></figure>
+<p>js阻塞加载(默认)</p>
+<p>延迟加载defer：并发；多个js，按定义的顺序执行；在文档解析完才执行吗，在DOMContentLoaded事件之前执行完；只支持外部引入方式；</p>
+<p>异步加载async：并发；多个js，不一定按顺序执行;加载完就执行，在load事件之前；在load事件之前执行完；只支持外部引入方式；</p>
+<h2 id="This指针"><a href="#This指针" class="headerlink" title="This指针"></a>This指针</h2><p>定义：this是函数体内自带的一个对象指针;<br>哪个对象拥有函数,this就是谁;<br>谁调用了函数，this就指向谁；</p>
+<h2 id="call、apply、bind"><a href="#call、apply、bind" class="headerlink" title="call、apply、bind"></a>call、apply、bind</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function.call(obj,args1,args2) -&gt;一个个参数传递;</span><br><span class="line">function.apple(obj,args) -&gt;数组的方式传递</span><br></pre></td></tr></table></figure>
+<p>定义：把函数临时赋值到对象上面执行;<br>区别：传递参数的形式不一样;</p>
+<p>bind定义：把函数拷贝一份 并插入到对象作用域上面；<br>bind语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.e = function.bind(obj,args1,args2);</span><br></pre></td></tr></table></figure>
 
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$变量名: 值; //变量</span><br><span class="line">@import <span class="string">"src"</span>; //引入其他scss文件</span><br></pre></td></tr></table></figure>
-<p>变量的类型：数字，颜色，字符串，Null，布尔值；<br>注释：/* */，// 都是Sass中注释的方法，区别是前者会出现在编译后的css文件中，后者则不会；<br>如果样式的属性是 null 那么此样式在编译后就会移除;</p>
-<p>mixin：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//_mixin.scss 文件</span><br><span class="line">@mixin name(<span class="variable">$color</span>:默认值,<span class="variable">$color2</span>:默认值)&#123;</span><br><span class="line">    //()内可以接收传入的值,并放在变量<span class="variable">$color</span>中</span><br><span class="line">    color: <span class="variable">$color</span>;</span><br><span class="line">    @content; //取出传入的样式</span><br><span class="line">&#125;</span><br><span class="line">//主文件</span><br><span class="line">@import <span class="string">"mixin.scss"</span>; //引入写了mixin.scss文件</span><br><span class="line">@include name(red)&#123; </span><br><span class="line"> //()内可以传值,也可以写 变量名: 属性 格式,指定要传入哪个属性</span><br><span class="line">    background: green; //传入样式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>JS函数是作用域；<br>实参 —值—&gt; 形参；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function.length -&gt; 形参的个数;</span><br><span class="line">arguments（仅在函数里面有）,专门为函数参数设计的对象;</span><br><span class="line">arguments.length  -&gt; 实参的个数（有下标）；</span><br><span class="line">arguments.callee -&gt; 对象的值(匿名函数获取形参);</span><br><span class="line"><span class="built_in">return</span> arguments.callee( x , y ) -&gt; 实现函数的自调用；</span><br></pre></td></tr></table></figure>
+<p>函数分定义和使用两个阶段;<br>函数创建方式有静态创建和动态创建;<br>可以直接在定义形参时用=定义默认值；<br>可以用name=name || “……”; 定义默认值 （es5）；<br>return 返回结果 （代表函数运行结束了，下面的代码不会运行),后面只能放一个参数、表达式;<br>必须写函数声明，执行不写不会报错但声明就无效了；<br>JS中函数声明和函数执行顺序没有先后之分（浏览器预编译：把变量声明和函数声明先放在上面）；<br>函数声明名字一样的谁最后声明就用谁的；<br>函数放在if、for里也会遵循if和for条件；<br>函数里面可以嵌套函数；<br>函数外声明的变量 全局变量，在函数内定义的变量局部变量；<br>当有局部变量和全局变量同名时，就近原则优先使用局部变量；<br>闭包：在函数里定义函数，拥有全局变量的生命周期；<br>只有window对象才能创建动态函数，和他父类function属于同一阶层；</p>
+<h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p>元素.onclick = 函数名字（点击）<br>元素.onmouseover = 移入（点击）<br>元素.onmouseout = 移出（点击）<br>三步骤：获取元素-&gt;绑定事件-&gt;修改页面元素</p>
+<p>text.onblur = 对象失去焦点时触发；(正则表达式验证用户输入框)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.addEventListener(event, <span class="keyword">function</span>, useCapture);//给指定事件添加执行函数</span><br><span class="line">.removeEventListener(event, <span class="keyword">function</span>, useCapture);//给指定事件删除执行函数</span><br><span class="line">//event:字符串,指定事件名</span><br><span class="line">//<span class="keyword">function</span>:指定要事件触发时执行的函数</span><br><span class="line">//useCapture:可选,布尔值,指定事件是否在捕获冒泡阶段执行</span><br></pre></td></tr></table></figure>
 
-<h2 id="Webpack四个核心概念"><a href="#Webpack四个核心概念" class="headerlink" title="Webpack四个核心概念"></a>Webpack四个核心概念</h2><p>Entry：告诉webpack入口文件位置；<br>Output：告诉webpack把编译好的文件放在哪；<br>Loaders：告诉webpack在添加到依赖图之前如何装换一个文件；<br>Plugins：在编译过程中添加你想要的任何操作；</p>
-<p>import(“url”)；动态引入文件，用到再加载；<br>需要加载@babel/plugin-syntax-dynamic-import插件才能使用；</p>
-<h2 id="Webpack命令行初步使用"><a href="#Webpack命令行初步使用" class="headerlink" title="Webpack命令行初步使用"></a>Webpack命令行初步使用</h2><p>官网(<a href="https://webpack.docschina.org/)；" target="_blank" rel="noopener">https://webpack.docschina.org/)；</a><br>安装环境 node<br>npm 包管理器，下载命令npm install(可能需要翻墙)，国内环境淘宝cnpm；<br>生成项目说明书 npm init；<br>下载webpack、webpack-cli；<br>webpack安装在node_modules文件夹下；<br>mode 生产模式和开发模式；<br>–watch 监听；<br>tree shaking去除死代码(没用到的自动删除)；<br>将函数当做作用域；</p>
-<p>devDependencies：开发依赖的库（–save-dev)；<br>dependencies：运行依赖的库 (–save)；</p>
+<p>mousemove没法快速响应函数；</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>事件源：产生事件的地方，事件的类型：点击 键盘，事件的对象：记录好的信息，事件的处理方式：函数；<br>添加事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addEventListener(事件类型(click),函数,事件的处理方式(<span class="literal">false</span>:冒泡,turn:捕获));</span><br></pre></td></tr></table></figure>
+<p>删除事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.removeEventListener();</span><br></pre></td></tr></table></figure>
+<p>事件函数：当事件发生时所执行的函数；</p>
+<p>事件对象 event：提供了事假的详细信息；(ie8之前通过<br>window.event)</p>
+<p>取消默认操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault();</span><br></pre></td></tr></table></figure>
+<p>调用HTML元素取消默认操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">return</span> <span class="literal">false</span>;(ie8之前event.returnValuefales;）</span><br></pre></td></tr></table></figure>
+
+<p>在默认的情况下，点击页面的一个标签，处在传播路上的标签都会监听的到对应事件；<br>事件流：<br>捕获阶段：起始点-&gt;目标点；冒泡阶段：目标点-&gt;起始点；<br>终止冒泡阶段：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation();</span><br></pre></td></tr></table></figure>
+
+<p>事件代理</p>
+<h2 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h2><p>一元运算符-&gt;二元运算符-&gt;三元运算符<br>++a 先自增再赋值<br>a++ 先赋值再自增<br>===全等（数字类型也要相等）<br>parseInt()（将其他类型变成数字类型，取整）；<br>switch 优点：代码简洁，性能比if好。<br>innerHTML 找到对应的HTML结构+内容；<br>innerText 找到对应的HTML内容；<br>如果一行结尾没有分号并能形成完整逻辑的情况下，系统解析时就会自动添加分号，否则连接下一行；</p>
+<p>for in 是ES5标准，遍历key。（可遍历对象、数组、字符串的key）<br>for of 是ES6标准，遍历value。（可遍历对象、数组、字符串的value）</p>
+<h2 id="原型、原型链、继承"><a href="#原型、原型链、继承" class="headerlink" title="原型、原型链、继承"></a>原型、原型链、继承</h2><p>当前对象：本地属性、私有属性；<br>原型对象：原型属性、公共属性；<br>本地属性被修改，只有当前对象的该属性被修改；<br>原型属性被修改，只有对象的该属性被修改；</p>
+<p>继承的原则：1.本地有的用本地；2.本地没有的找原型；3.原型没有的找原型对象的原型；（原型链）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(对象);  //可以查找原型对象指针</span><br><span class="line">构造函数.isPrototypeOf(对象); //构造函数检测原型</span><br><span class="line"><span class="keyword">for</span>/<span class="keyword">in</span> -&gt; 可枚举属性，包括原型的属性</span><br><span class="line">对象.hasOwnProperty(属性名); //检测私有属性</span><br><span class="line">Object.getOwnPropertyNames(对象); //获得对象所有私有属性名称</span><br><span class="line">Object.keys(对象); //获得对象可枚举的私有属性的名称</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p>ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
+<p>双引号里面允许单引号，单引号里面允许双引号，双引号里面不允许双引号；<br>可以使用转义字符将双引号转义成纯粹的字符；<br>String只会显示第一个传入的参数，但后面的语句也会执行；</p>
+<p>字符的比较是将字符转换为数字编码再进行比较；<br>字符串和数组之间的装换： join split ；<br>如果有许多复杂的字符串需要拼接 可以使用join方法，join的性能比加号好；</p>
+<h2 id="对象、类、原型"><a href="#对象、类、原型" class="headerlink" title="对象、类、原型"></a>对象、类、原型</h2><p>万物皆对象；<br>类是一个设计概念，对象是实际物体；<br>对象概念：存在内存中，可以具有多个属性的数据；<br>对象 = 一堆变量 + 一堆函数的集合；<br>获取属性值用“点”，多层级的，就用多个点。<br>对象属性名会被隐式的转换为string，包含了特殊字符要加上引号；<br>对象可以通过 . 或者 [ ] 的形式获取对象的属性，不用加引号的属性名才能用 . 的形式获取对象的属性；<br>对象如果修改属性的时候没有这条属性，自动增加；<br>删除：delete加属性名，并不是完全删除而是将他们的联系断开，删除后的属性还存在；<br>对象拷贝:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj2 = obj1; //这样只是把obj1指向堆的地址复制给了obj2，</span><br><span class="line">//obj2修改了某值，obj1也会对应修改;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//枚举法拷贝对象</span><br><span class="line">var o =&#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(var i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    o[i] = obj[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对象销毁机制：无引用后定期自动回；<br>对象创建方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a1 = &#123;&#125;;  //直接量</span><br><span class="line">var a1 = new A(); //构造函数类</span><br><span class="line">var a1 = Object.create(原型对象，属性列表); //create方法</span><br></pre></td></tr></table></figure>
+<p>创建原理：基于构造函数定义的属性，并继承原型对象的属性，生成一个新的对象；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var objectProto = &#123;name1:value1,name2:value2&#125;;</span><br><span class="line">Object.prototype = objectProto;</span><br><span class="line">//另一种方法,效果相等</span><br><span class="line">Object.prototype.name1 = value1;</span><br><span class="line">Object.prototype.name2 = value2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象属性特性"><a href="#对象属性特性" class="headerlink" title="对象属性特性"></a>对象属性特性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(对象,属性名字符串,(描述特性对象)&#123;</span><br><span class="line">    value:值,</span><br><span class="line">    writable:<span class="literal">true</span>, //可写 -&gt;是否可设置该属性的值</span><br><span class="line">    enumerable:<span class="literal">true</span>, //可枚举 -&gt;<span class="keyword">for</span>/<span class="keyword">in</span>是否可获得该值</span><br><span class="line">    configurable:<span class="literal">true</span>, //可配置 -&gt;是否可删除或修改该属性的特性</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperties(对象,&#123;</span><br><span class="line">    属性名字符串1:&#123;</span><br><span class="line">        value:值, </span><br><span class="line">        writable:<span class="literal">true</span>, //是否可以修改</span><br><span class="line">        enumerable:<span class="literal">true</span>, //是否可枚举</span><br><span class="line">        configurable:<span class="literal">false</span>, //是否可配置</span><br><span class="line">    &#125;,</span><br><span class="line">    属性名字符串2:&#123;</span><br><span class="line">        value:值,</span><br><span class="line">        writable:<span class="literal">false</span>, //是否可以修改</span><br><span class="line">        enumerable:<span class="literal">true</span>, //是否可枚举</span><br><span class="line">        configurable:<span class="literal">true</span>, //是否可配置</span><br><span class="line">    &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getOwnPropertyDescriptor(对象,属性名) //查看属性的特性</span><br></pre></td></tr></table></figure>
+<p>set，get用法</p>
+<h3 id="对象特性"><a href="#对象特性" class="headerlink" title="对象特性"></a>对象特性</h3><p>作用：保护对象的属性；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查看特性的方式</span><br><span class="line">Obejct.isExtensible </span><br><span class="line">Object.isSealed </span><br><span class="line">Object.isFrozen</span><br></pre></td></tr></table></figure>
+
+<p>原型</p>
+<p>原型属性被修改，所有对象的该属性被修改</p>
+<h2 id="数字和二进制"><a href="#数字和二进制" class="headerlink" title="数字和二进制"></a>数字和二进制</h2><p>最大/最小的安全整数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_SAFE_INTEGER;</span><br><span class="line">Number.MIN_SAFE_INTEGER;</span><br></pre></td></tr></table></figure>
+<p>计算float容易计算精度丢失，因为是把他转换成二进制再计算（整数没这个问题）；<br>科学计数法：1e+3  -&gt;1000;<br>1e-3  -&gt;0.01;<br>Infinity 无穷大，NaN 非数值(还是数字类型)；<br>Infinity + Infinity = Infinity，<br>Infinity - Infinity = NaN，<br>Infinity / Infinity = NaN，<br>Infinity + NaN = NaN;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">isNaN(data) = <span class="literal">true</span>; //判断这个数据是不是NaN</span><br><span class="line">data.toFixed(1); //取小数点后面几位有效数位</span><br><span class="line">data.toExponential(2) //转换成科学计数法形式的字符串，保留两位小数</span><br><span class="line">data.toPrecision(2) //转换成科学计数法形式的字符串，两位有效数字</span><br><span class="line">parseFloat(data); //把数据装换成浮点数;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">二进制 var x = 0b1010;</span><br><span class="line">八进制 var x = 012;</span><br><span class="line">十六进制 var x = 0x00A;</span><br></pre></td></tr></table></figure>
+
+<p>64位:第1位代表正负,10位代表指数,53位代表数值(最大安全数的原理)；</p>
+<p>十进制-&gt;二进制:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">正整数：除二取余,倒序排序；</span><br><span class="line">小数部分:乘二取值，正序排序；</span><br><span class="line">负数：在整数基础上取反，并+1；</span><br></pre></td></tr></table></figure>
+
+<p>系统提供的方法n.toString(“2”); 直接将n转换成二级制；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(num + 0.5); //四舍五入，向下取整</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>定义：数组是一种有序数据结合；<br>(数组的值是有序的，对象的值是无序的)；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//创建方式</span><br><span class="line">var a=[]; //直接量  推荐使用</span><br><span class="line">var a=new Array(); //构造函数</span><br></pre></td></tr></table></figure>
+<p>for 或者 for/in 遍历数组；<br>1.数组长度是弹性的；<br>2.下标从0开始的非负整数，且小于2^-23 -1；<br>3.下标不符合，将转换为字符串，成为对象属性；</p>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>概念：函数自己调用自己，必须要有终止条件；<br>重点是学会 把复杂的问题，拆成越来越简单的问题，直到能够获得结果 这种编程思维；<br>栈的概念：先进后出；</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>先完成优先级比较高的，优先级一样的从左往右；</p>
+<p>从上往下优先级降低；<br>一元运算符-&gt;二元运算符-&gt;三元运算符；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var b = a++; //先赋值再自增</span><br><span class="line">var b = ++a; //先自增再赋值</span><br><span class="line">//自增或自减必须在变量、数组或者对象属性上;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>逻辑位运算：<br>&amp;：两个数值比较将他们转化为二进制进行比较运算；<br>^ ：异或运算，两个值相等为false，两个值不同为true；<br>~：位非运算，本质上就是求负再减一；</p>
+<p>位移运算：</p>
+<blockquote>
+<blockquote>
+<p>num，&lt;&lt;num ：附带符号将数值的二进制向右/左移动num位，超出部分会被舍弃；</p>
+<blockquote>
+<p>：无符号右移；</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>意义：描述字符定义模式的对象，字符组成的特殊格式的字符串;<br>定义：直接量 -&gt;  /字符模式/标志字符；RegExp类；<br>标志字符：g -&gt; 全匹配；i -&gt; 不分大小写；m -&gt; 多行匹配；<br>组成：普通字符（A<del>Z a</del>z 0~9 + - * / () {} * ?  =   ^等等）及元字符；<br>字符模式[ ]里可以拼接；<br>“?:”：非匹配获取，只匹配内容，不保存;<br>作用：1.验证字符串；2.查找字符串；3.截取字符串；4.替换字符串；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\w -&gt; a-z A-z 0-9 _</span><br></pre></td></tr></table></figure>
+
+<p>使用正则表达式匹配：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RegExp.exec(string); //返回特定数组</span><br><span class="line">//string: 匹配的字符</span><br><span class="line">RegExp.test(string); //返回<span class="literal">true</span>/<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>三要素：嵌套结构的函数、内部函数访问了外部函数的变量、在外部函数的外面，调用内部函数；<br>概念：闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包穿件时所能访问的所有局部变量;<br>闭包对象之间互相独立；<br>作用：1.让局部变量变成私有化的长存变量；2.给事件调用函数传递参数；</p>
+<p>常见错误 ：循环内使用闭包函数；<br>解决方法：1.使用立即执行函数；2.使用多个闭包函数；3.ES6</p>
+<h2 id="错误处理、错误类型"><a href="#错误处理、错误类型" class="headerlink" title="错误处理、错误类型"></a>错误处理、错误类型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    //可能会导致错误的代码</span><br><span class="line">&#125;catch(error)&#123;</span><br><span class="line">    //在错误发生时怎么处理</span><br><span class="line">    error.message //保存错误消息的属性，全浏览器支持</span><br><span class="line">    <span class="keyword">if</span>(error instanceof 错误类型)&#123;</span><br><span class="line">        //可以不同错误类型，不同的处理方式</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    //里面的代码无论如何都会执行，<span class="built_in">return</span>都不能阻止</span><br><span class="line">&#125;</span><br><span class="line">；</span><br></pre></td></tr></table></figure>
+<p>错误类型：<br>Error -&gt; 基本类型，其他错误类型继承该类型，较少见；<br>EvalError -&gt; 在使用eval()函数而发生异常时触发；<br>RangeError -&gt; 数值超过相应范围时触发；<br>ReferenceError -&gt; 找不到对象的情况下触发；<br>SyntaxError -&gt; 语法类型错误；<br>TypeError -&gt; 在变量中保存着意外的类型，或者访问不存在的方法 (归根结底是变量的类型不符合要求)；<br>URLError -&gt; 在使用encodeURL()、decodeURL()，URL格式不正确导致；</p>
 
           
         
@@ -400,7 +526,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/html/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/es6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -419,7 +545,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/22/html/" itemprop="url">html</a></h1>
+                <a class="post-title-link" href="/2019/11/21/es6/" itemprop="url">es6</a></h1>
         
 
         <div class="post-meta">
@@ -431,8 +557,268 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T18:51:35+08:00">
-                2019-11-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-21T18:33:15+08:00">
+                2019-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">箭头函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/%E7%B1%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">类</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/promise/" itemprop="url" rel="index">
+                    <span itemprop="name">promise</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/%E6%A8%A1%E5%9D%97%E5%8C%96/" itemprop="url" rel="index">
+                    <span itemprop="name">模块化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>JS 基于原型：连接；<br>JAVA 基于类：复制；</p>
+<p>ES6类本质上还是基于原型的伪类，只是封装起来更好写了，更好的面向对象编程；</p>
+<p>ES6定义类：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class ClassName1 &#123;</span><br><span class="line">    constructor(arg)&#123;</span><br><span class="line">        this.arg = arg</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">Fun1</span></span>()&#123;&#125; //定义原型上的方法</span><br><span class="line">    static <span class="function"><span class="title">Fun2</span></span>()&#123;&#125; //定义静态方法</span><br><span class="line">    <span class="built_in">set</span> Fun3(value)&#123;&#125; //自定义一个获取的值</span><br><span class="line">    get <span class="function"><span class="title">Fun3</span></span>()&#123;&#125; //自定义一个得到的值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：<br>类声明不会被提升；<br>类声明中的代码都会自动运行在严格模式下；(不好的语法不能使用)<br>调用类必须使用new<br>类中所有的方法都是不可枚举的<br>类中的方法不能用new调用的<br>在类的方法中重写类名报错</p>
+<p>继承：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//创建ClassName2并继承ClassName1的参数和原型方法</span><br><span class="line">class ClassName2 extends ClassName1&#123;</span><br><span class="line">    constructor(arg)&#123;</span><br><span class="line">        super(arg); </span><br><span class="line">        //使用super将arg参数传回ClassName1的constructor</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：<br>静态方法也会继承；<br>继承内置构造函数；</p>
+<h2 id="迭代器-amp-生成器"><a href="#迭代器-amp-生成器" class="headerlink" title="迭代器&amp;生成器"></a>迭代器&amp;生成器</h2><p>传统循环缺陷：<br>for循环：理解比较困难，无法很好的管理变量 i ；<br>forEach/map: 无法使用 break 结束循环；<br>for in：理解比较困难，能遍历出不是当前索引的属性；</p>
+<p>解决方法 迭代器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr= arrs[Symbol.iterator](); //调用迭代器</span><br><span class="line">arr.next(); //依次返回相关对象</span><br><span class="line">//没有循环完: &#123;value: 值,<span class="keyword">done</span>: <span class="literal">false</span>&#125;</span><br><span class="line">//循环结束: &#123;value: undefined,<span class="keyword">done</span>: <span class="literal">true</span>&#125;</span><br><span class="line">//注: 对象没有内置迭代器,</span><br></pre></td></tr></table></figure>
+<p>迭代器使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">let</span> value of values); </span><br><span class="line">//遍历出每个values中的值,能使用<span class="built_in">break</span>结束循环;</span><br><span class="line">arr.keys()/values()/entries(); //最好配合<span class="keyword">for</span> of使用</span><br><span class="line">//数组循环方法,返回一个带(所有数组索引/所有的值/所有索引值对)的迭代器对象</span><br><span class="line">//解构赋值，...运算符:扩展运算符</span><br><span class="line">//以上所有方法都是基于迭代器实现的</span><br></pre></td></tr></table></figure>
+
+<p>生成器 Generator：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="function"><span class="title">fn</span></span>()&#123;</span><br><span class="line">    yield X;</span><br><span class="line">    yield Y;</span><br><span class="line">    yield Z;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以把函数变成类似迭代器，可以使用迭代器上的方法；<br>每次都会执行并返回yield之前的语句，然后暂停，下次调用从暂停位置执行到下个yield之前；<br>对象加入迭代器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj[Symbol.iterator] = <span class="keyword">function</span>*()&#123;</span><br><span class="line">    yield XXX;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：for of 循环不会返回return之后的语句</p>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>导出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exprot &#123;obj as XXX,a,b,c&#125;; //导出obj并重命名为XXX,a,b,c</span><br><span class="line">exprot default <span class="keyword">function</span> <span class="function"><span class="title">XXX</span></span>()&#123;&#125;; //默认导出</span><br></pre></td></tr></table></figure>
+<p>导入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span> = <span class="string">"module"</span>&gt;</span><br><span class="line">    import &#123;XXX as obj,a,b,c&#125; from <span class="string">'./XXX.js'</span>;</span><br><span class="line">    //导入XXX并重名为obj,a,b,c</span><br><span class="line">    import * as XXX from <span class="string">'./XXX.js'</span>; </span><br><span class="line">    //导入全部的导出为 XXX对象</span><br><span class="line">    import XXX from <span class="string">'./XXX.js'</span>; </span><br><span class="line">    //导入默认导出,并命名为XXX</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数： ( ) =&gt; { }</p>
+<p>注意：<br>形参如果只有一个的话，小括号可以省略；<br>形参如果只有0个或者2个及以上，小括号必须有；<br>逻辑语句只有一条的话，可以省略大括号。如果这条语句是return语句的话，return也要省略掉<br>逻辑语句两条及以上的话，不可以省略大括号。<br>箭头函数不能使用arguments<br>箭头函数不能被当做构造函数</p>
+<p>this指向：<br>自己执行的时候this指向：this指向自己；<br>隐式this指向：谁最后调用就指向谁；<br>显示this指向(call,apple)：显示绑定在谁上就指向谁；<br>new 时this指向：绑定到生成的新对象上；<br>箭头函数时this指向：只会绑定到外层(函数或者全局)父级的作用域，前面四种的绑定规则不会生效；</p>
+<h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2><p>同步编程：<br>问题：不合理的模式，会阻塞代码的执行；<br>好处：代码非常容易理解；</p>
+<p>异步编程：<br>问题：控制反转，代码没有同步好理解；<br>好处：和浏览器交互，能调用浏览器许多强大的API；</p>
+<p>Promise：<br>问题：大多数人不能很好的理解pormise，没有很好的解决异步流程；<br>好处：解决了控制反转问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> futureData = new pormise(()=&gt;&#123;</span><br><span class="line">    //XMLHttpRequest</span><br><span class="line">&#125;)</span><br><span class="line">第一次调用会返回一个对象:&#123;</span><br><span class="line">    value: undefined, </span><br><span class="line">    state: <span class="string">'pending'</span>, //状态码</span><br><span class="line">    onFuifulled: [], //成功时调用里面所有的函数</span><br><span class="line">    onrejected: [] //失败时调用里面所有的函数</span><br><span class="line">&#125;</span><br><span class="line">futureData.then(Fun); //将Fun函数传入onFuifull;</span><br><span class="line">// 当value改变 state里的值会变成<span class="string">'resolved'</span></span><br><span class="line">并会将value当做参数,执行onFuifulled里的所有函数</span><br></pre></td></tr></table></figure>
+
+<p>Generator + Promise:<br>问题：需要自己写执行器；<br>好处：用同步的流程写异步，解决了控制反转问题；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Generator + Promise问题解决：</span><br><span class="line">async <span class="keyword">function</span> <span class="function"><span class="title">createFlow</span></span>()&#123;</span><br><span class="line">    const data = await new Promise();</span><br><span class="line">&#125;</span><br><span class="line">//ES2017加入了async await可以帮我们封装好了方法</span><br><span class="line">//它在请求成功后会再一次进入async函数中,</span><br><span class="line">//回到上次await暂停的位置将返回值传入并再次执行下去,不需要我们手动调用了</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>注意看看ES5中的数组方法，ES5中有很多实用方法，与ES6方法结合使用；</p>
+<p>创建数组：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Array.of(num); //创建一个具有单个元素num的数组</span><br><span class="line">Array.from(arrayLike,Fun); </span><br><span class="line">//从一个类似数组或可迭代对象arrayLike创建一个新的，浅拷贝数组</span><br><span class="line">//Fun: 可选,数组中每个元素都会执行的回调函数</span><br></pre></td></tr></table></figure>
+<p>数组方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.find/findindex(<span class="keyword">function</span>(item,index,arr)&#123;&#125;);</span><br><span class="line">//给每个元素都执行一次<span class="keyword">function</span>,返回第一个带<span class="literal">true</span>的元素,否则返回undefined</span><br><span class="line">.fill(str,start,end);</span><br><span class="line">//给数组里从(start,end)的元素变成str,</span><br><span class="line">.copyWithin(num,start,end);</span><br><span class="line">//复制数组的元素,从num开始,复制的区域(start,end);</span><br><span class="line">.some(Fun(arg)&#123;&#125;); //如果数组里有一个数符合回调函数的比较式就返回<span class="literal">true</span></span><br><span class="line">.some(Fun(arg)&#123;&#125;); //如果数组里全部的数符合回调函数的比较式就返回<span class="literal">true</span></span><br><span class="line">.includes(num)； //查看数组里有没有等于num的值,有则返回<span class="literal">true</span></span><br><span class="line">//注: 可以判断NaN,但无法区分+0、-0</span><br></pre></td></tr></table></figure>
+
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>十六进制：0x10；<br>八进制：0o10；<br>二进制：0b100；</p>
+<p>Number属性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Number.isNaN(<span class="string">'111'</span>);//-&gt; es6不会再将字符串隐式装换了</span><br><span class="line">Number.isFinite(<span class="string">'111'</span>);//判断参数是否是有效数字,es6不会再将字符串隐式装换了</span><br><span class="line">Number.parseInt();</span><br><span class="line">Number.parseFloat();</span><br><span class="line"><span class="built_in">let</span> isEpsilon=(a,b)=&gt;Math.abs(a-b)&lt;Number.EPSILON?<span class="literal">true</span>:<span class="literal">false</span>;  </span><br><span class="line">//判断是否在合理的误差范围内</span><br><span class="line">Number.isInteger(num); //判断是否为整数</span><br><span class="line">Math.pow(2,53); //最大有效数字 + -;</span><br><span class="line">Number.isSafeInteger(num); //判断是否在有效数字内</span><br><span class="line">Math.sign(num); //判断是否是正数、负数、NaN、0</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>ES6对象定义：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj = &#123;</span><br><span class="line">    <span class="function"><span class="title">show</span></span>()&#123;表达式&#125;,</span><br><span class="line">    ect: () =&gt; &#123;表达式&#125;，</span><br><span class="line">&#125;</span><br><span class="line">//两种方法都可以定义对象，不过要注意两种方法的this指向时不同的</span><br><span class="line">//第一种只是<span class="keyword">function</span>的简写，所以this指向和<span class="keyword">function</span>一样</span><br></pre></td></tr></table></figure>
+
+<p>用 [属性名] 方式可以直接调用属性对应的参数来当做对象名，也可以在里面写表达式运算；</p>
+<p>方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Obejct.is(a,b); //比较两个参数是否全等</span><br><span class="line">//与===相比: is()可以判断两个NaN、-0 +0的区别</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(obj,obj1); //把obj1的值复制到obj的原型中去</span><br><span class="line">//与Object.create()相比: 可以多次调用</span><br><span class="line">//__proto__不在ES的标准内,尽量不要调用;</span><br><span class="line">Object.getPrototypeOf(obj); //查看对象的全部原型属性</span><br><span class="line"></span><br><span class="line">Object.assign(目标对象，...源对象); //把全部的源对象都复制到目标对象中去</span><br><span class="line">//注:1.只复制源对象的属性,源对象原型属性不会复制</span><br><span class="line">//2.属性可遍历的才会被复制</span><br><span class="line">//3.复制对象是按顺序一个个复制的,同名属性会被后面的覆盖</span><br><span class="line">//4.浅拷贝</span><br><span class="line"></span><br><span class="line">Object.keys(obj); //取出obj所有键名,es6</span><br><span class="line">Object.values(obj);  //取出obj所有键值,es7(2018)</span><br><span class="line">Object.entries(obj); //取出obj所有键值对,es7(2018)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>模版字符串：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> str  =  ``; //可以自由换行不需要加换行符</span><br><span class="line"><span class="variable">$&#123;&#125;</span> //可以直接在``中插入，里面可以写常规表达式,变量等;</span><br></pre></td></tr></table></figure>
+
+<p>拓展方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.startsWith(search,start); //目标字符串是不是以search开头</span><br><span class="line">//start: 可选，从第几位开始查找(默认第0位开始)</span><br><span class="line">.endssWith(search,start); //目标字符串是不是以search结尾</span><br><span class="line">//start: 可选，第几位为结尾,不包括第start位</span><br><span class="line">.includes(search,start); //目标字符串里面有没有search</span><br><span class="line">//start: 可选，从第几位开始查找</span><br><span class="line">.repeat(n); //将字符串重复n次;</span><br></pre></td></tr></table></figure>
+
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>块级作用域就是指 { } 中的东西；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span>: 不能变量声明提升,不能重复声明变量;</span><br><span class="line">const: 定义的时候要有初始化值,初始化值不能改变(绑定不能改变);</span><br><span class="line">//const不能改变栈指向的位置, 但可以改变堆的内容(数组、对象)</span><br></pre></td></tr></table></figure>
+
+<p>暂时性死区(TDZ)：<br>只要块级作用域内存在let命令，它所声明的变量就“绑定”(binding)这个区域，不再受外部的影响。在块级作用域内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”，简称TDZ;<br>本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量；</p>
+<h2 id="参数的处理"><a href="#参数的处理" class="headerlink" title="参数的处理"></a>参数的处理</h2><p>参数默认值：<br>惰性求值：在默认值里使用函数，只会当默认赋值触发时才会触发函数；<br>在默认值中使用其他变量要注意先后顺序，其他变量必需先赋值才能被引用；<br>默认值介于外部作用域和内部作用域之间，不包括内部作用域，所以会引用外部的变量；</p>
+<p>剩余运算符：<br>把散列的元素变成一个集合；<br>只能写在最后一位，把剩下的元素变成一个集合；</p>
+<p>扩展运算符：<br>把一个集合变成散列的元素；</p>
+<p>模拟命名参数：<br>使用解构赋值特性来达到模拟命名；</p>
+<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>Babel 是一个 JavaScript 编译器：<br>Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。</p>
+<p>使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://unpkg.com/@babel/standalone/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/20/html/" itemprop="url">html</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-20T18:51:35+08:00">
+                2019-11-20
               </time>
             
 
@@ -752,7 +1138,7 @@ preload: none/metadata/auto; //是否预加载
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/es6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -771,7 +1157,7 @@ preload: none/metadata/auto; //是否预加载
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/22/es6/" itemprop="url">es6</a></h1>
+                <a class="post-title-link" href="/2019/11/19/css/" itemprop="url">css</a></h1>
         
 
         <div class="post-meta">
@@ -783,268 +1169,8 @@ preload: none/metadata/auto; //是否预加载
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-22T18:33:15+08:00">
-                2019-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/" itemprop="url" rel="index">
-                    <span itemprop="name">es6</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">箭头函数</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/%E7%B1%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">类</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/promise/" itemprop="url" rel="index">
-                    <span itemprop="name">promise</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/%E6%A8%A1%E5%9D%97%E5%8C%96/" itemprop="url" rel="index">
-                    <span itemprop="name">模块化</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>JS 基于原型：连接；<br>JAVA 基于类：复制；</p>
-<p>ES6类本质上还是基于原型的伪类，只是封装起来更好写了，更好的面向对象编程；</p>
-<p>ES6定义类：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class ClassName1 &#123;</span><br><span class="line">    constructor(arg)&#123;</span><br><span class="line">        this.arg = arg</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">Fun1</span></span>()&#123;&#125; //定义原型上的方法</span><br><span class="line">    static <span class="function"><span class="title">Fun2</span></span>()&#123;&#125; //定义静态方法</span><br><span class="line">    <span class="built_in">set</span> Fun3(value)&#123;&#125; //自定义一个获取的值</span><br><span class="line">    get <span class="function"><span class="title">Fun3</span></span>()&#123;&#125; //自定义一个得到的值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：<br>类声明不会被提升；<br>类声明中的代码都会自动运行在严格模式下；(不好的语法不能使用)<br>调用类必须使用new<br>类中所有的方法都是不可枚举的<br>类中的方法不能用new调用的<br>在类的方法中重写类名报错</p>
-<p>继承：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//创建ClassName2并继承ClassName1的参数和原型方法</span><br><span class="line">class ClassName2 extends ClassName1&#123;</span><br><span class="line">    constructor(arg)&#123;</span><br><span class="line">        super(arg); </span><br><span class="line">        //使用super将arg参数传回ClassName1的constructor</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：<br>静态方法也会继承；<br>继承内置构造函数；</p>
-<h2 id="迭代器-amp-生成器"><a href="#迭代器-amp-生成器" class="headerlink" title="迭代器&amp;生成器"></a>迭代器&amp;生成器</h2><p>传统循环缺陷：<br>for循环：理解比较困难，无法很好的管理变量 i ；<br>forEach/map: 无法使用 break 结束循环；<br>for in：理解比较困难，能遍历出不是当前索引的属性；</p>
-<p>解决方法 迭代器：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr= arrs[Symbol.iterator](); //调用迭代器</span><br><span class="line">arr.next(); //依次返回相关对象</span><br><span class="line">//没有循环完: &#123;value: 值,<span class="keyword">done</span>: <span class="literal">false</span>&#125;</span><br><span class="line">//循环结束: &#123;value: undefined,<span class="keyword">done</span>: <span class="literal">true</span>&#125;</span><br><span class="line">//注: 对象没有内置迭代器,</span><br></pre></td></tr></table></figure>
-<p>迭代器使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">let</span> value of values); </span><br><span class="line">//遍历出每个values中的值,能使用<span class="built_in">break</span>结束循环;</span><br><span class="line">arr.keys()/values()/entries(); //最好配合<span class="keyword">for</span> of使用</span><br><span class="line">//数组循环方法,返回一个带(所有数组索引/所有的值/所有索引值对)的迭代器对象</span><br><span class="line">//解构赋值，...运算符:扩展运算符</span><br><span class="line">//以上所有方法都是基于迭代器实现的</span><br></pre></td></tr></table></figure>
-
-<p>生成器 Generator：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="function"><span class="title">fn</span></span>()&#123;</span><br><span class="line">    yield X;</span><br><span class="line">    yield Y;</span><br><span class="line">    yield Z;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以把函数变成类似迭代器，可以使用迭代器上的方法；<br>每次都会执行并返回yield之前的语句，然后暂停，下次调用从暂停位置执行到下个yield之前；<br>对象加入迭代器：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj[Symbol.iterator] = <span class="keyword">function</span>*()&#123;</span><br><span class="line">    yield XXX;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注：for of 循环不会返回return之后的语句</p>
-<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>导出：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exprot &#123;obj as XXX,a,b,c&#125;; //导出obj并重命名为XXX,a,b,c</span><br><span class="line">exprot default <span class="keyword">function</span> <span class="function"><span class="title">XXX</span></span>()&#123;&#125;; //默认导出</span><br></pre></td></tr></table></figure>
-<p>导入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span> = <span class="string">"module"</span>&gt;</span><br><span class="line">    import &#123;XXX as obj,a,b,c&#125; from <span class="string">'./XXX.js'</span>;</span><br><span class="line">    //导入XXX并重名为obj,a,b,c</span><br><span class="line">    import * as XXX from <span class="string">'./XXX.js'</span>; </span><br><span class="line">    //导入全部的导出为 XXX对象</span><br><span class="line">    import XXX from <span class="string">'./XXX.js'</span>; </span><br><span class="line">    //导入默认导出,并命名为XXX</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数： ( ) =&gt; { }</p>
-<p>注意：<br>形参如果只有一个的话，小括号可以省略；<br>形参如果只有0个或者2个及以上，小括号必须有；<br>逻辑语句只有一条的话，可以省略大括号。如果这条语句是return语句的话，return也要省略掉<br>逻辑语句两条及以上的话，不可以省略大括号。<br>箭头函数不能使用arguments<br>箭头函数不能被当做构造函数</p>
-<p>this指向：<br>自己执行的时候this指向：this指向自己；<br>隐式this指向：谁最后调用就指向谁；<br>显示this指向(call,apple)：显示绑定在谁上就指向谁；<br>new 时this指向：绑定到生成的新对象上；<br>箭头函数时this指向：只会绑定到外层(函数或者全局)父级的作用域，前面四种的绑定规则不会生效；</p>
-<h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2><p>同步编程：<br>问题：不合理的模式，会阻塞代码的执行；<br>好处：代码非常容易理解；</p>
-<p>异步编程：<br>问题：控制反转，代码没有同步好理解；<br>好处：和浏览器交互，能调用浏览器许多强大的API；</p>
-<p>Promise：<br>问题：大多数人不能很好的理解pormise，没有很好的解决异步流程；<br>好处：解决了控制反转问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> futureData = new pormise(()=&gt;&#123;</span><br><span class="line">    //XMLHttpRequest</span><br><span class="line">&#125;)</span><br><span class="line">第一次调用会返回一个对象:&#123;</span><br><span class="line">    value: undefined, </span><br><span class="line">    state: <span class="string">'pending'</span>, //状态码</span><br><span class="line">    onFuifulled: [], //成功时调用里面所有的函数</span><br><span class="line">    onrejected: [] //失败时调用里面所有的函数</span><br><span class="line">&#125;</span><br><span class="line">futureData.then(Fun); //将Fun函数传入onFuifull;</span><br><span class="line">// 当value改变 state里的值会变成<span class="string">'resolved'</span></span><br><span class="line">并会将value当做参数,执行onFuifulled里的所有函数</span><br></pre></td></tr></table></figure>
-
-<p>Generator + Promise:<br>问题：需要自己写执行器；<br>好处：用同步的流程写异步，解决了控制反转问题；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Generator + Promise问题解决：</span><br><span class="line">async <span class="keyword">function</span> <span class="function"><span class="title">createFlow</span></span>()&#123;</span><br><span class="line">    const data = await new Promise();</span><br><span class="line">&#125;</span><br><span class="line">//ES2017加入了async await可以帮我们封装好了方法</span><br><span class="line">//它在请求成功后会再一次进入async函数中,</span><br><span class="line">//回到上次await暂停的位置将返回值传入并再次执行下去,不需要我们手动调用了</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>注意看看ES5中的数组方法，ES5中有很多实用方法，与ES6方法结合使用；</p>
-<p>创建数组：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Array.of(num); //创建一个具有单个元素num的数组</span><br><span class="line">Array.from(arrayLike,Fun); </span><br><span class="line">//从一个类似数组或可迭代对象arrayLike创建一个新的，浅拷贝数组</span><br><span class="line">//Fun: 可选,数组中每个元素都会执行的回调函数</span><br></pre></td></tr></table></figure>
-<p>数组方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.find/findindex(<span class="keyword">function</span>(item,index,arr)&#123;&#125;);</span><br><span class="line">//给每个元素都执行一次<span class="keyword">function</span>,返回第一个带<span class="literal">true</span>的元素,否则返回undefined</span><br><span class="line">.fill(str,start,end);</span><br><span class="line">//给数组里从(start,end)的元素变成str,</span><br><span class="line">.copyWithin(num,start,end);</span><br><span class="line">//复制数组的元素,从num开始,复制的区域(start,end);</span><br><span class="line">.some(Fun(arg)&#123;&#125;); //如果数组里有一个数符合回调函数的比较式就返回<span class="literal">true</span></span><br><span class="line">.some(Fun(arg)&#123;&#125;); //如果数组里全部的数符合回调函数的比较式就返回<span class="literal">true</span></span><br><span class="line">.includes(num)； //查看数组里有没有等于num的值,有则返回<span class="literal">true</span></span><br><span class="line">//注: 可以判断NaN,但无法区分+0、-0</span><br></pre></td></tr></table></figure>
-
-<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>十六进制：0x10；<br>八进制：0o10；<br>二进制：0b100；</p>
-<p>Number属性：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Number.isNaN(<span class="string">'111'</span>);//-&gt; es6不会再将字符串隐式装换了</span><br><span class="line">Number.isFinite(<span class="string">'111'</span>);//判断参数是否是有效数字,es6不会再将字符串隐式装换了</span><br><span class="line">Number.parseInt();</span><br><span class="line">Number.parseFloat();</span><br><span class="line"><span class="built_in">let</span> isEpsilon=(a,b)=&gt;Math.abs(a-b)&lt;Number.EPSILON?<span class="literal">true</span>:<span class="literal">false</span>;  </span><br><span class="line">//判断是否在合理的误差范围内</span><br><span class="line">Number.isInteger(num); //判断是否为整数</span><br><span class="line">Math.pow(2,53); //最大有效数字 + -;</span><br><span class="line">Number.isSafeInteger(num); //判断是否在有效数字内</span><br><span class="line">Math.sign(num); //判断是否是正数、负数、NaN、0</span><br></pre></td></tr></table></figure>
-
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>ES6对象定义：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj = &#123;</span><br><span class="line">    <span class="function"><span class="title">show</span></span>()&#123;表达式&#125;,</span><br><span class="line">    ect: () =&gt; &#123;表达式&#125;，</span><br><span class="line">&#125;</span><br><span class="line">//两种方法都可以定义对象，不过要注意两种方法的this指向时不同的</span><br><span class="line">//第一种只是<span class="keyword">function</span>的简写，所以this指向和<span class="keyword">function</span>一样</span><br></pre></td></tr></table></figure>
-
-<p>用 [属性名] 方式可以直接调用属性对应的参数来当做对象名，也可以在里面写表达式运算；</p>
-<p>方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Obejct.is(a,b); //比较两个参数是否全等</span><br><span class="line">//与===相比: is()可以判断两个NaN、-0 +0的区别</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(obj,obj1); //把obj1的值复制到obj的原型中去</span><br><span class="line">//与Object.create()相比: 可以多次调用</span><br><span class="line">//__proto__不在ES的标准内,尽量不要调用;</span><br><span class="line">Object.getPrototypeOf(obj); //查看对象的全部原型属性</span><br><span class="line"></span><br><span class="line">Object.assign(目标对象，...源对象); //把全部的源对象都复制到目标对象中去</span><br><span class="line">//注:1.只复制源对象的属性,源对象原型属性不会复制</span><br><span class="line">//2.属性可遍历的才会被复制</span><br><span class="line">//3.复制对象是按顺序一个个复制的,同名属性会被后面的覆盖</span><br><span class="line">//4.浅拷贝</span><br><span class="line"></span><br><span class="line">Object.keys(obj); //取出obj所有键名,es6</span><br><span class="line">Object.values(obj);  //取出obj所有键值,es7(2018)</span><br><span class="line">Object.entries(obj); //取出obj所有键值对,es7(2018)</span><br></pre></td></tr></table></figure>
-
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>模版字符串：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> str  =  ``; //可以自由换行不需要加换行符</span><br><span class="line"><span class="variable">$&#123;&#125;</span> //可以直接在``中插入，里面可以写常规表达式,变量等;</span><br></pre></td></tr></table></figure>
-
-<p>拓展方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.startsWith(search,start); //目标字符串是不是以search开头</span><br><span class="line">//start: 可选，从第几位开始查找(默认第0位开始)</span><br><span class="line">.endssWith(search,start); //目标字符串是不是以search结尾</span><br><span class="line">//start: 可选，第几位为结尾,不包括第start位</span><br><span class="line">.includes(search,start); //目标字符串里面有没有search</span><br><span class="line">//start: 可选，从第几位开始查找</span><br><span class="line">.repeat(n); //将字符串重复n次;</span><br></pre></td></tr></table></figure>
-
-<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>块级作用域就是指 { } 中的东西；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span>: 不能变量声明提升,不能重复声明变量;</span><br><span class="line">const: 定义的时候要有初始化值,初始化值不能改变(绑定不能改变);</span><br><span class="line">//const不能改变栈指向的位置, 但可以改变堆的内容(数组、对象)</span><br></pre></td></tr></table></figure>
-
-<p>暂时性死区(TDZ)：<br>只要块级作用域内存在let命令，它所声明的变量就“绑定”(binding)这个区域，不再受外部的影响。在块级作用域内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”，简称TDZ;<br>本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量；</p>
-<h2 id="参数的处理"><a href="#参数的处理" class="headerlink" title="参数的处理"></a>参数的处理</h2><p>参数默认值：<br>惰性求值：在默认值里使用函数，只会当默认赋值触发时才会触发函数；<br>在默认值中使用其他变量要注意先后顺序，其他变量必需先赋值才能被引用；<br>默认值介于外部作用域和内部作用域之间，不包括内部作用域，所以会引用外部的变量；</p>
-<p>剩余运算符：<br>把散列的元素变成一个集合；<br>只能写在最后一位，把剩下的元素变成一个集合；</p>
-<p>扩展运算符：<br>把一个集合变成散列的元素；</p>
-<p>模拟命名参数：<br>使用解构赋值特性来达到模拟命名；</p>
-<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>Babel 是一个 JavaScript 编译器：<br>Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。</p>
-<p>使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://unpkg.com/@babel/standalone/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/21/css/" itemprop="url">css</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-21T21:49:29+08:00">
-                2019-11-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-19T21:49:29+08:00">
+                2019-11-19
               </time>
             
 
@@ -1419,7 +1545,7 @@ preload: none/metadata/auto; //是否预加载
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/javascript/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1438,7 +1564,7 @@ preload: none/metadata/auto; //是否预加载
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/21/javascript/" itemprop="url">Javascript</a></h1>
+                <a class="post-title-link" href="/2019/11/18/webpack/" itemprop="url">webpack</a></h1>
         
 
         <div class="post-meta">
@@ -1450,8 +1576,8 @@ preload: none/metadata/auto; //是否预加载
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-21T19:50:02+08:00">
-                2019-11-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-18T19:13:02+08:00">
+                2019-11-18
               </time>
             
 
@@ -1473,8 +1599,8 @@ preload: none/metadata/auto; //是否预加载
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/sass/" itemprop="url" rel="index">
+                    <span itemprop="name">sass</span>
                   </a>
                 </span>
 
@@ -1484,41 +1610,8 @@ preload: none/metadata/auto; //是否预加载
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/%E4%BA%8B%E4%BB%B6/" itemprop="url" rel="index">
-                    <span itemprop="name">事件</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">函数</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">对象</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/%E6%95%B0%E7%BB%84/" itemprop="url" rel="index">
-                    <span itemprop="name">数组</span>
+                  <a href="/categories/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
                   </a>
                 </span>
 
@@ -1556,119 +1649,26 @@ preload: none/metadata/auto; //是否预加载
       
         
           
-            <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>全局变量全部存在window里面，window可以省略；<br>弹窗:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(同步:阻断) </span><br><span class="line">alert(<span class="string">"alert弹窗"</span>);</span><br><span class="line"></span><br><span class="line">(同步:阻断 有返回值<span class="literal">true</span>/<span class="literal">false</span>)  </span><br><span class="line">var bcf = confirm(<span class="string">"confirm弹窗"</span>);</span><br><span class="line"></span><br><span class="line">(同步:阻断 可以输入) </span><br><span class="line">var straf = prompt(<span class="string">"prompt输入:"</span>,<span class="string">"默认值"</span>);</span><br></pre></td></tr></table></figure>
+            <h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>Sass</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子元素选择器；</span><br><span class="line">&gt;: 直接子元素选择器;</span><br><span class="line">&amp;: 父元素选择器(可以代表Sass中的直接父元素);</span><br></pre></td></tr></table></figure>
 
-<p>导航栏：window.location<br>刷新页面：location.reload();<br>打开新的页面：location.replace(“<a href="http://www.baidu.com/&quot;" target="_blank" rel="noopener">http://www.baidu.com/&quot;</a>)<br>前进 后退按钮：history.forward()前进，history.back()后退，history.go(-∞/∞)前进后退几次；<br>浏览器信息：navigator；<br>获取浏览器分辨率：screen；</p>
-<p>计时器:<br>循环执行:var sil = setInterval(函数名,时间);<br>停止:clearInterval(sil);<br>一次执行:var sil = setTimeout(函数名,时间);<br>停止:clearTimeout(sil)</p>
-<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>DOM:文档对象模型<br>DOM树：浏览器的数据结构；<br>三种最常用的DOM查找方式:<br>1.ID（唯一性）:<br>document.getElementById(“ID名”)； -&gt; 节点，必需在document下使用<br>2.标签名<br>document.getElementByTagName(“标签名”);  -&gt; 数组，可以在任意节点下使用；<br>3.class名：<br>document.getElementsByClassName(“class名”) ； -&gt; 数组，可以在任意节点下使用；</p>
-<p>插入多个重复元素性能优化：</p>
-<h2 id="js数据类型及获取类型"><a href="#js数据类型及获取类型" class="headerlink" title="js数据类型及获取类型"></a>js数据类型及获取类型</h2><p>六种基本类型：number、string、boolen、null、undefined、object；<br>null和undefined值相等,数据类型不同;<br>Typeof：判断基本数据类型（null和function判断不了）；<br>Object.prototype.toString.call(i) 推荐代码使用 可以打印出系统所有数据类型（唯一缺陷：没办法判断自定义对象的类型）；<br>instanceof: 仅能判断对象的具体类型(只能判断对象)；<br>constructor：能判断他是否为构造函数；</p>
-<p>未定义未声明typeof检测出来不一样的；</p>
-<h2 id="js引入及加载"><a href="#js引入及加载" class="headerlink" title="js引入及加载"></a>js引入及加载</h2><p>JavaScript是按块执行的，不同块都属于一个全局作用域，块之间的变量和函数时可以共享的；<br>selectedIndex：可以告诉你选择了第几个事件；<br>Date对象:可以获取到系统时间<br>Date.now（） 可以获取1970年至今的毫秒数;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.onload = <span class="keyword">function</span> //在网页文档加载完毕后执行</span><br></pre></td></tr></table></figure>
+<h2 id="函数-amp-Lists-amp-Maps"><a href="#函数-amp-Lists-amp-Maps" class="headerlink" title="函数&amp;Lists&amp;Maps"></a>函数&amp;Lists&amp;Maps</h2><p>Sass中一些颜色函数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adjust-hue: 把颜色扭转degress度, 具体看色轮;</span><br></pre></td></tr></table></figure>
 
-<p>js阻塞加载(默认)</p>
-<p>延迟加载defer：并发；多个js，按定义的顺序执行；在文档解析完才执行吗，在DOMContentLoaded事件之前执行完；只支持外部引入方式；</p>
-<p>异步加载async：并发；多个js，不一定按顺序执行;加载完就执行，在load事件之前；在load事件之前执行完；只支持外部引入方式；</p>
-<h2 id="This指针"><a href="#This指针" class="headerlink" title="This指针"></a>This指针</h2><p>定义：this是函数体内自带的一个对象指针;<br>哪个对象拥有函数,this就是谁;<br>谁调用了函数，this就指向谁；</p>
-<h2 id="call、apply、bind"><a href="#call、apply、bind" class="headerlink" title="call、apply、bind"></a>call、apply、bind</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function.call(obj,args1,args2) -&gt;一个个参数传递;</span><br><span class="line">function.apple(obj,args) -&gt;数组的方式传递</span><br></pre></td></tr></table></figure>
-<p>定义：把函数临时赋值到对象上面执行;<br>区别：传递参数的形式不一样;</p>
-<p>bind定义：把函数拷贝一份 并插入到对象作用域上面；<br>bind语法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.e = function.bind(obj,args1,args2);</span><br></pre></td></tr></table></figure>
+<p>字符串插值： #{$name}； 可以把变量具体的值插入class名，css属性名以及注释中；</p>
+<p>Lists：类似数组；<br>Maps：类似对象；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@each <span class="variable">$name</span> <span class="keyword">in</span> <span class="variable">$names</span>&#123;&#125;; //遍历对象或者数组;</span><br><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 5&#123;&#125;; //从1循环到5；</span><br><span class="line">@<span class="keyword">if</span> 表达式&#123; &#125;@<span class="keyword">else</span>&#123; &#125;; // <span class="keyword">if</span> <span class="keyword">else</span> 语句;</span><br></pre></td></tr></table></figure>
 
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>JS函数是作用域；<br>实参 —值—&gt; 形参；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function.length -&gt; 形参的个数;</span><br><span class="line">arguments（仅在函数里面有）,专门为函数参数设计的对象;</span><br><span class="line">arguments.length  -&gt; 实参的个数（有下标）；</span><br><span class="line">arguments.callee -&gt; 对象的值(匿名函数获取形参);</span><br><span class="line"><span class="built_in">return</span> arguments.callee( x , y ) -&gt; 实现函数的自调用；</span><br></pre></td></tr></table></figure>
-<p>函数分定义和使用两个阶段;<br>函数创建方式有静态创建和动态创建;<br>可以直接在定义形参时用=定义默认值；<br>可以用name=name || “……”; 定义默认值 （es5）；<br>return 返回结果 （代表函数运行结束了，下面的代码不会运行),后面只能放一个参数、表达式;<br>必须写函数声明，执行不写不会报错但声明就无效了；<br>JS中函数声明和函数执行顺序没有先后之分（浏览器预编译：把变量声明和函数声明先放在上面）；<br>函数声明名字一样的谁最后声明就用谁的；<br>函数放在if、for里也会遵循if和for条件；<br>函数里面可以嵌套函数；<br>函数外声明的变量 全局变量，在函数内定义的变量局部变量；<br>当有局部变量和全局变量同名时，就近原则优先使用局部变量；<br>闭包：在函数里定义函数，拥有全局变量的生命周期；<br>只有window对象才能创建动态函数，和他父类function属于同一阶层；</p>
-<h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p>元素.onclick = 函数名字（点击）<br>元素.onmouseover = 移入（点击）<br>元素.onmouseout = 移出（点击）<br>三步骤：获取元素-&gt;绑定事件-&gt;修改页面元素</p>
-<p>text.onblur = 对象失去焦点时触发；(正则表达式验证用户输入框)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.addEventListener(event, <span class="keyword">function</span>, useCapture);//给指定事件添加执行函数</span><br><span class="line">.removeEventListener(event, <span class="keyword">function</span>, useCapture);//给指定事件删除执行函数</span><br><span class="line">//event:字符串,指定事件名</span><br><span class="line">//<span class="keyword">function</span>:指定要事件触发时执行的函数</span><br><span class="line">//useCapture:可选,布尔值,指定事件是否在捕获冒泡阶段执行</span><br></pre></td></tr></table></figure>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$变量名: 值; //变量</span><br><span class="line">@import <span class="string">"src"</span>; //引入其他scss文件</span><br></pre></td></tr></table></figure>
+<p>变量的类型：数字，颜色，字符串，Null，布尔值；<br>注释：/* */，// 都是Sass中注释的方法，区别是前者会出现在编译后的css文件中，后者则不会；<br>如果样式的属性是 null 那么此样式在编译后就会移除;</p>
+<p>mixin：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//_mixin.scss 文件</span><br><span class="line">@mixin name(<span class="variable">$color</span>:默认值,<span class="variable">$color2</span>:默认值)&#123;</span><br><span class="line">    //()内可以接收传入的值,并放在变量<span class="variable">$color</span>中</span><br><span class="line">    color: <span class="variable">$color</span>;</span><br><span class="line">    @content; //取出传入的样式</span><br><span class="line">&#125;</span><br><span class="line">//主文件</span><br><span class="line">@import <span class="string">"mixin.scss"</span>; //引入写了mixin.scss文件</span><br><span class="line">@include name(red)&#123; </span><br><span class="line"> //()内可以传值,也可以写 变量名: 属性 格式,指定要传入哪个属性</span><br><span class="line">    background: green; //传入样式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>mousemove没法快速响应函数；</p>
-<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>事件源：产生事件的地方，事件的类型：点击 键盘，事件的对象：记录好的信息，事件的处理方式：函数；<br>添加事件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addEventListener(事件类型(click),函数,事件的处理方式(<span class="literal">false</span>:冒泡,turn:捕获));</span><br></pre></td></tr></table></figure>
-<p>删除事件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.removeEventListener();</span><br></pre></td></tr></table></figure>
-<p>事件函数：当事件发生时所执行的函数；</p>
-<p>事件对象 event：提供了事假的详细信息；(ie8之前通过<br>window.event)</p>
-<p>取消默认操作：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault();</span><br></pre></td></tr></table></figure>
-<p>调用HTML元素取消默认操作：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">return</span> <span class="literal">false</span>;(ie8之前event.returnValuefales;）</span><br></pre></td></tr></table></figure>
-
-<p>在默认的情况下，点击页面的一个标签，处在传播路上的标签都会监听的到对应事件；<br>事件流：<br>捕获阶段：起始点-&gt;目标点；冒泡阶段：目标点-&gt;起始点；<br>终止冒泡阶段：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation();</span><br></pre></td></tr></table></figure>
-
-<p>事件代理</p>
-<h2 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h2><p>一元运算符-&gt;二元运算符-&gt;三元运算符<br>++a 先自增再赋值<br>a++ 先赋值再自增<br>===全等（数字类型也要相等）<br>parseInt()（将其他类型变成数字类型，取整）；<br>switch 优点：代码简洁，性能比if好。<br>innerHTML 找到对应的HTML结构+内容；<br>innerText 找到对应的HTML内容；<br>如果一行结尾没有分号并能形成完整逻辑的情况下，系统解析时就会自动添加分号，否则连接下一行；</p>
-<p>for in 是ES5标准，遍历key。（可遍历对象、数组、字符串的key）<br>for of 是ES6标准，遍历value。（可遍历对象、数组、字符串的value）</p>
-<h2 id="原型、原型链、继承"><a href="#原型、原型链、继承" class="headerlink" title="原型、原型链、继承"></a>原型、原型链、继承</h2><p>当前对象：本地属性、私有属性；<br>原型对象：原型属性、公共属性；<br>本地属性被修改，只有当前对象的该属性被修改；<br>原型属性被修改，只有对象的该属性被修改；</p>
-<p>继承的原则：1.本地有的用本地；2.本地没有的找原型；3.原型没有的找原型对象的原型；（原型链）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(对象);  //可以查找原型对象指针</span><br><span class="line">构造函数.isPrototypeOf(对象); //构造函数检测原型</span><br><span class="line"><span class="keyword">for</span>/<span class="keyword">in</span> -&gt; 可枚举属性，包括原型的属性</span><br><span class="line">对象.hasOwnProperty(属性名); //检测私有属性</span><br><span class="line">Object.getOwnPropertyNames(对象); //获得对象所有私有属性名称</span><br><span class="line">Object.keys(对象); //获得对象可枚举的私有属性的名称</span><br></pre></td></tr></table></figure>
-
-<h2 id="字符串及编码"><a href="#字符串及编码" class="headerlink" title="字符串及编码"></a>字符串及编码</h2><p>ASCLL 早期英文编码格式，只存储了255位常用英文和符号;<br>Unicode 能容纳世界上所有字符；<br>UTF-8可以使用 \ 拼接两行;<br>转义字符：\n换行，\r回车 ……；</p>
-<p>双引号里面允许单引号，单引号里面允许双引号，双引号里面不允许双引号；<br>可以使用转义字符将双引号转义成纯粹的字符；<br>String只会显示第一个传入的参数，但后面的语句也会执行；</p>
-<p>字符的比较是将字符转换为数字编码再进行比较；<br>字符串和数组之间的装换： join split ；<br>如果有许多复杂的字符串需要拼接 可以使用join方法，join的性能比加号好；</p>
-<h2 id="对象、类、原型"><a href="#对象、类、原型" class="headerlink" title="对象、类、原型"></a>对象、类、原型</h2><p>万物皆对象；<br>类是一个设计概念，对象是实际物体；<br>对象概念：存在内存中，可以具有多个属性的数据；<br>对象 = 一堆变量 + 一堆函数的集合；<br>获取属性值用“点”，多层级的，就用多个点。<br>对象属性名会被隐式的转换为string，包含了特殊字符要加上引号；<br>对象可以通过 . 或者 [ ] 的形式获取对象的属性，不用加引号的属性名才能用 . 的形式获取对象的属性；<br>对象如果修改属性的时候没有这条属性，自动增加；<br>删除：delete加属性名，并不是完全删除而是将他们的联系断开，删除后的属性还存在；<br>对象拷贝:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj2 = obj1; //这样只是把obj1指向堆的地址复制给了obj2，</span><br><span class="line">//obj2修改了某值，obj1也会对应修改;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//枚举法拷贝对象</span><br><span class="line">var o =&#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(var i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    o[i] = obj[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对象销毁机制：无引用后定期自动回；<br>对象创建方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a1 = &#123;&#125;;  //直接量</span><br><span class="line">var a1 = new A(); //构造函数类</span><br><span class="line">var a1 = Object.create(原型对象，属性列表); //create方法</span><br></pre></td></tr></table></figure>
-<p>创建原理：基于构造函数定义的属性，并继承原型对象的属性，生成一个新的对象；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var objectProto = &#123;name1:value1,name2:value2&#125;;</span><br><span class="line">Object.prototype = objectProto;</span><br><span class="line">//另一种方法,效果相等</span><br><span class="line">Object.prototype.name1 = value1;</span><br><span class="line">Object.prototype.name2 = value2;</span><br></pre></td></tr></table></figure>
-
-<h3 id="对象属性特性"><a href="#对象属性特性" class="headerlink" title="对象属性特性"></a>对象属性特性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(对象,属性名字符串,(描述特性对象)&#123;</span><br><span class="line">    value:值,</span><br><span class="line">    writable:<span class="literal">true</span>, //可写 -&gt;是否可设置该属性的值</span><br><span class="line">    enumerable:<span class="literal">true</span>, //可枚举 -&gt;<span class="keyword">for</span>/<span class="keyword">in</span>是否可获得该值</span><br><span class="line">    configurable:<span class="literal">true</span>, //可配置 -&gt;是否可删除或修改该属性的特性</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperties(对象,&#123;</span><br><span class="line">    属性名字符串1:&#123;</span><br><span class="line">        value:值, </span><br><span class="line">        writable:<span class="literal">true</span>, //是否可以修改</span><br><span class="line">        enumerable:<span class="literal">true</span>, //是否可枚举</span><br><span class="line">        configurable:<span class="literal">false</span>, //是否可配置</span><br><span class="line">    &#125;,</span><br><span class="line">    属性名字符串2:&#123;</span><br><span class="line">        value:值,</span><br><span class="line">        writable:<span class="literal">false</span>, //是否可以修改</span><br><span class="line">        enumerable:<span class="literal">true</span>, //是否可枚举</span><br><span class="line">        configurable:<span class="literal">true</span>, //是否可配置</span><br><span class="line">    &#125;&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getOwnPropertyDescriptor(对象,属性名) //查看属性的特性</span><br></pre></td></tr></table></figure>
-<p>set，get用法</p>
-<h3 id="对象特性"><a href="#对象特性" class="headerlink" title="对象特性"></a>对象特性</h3><p>作用：保护对象的属性；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查看特性的方式</span><br><span class="line">Obejct.isExtensible </span><br><span class="line">Object.isSealed </span><br><span class="line">Object.isFrozen</span><br></pre></td></tr></table></figure>
-
-<p>原型</p>
-<p>原型属性被修改，所有对象的该属性被修改</p>
-<h2 id="数字和二进制"><a href="#数字和二进制" class="headerlink" title="数字和二进制"></a>数字和二进制</h2><p>最大/最小的安全整数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_SAFE_INTEGER;</span><br><span class="line">Number.MIN_SAFE_INTEGER;</span><br></pre></td></tr></table></figure>
-<p>计算float容易计算精度丢失，因为是把他转换成二进制再计算（整数没这个问题）；<br>科学计数法：1e+3  -&gt;1000;<br>1e-3  -&gt;0.01;<br>Infinity 无穷大，NaN 非数值(还是数字类型)；<br>Infinity + Infinity = Infinity，<br>Infinity - Infinity = NaN，<br>Infinity / Infinity = NaN，<br>Infinity + NaN = NaN;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">isNaN(data) = <span class="literal">true</span>; //判断这个数据是不是NaN</span><br><span class="line">data.toFixed(1); //取小数点后面几位有效数位</span><br><span class="line">data.toExponential(2) //转换成科学计数法形式的字符串，保留两位小数</span><br><span class="line">data.toPrecision(2) //转换成科学计数法形式的字符串，两位有效数字</span><br><span class="line">parseFloat(data); //把数据装换成浮点数;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">二进制 var x = 0b1010;</span><br><span class="line">八进制 var x = 012;</span><br><span class="line">十六进制 var x = 0x00A;</span><br></pre></td></tr></table></figure>
-
-<p>64位:第1位代表正负,10位代表指数,53位代表数值(最大安全数的原理)；</p>
-<p>十进制-&gt;二进制:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">正整数：除二取余,倒序排序；</span><br><span class="line">小数部分:乘二取值，正序排序；</span><br><span class="line">负数：在整数基础上取反，并+1；</span><br></pre></td></tr></table></figure>
-
-<p>系统提供的方法n.toString(“2”); 直接将n转换成二级制；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(num + 0.5); //四舍五入，向下取整</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>定义：数组是一种有序数据结合；<br>(数组的值是有序的，对象的值是无序的)；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//创建方式</span><br><span class="line">var a=[]; //直接量  推荐使用</span><br><span class="line">var a=new Array(); //构造函数</span><br></pre></td></tr></table></figure>
-<p>for 或者 for/in 遍历数组；<br>1.数组长度是弹性的；<br>2.下标从0开始的非负整数，且小于2^-23 -1；<br>3.下标不符合，将转换为字符串，成为对象属性；</p>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>概念：函数自己调用自己，必须要有终止条件；<br>重点是学会 把复杂的问题，拆成越来越简单的问题，直到能够获得结果 这种编程思维；<br>栈的概念：先进后出；</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>先完成优先级比较高的，优先级一样的从左往右；</p>
-<p>从上往下优先级降低；<br>一元运算符-&gt;二元运算符-&gt;三元运算符；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var b = a++; //先赋值再自增</span><br><span class="line">var b = ++a; //先自增再赋值</span><br><span class="line">//自增或自减必须在变量、数组或者对象属性上;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>逻辑位运算：<br>&amp;：两个数值比较将他们转化为二进制进行比较运算；<br>^ ：异或运算，两个值相等为false，两个值不同为true；<br>~：位非运算，本质上就是求负再减一；</p>
-<p>位移运算：</p>
-<blockquote>
-<blockquote>
-<p>num，&lt;&lt;num ：附带符号将数值的二进制向右/左移动num位，超出部分会被舍弃；</p>
-<blockquote>
-<p>：无符号右移；</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>意义：描述字符定义模式的对象，字符组成的特殊格式的字符串;<br>定义：直接量 -&gt;  /字符模式/标志字符；RegExp类；<br>标志字符：g -&gt; 全匹配；i -&gt; 不分大小写；m -&gt; 多行匹配；<br>组成：普通字符（A<del>Z a</del>z 0~9 + - * / () {} * ?  =   ^等等）及元字符；<br>字符模式[ ]里可以拼接；<br>“?:”：非匹配获取，只匹配内容，不保存;<br>作用：1.验证字符串；2.查找字符串；3.截取字符串；4.替换字符串；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\w -&gt; a-z A-z 0-9 _</span><br></pre></td></tr></table></figure>
-
-<p>使用正则表达式匹配：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RegExp.exec(string); //返回特定数组</span><br><span class="line">//string: 匹配的字符</span><br><span class="line">RegExp.test(string); //返回<span class="literal">true</span>/<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>三要素：嵌套结构的函数、内部函数访问了外部函数的变量、在外部函数的外面，调用内部函数；<br>概念：闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包穿件时所能访问的所有局部变量;<br>闭包对象之间互相独立；<br>作用：1.让局部变量变成私有化的长存变量；2.给事件调用函数传递参数；</p>
-<p>常见错误 ：循环内使用闭包函数；<br>解决方法：1.使用立即执行函数；2.使用多个闭包函数；3.ES6</p>
-<h2 id="错误处理、错误类型"><a href="#错误处理、错误类型" class="headerlink" title="错误处理、错误类型"></a>错误处理、错误类型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    //可能会导致错误的代码</span><br><span class="line">&#125;catch(error)&#123;</span><br><span class="line">    //在错误发生时怎么处理</span><br><span class="line">    error.message //保存错误消息的属性，全浏览器支持</span><br><span class="line">    <span class="keyword">if</span>(error instanceof 错误类型)&#123;</span><br><span class="line">        //可以不同错误类型，不同的处理方式</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    //里面的代码无论如何都会执行，<span class="built_in">return</span>都不能阻止</span><br><span class="line">&#125;</span><br><span class="line">；</span><br></pre></td></tr></table></figure>
-<p>错误类型：<br>Error -&gt; 基本类型，其他错误类型继承该类型，较少见；<br>EvalError -&gt; 在使用eval()函数而发生异常时触发；<br>RangeError -&gt; 数值超过相应范围时触发；<br>ReferenceError -&gt; 找不到对象的情况下触发；<br>SyntaxError -&gt; 语法类型错误；<br>TypeError -&gt; 在变量中保存着意外的类型，或者访问不存在的方法 (归根结底是变量的类型不符合要求)；<br>URLError -&gt; 在使用encodeURL()、decodeURL()，URL格式不正确导致；</p>
+<h2 id="Webpack四个核心概念"><a href="#Webpack四个核心概念" class="headerlink" title="Webpack四个核心概念"></a>Webpack四个核心概念</h2><p>Entry：告诉webpack入口文件位置；<br>Output：告诉webpack把编译好的文件放在哪；<br>Loaders：告诉webpack在添加到依赖图之前如何装换一个文件；<br>Plugins：在编译过程中添加你想要的任何操作；</p>
+<p>import(“url”)；动态引入文件，用到再加载；<br>需要加载@babel/plugin-syntax-dynamic-import插件才能使用；</p>
+<h2 id="Webpack命令行初步使用"><a href="#Webpack命令行初步使用" class="headerlink" title="Webpack命令行初步使用"></a>Webpack命令行初步使用</h2><p>官网(<a href="https://webpack.docschina.org/)；" target="_blank" rel="noopener">https://webpack.docschina.org/)；</a><br>安装环境 node<br>npm 包管理器，下载命令npm install(可能需要翻墙)，国内环境淘宝cnpm；<br>生成项目说明书 npm init；<br>下载webpack、webpack-cli；<br>webpack安装在node_modules文件夹下；<br>mode 生产模式和开发模式；<br>–watch 监听；<br>tree shaking去除死代码(没用到的自动删除)；<br>将函数当做作用域；</p>
+<p>devDependencies：开发依赖的库（–save-dev)；<br>dependencies：运行依赖的库 (–save)；</p>
 
           
         
